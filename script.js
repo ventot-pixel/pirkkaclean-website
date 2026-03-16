@@ -185,4 +185,48 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Calculator Logic (kotisiivous.html)
+    const sqmInput = document.getElementById('sqm-input');
+    const sqmValue = document.getElementById('sqm-value');
+    const calcResult = document.getElementById('calc-result');
+
+    if (sqmInput && sqmValue && calcResult) {
+        const calculatePrice = () => {
+            const sqm = parseInt(sqmInput.value);
+            sqmValue.textContent = sqm;
+            
+            // Tiered pricing based on Finnish market averages (approx 42€ / hour before tax credit)
+            let estimatedHours = 2; // Minimum 2 hours
+            
+            if (sqm <= 40) {
+                estimatedHours = 2;
+            } else if (sqm <= 50) {
+                estimatedHours = 2.5;
+            } else if (sqm <= 70) {
+                estimatedHours = 3;
+            } else if (sqm <= 90) {
+                estimatedHours = 3.5;
+            } else if (sqm <= 110) {
+                estimatedHours = 4.5;
+            } else if (sqm <= 150) {
+                estimatedHours = 5.5;
+            } else {
+                estimatedHours = 5.5 + Math.ceil((sqm - 150) / 30); // 1 extra hour per 30sqm over 150
+            }
+
+            const hourlyRate = 42; // standard cleaning rate before kotitalousvähennys
+            const price = estimatedHours * hourlyRate;
+            
+            calcResult.textContent = Math.round(price);
+            
+            // Optional progress bar fill effect for cross-browser styling
+            const progress = ((sqm - sqmInput.min) / (sqmInput.max - sqmInput.min)) * 100;
+            sqmInput.style.background = `linear-gradient(to right, var(--pirkka-blue) ${progress}%, rgba(255,255,255,0.1) ${progress}%)`;
+        };
+
+        sqmInput.addEventListener('input', calculatePrice);
+        // Initialize on load
+        calculatePrice();
+    }
 });
