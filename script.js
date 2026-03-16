@@ -92,7 +92,16 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_values_text: "PirkkaClean on arvojohtu yritys. Arvot auttavat ihmistä valitsemaan oikein vaikeassakin tilanteessa. Arvoista nouseva tekemisen kulttuuri on yrityksemme sydän.",
             footer_contact_title: "Yhteystiedot",
             footer_phone: "puh.",
-            footer_read_more: "Lue lisää..."
+            footer_read_more: "Lue lisää...",
+            page_home_cleaning_title: "Kotisiivous",
+            home_cleaning_hero_title: "Kotisiivousta luotettavasti tutulta siivouskumppaniltasi",
+            home_cleaning_hero_desc: "Hoidamme jo taloyhtiönne yhteiset tilat. Anna meidän huolehtia myös kotisi puhtaudesta samalla ammattitaidolla ja huolellisuudella.",
+            calc_title: "Laske hinta-arvio kotisiivoukselle",
+            calc_label_sqm: "Asunnon koko (m²)",
+            calc_result_prefix: "Arvioitu hinta alk.",
+            calc_result_suffix: "€ / kerta",
+            calc_disclaimer: "*Lopullinen hinta vahvistetaan aina puhelimitse tai kartoituskäynnin yhteydessä.",
+            btn_request_exact_quote: "Pyydä tarkka tarjous"
         },
         en: {
             nav_home: "Home",
@@ -140,12 +149,21 @@ document.addEventListener('DOMContentLoaded', () => {
             value3_title: "Caring",
             value3_desc: "We take care of the well-being of our personnel so they can take care of your facilities.",
             footer_about_title: "About Us",
-            footer_about_text: "Tampere-based PirkkaClean is an old-fashioned cleaning company in a good way, because we put a little more effort into producing the best work. We have nearly 50 skilled, diligent, both younger and slightly older cleaning professionals, and everyone is healthily proud of their work and results.",
+            footer_about_text: "PirkkaClean from Tampere is a delightfully old-fashioned cleaning company, because we put a little more effort into delivering the best results. We are nearly 50 skilled and hardworking professionals, both younger and slightly more mature, and everyone is healthily proud of their work.",
             footer_values_title: "Values",
-            footer_values_text: "PirkkaClean is a value-driven company. Values help a person choose correctly even in a difficult situation. The culture of doing that rises from values is the heart of our company.",
+            footer_values_text: "PirkkaClean is a value-driven company. Values help a person choose correctly even in difficult situations. The culture of doing that rises from values is the heart of our company.",
             footer_contact_title: "Contact Info",
             footer_phone: "tel.",
-            footer_read_more: "Read more..."
+            footer_read_more: "Read more...",
+            page_home_cleaning_title: "Home Cleaning",
+            home_cleaning_hero_title: "Reliable home cleaning from your trusted partner",
+            home_cleaning_hero_desc: "We already maintain your building's common areas. Let us bring the same professional care to your own home.",
+            calc_title: "Calculate an estimated price for home cleaning",
+            calc_label_sqm: "Apartment size (sqm)",
+            calc_result_prefix: "Estimated price starting from",
+            calc_result_suffix: "€ / visit",
+            calc_disclaimer: "*The final price is always confirmed by phone or during a mapping visit.",
+            btn_request_exact_quote: "Request exact quote"
         }
     };
 

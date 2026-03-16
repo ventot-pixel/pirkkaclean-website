@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PirkkaClean - Kotisiivous</title>
+    <meta name="description" content="Kotisiivousta luotettavasti tutulta siivouskumppaniltasi. Laske hinta-arvio ja varaa aikasi.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    
+    <nav class="glass-nav">
+        <div class="logo">
+            <span class="logo-text">
+                <span class="pirkka-text">Pirkka</span><span class="clean-text">Clean</span>
+            </span>
+            <span class="logo-dot"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav_home">Etusivu</a></li>
+            <li><a href="yrityksille.html" data-i18n="nav_business">Yrityksille</a></li>
+            <li><a href="taloyhtioille.html" data-i18n="nav_housing">Taloyhtiöille</a></li>
+            <li><a href="erikoissiivous.html" data-i18n="nav_special">Erikoissiivous</a></li>
+            <li><a href="arvot.html" data-i18n="nav_values">Arvot</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="lang-toggle" id="lang-btn">EN</button>
+            <button class="cta-btn" data-i18n="nav_contact">Ota yhteyttä</button>
+        </div>
+    </nav>
+
+    
+    <div class="page-sections" style="padding-top: 50px; min-height: 80vh;">
+        <section class="content-section animate-up">
+            <div class="section-container column-layout">
+                <h1 class="section-title text-center" data-i18n="home_cleaning_hero_title" style="max-width: 800px; margin: 0 auto 1.5rem auto;">Kotisiivousta luotettavasti tutulta siivouskumppaniltasi</h1>
+                <p class="section-desc text-center" data-i18n="home_cleaning_hero_desc" style="max-width: 700px; margin: 0 auto 3rem auto;">Hoidamme jo taloyhtiönne yhteiset tilat. Anna meidän huolehtia myös kotisi puhtaudesta samalla ammattitaidolla ja huolellisuudella.</p>
+                
+                <div class="calculator-container" style="background: rgba(14, 14, 20, 0.6); padding: 3rem; border-radius: 24px; border: 1px solid var(--glass-border); width: 100%; max-width: 500px; margin: 0 auto; box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);">
+                    <h3 data-i18n="calc_title" style="color: white; margin-bottom: 2rem; font-size: 1.4rem;">Laske hinta-arvio kotisiivoukselle</h3>
+                    
+                    <div class="slider-group" style="margin-bottom: 2.5rem; text-align: left;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; color: white; margin-bottom: 1rem;">
+                            <label for="sqm-input" data-i18n="calc_label_sqm" style="font-weight: 600; color: var(--text-muted);">Asunnon koko (m²)</label>
+                            <span style="font-weight: 800; color: var(--pirkka-blue); font-size: 1.4rem;"><span id="sqm-value">60</span> m²</span>
+                        </div>
+                        <input type="range" id="sqm-input" min="20" max="250" value="60" step="1" style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 4px; outline: none; appearance: none; -webkit-appearance: none;">
+                        <style>
+                            #sqm-input::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--pirkka-blue); cursor: pointer; transition: transform 0.1s; border: 3px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+                            #sqm-input::-webkit-slider-thumb:hover { transform: scale(1.2); }
+                        </style>
+                    </div>
+                    
+                    <div class="price-display" style="margin-bottom: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.03); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;" data-i18n="calc_result_prefix">Arvioitu hinta alk.</p>
+                        <div style="color: white; font-size: 3.5rem; font-weight: 800; line-height: 1; margin-bottom: 1rem; display: flex; align-items: baseline; justify-content: center;">
+                            <span id="calc-result">93</span>
+                            <span style="font-size: 1.5rem; color: var(--pirkka-blue); margin-left: 0.5rem;" data-i18n="calc_result_suffix">€ / kerta</span>
+                        </div>
+                        <p style="color: rgba(255, 255, 255, 0.4); font-size: 0.8rem; margin: 0; line-height: 1.5;" data-i18n="calc_disclaimer">*Lopullinen hinta vahvistetaan aina puhelimitse tai kartoituskäynnin yhteydessä.</p>
+                    </div>
+                    
+                    <button class="primary-btn pulse-hover" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; border-radius: 12px; font-weight: 600;" data-i18n="btn_request_exact_quote">Pyydä tarkka tarjous</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3 data-i18n="footer_about_title">Tietoa meistä</h3>
+                <p data-i18n="footer_about_text">Tamperelainen PirkkaClean on hyvällä tavalla vanhanaikainen siivousyritys, koska näemme vähän enemmän vaivaa parhaan työnjäljen eteen. Meillä on liki 50 osaavaa ja ahkeraa, nuorempaa ja vähän varttuneempaa puhtaanapidon ammattilaista ja jokainen terveellä tavalla ylpeä työstään ja työnjäljestään.</p>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer_values_title">Arvot</h3>
+                <p data-i18n="footer_values_text">PirkkaClean on arvojohtu yritys. Arvot auttavat ihmistä valitsemaan oikein vaikeassakin tilanteessa. Arvoista nouseva tekemisen kulttuuri on yrityksemme sydän.</p>
+                <a href="arvot.html" class="footer-link-highlight" data-i18n="footer_read_more">Lue lisää...</a>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer_contact_title">Yhteystiedot</h3>
+                <p>PirkkaClean Oy</p>
+                <p>Kursonkatu 2</p>
+                <p>33840 TAMPERE</p>
+                <p><span data-i18n="footer_phone">puh.</span> <a href="tel:0103200730" class="footer-link-highlight">010 3200 730</a></p>
+                <a href="https://www.pirkkaclean.fi" target="_blank" class="footer-link-highlight">www.pirkkaclean.fi</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <ul class="footer-nav">
+                <li><a href="index.html" data-i18n="nav_home">ETUSIVU</a></li>
+                <li><a href="yrityksille.html" data-i18n="nav_business">YRITYKSILLE</a></li>
+                <li><a href="taloyhtioille.html" data-i18n="nav_housing">TALOYHTIÖILLE</a></li>
+                <li><a href="erikoissiivous.html" data-i18n="nav_special">ERIKOISSIIVOUS</a></li>
+                <li><a href="arvot.html" data-i18n="nav_values">ARVOT</a></li>
+                <li><a href="rekry.html" data-i18n="nav_rekry">REKRY</a></li>
+                <li><a href="yhteystiedot.html" data-i18n="nav_contact">YHTEYSTIEDOT</a></li>
+            </ul>
+            <p class="copyright">©PIRKKACLEAN OY 2021</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
