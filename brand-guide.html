@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PirkkaClean — Brand Guidelines</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pirkka-blue: #00AEEF;
+            --pirkka-red: #EF5B5B;
+            --pirkka-green: #4CAF50;
+            --bg-dark: #0a0a0f;
+            --bg-section: #0f0f1a;
+            --bg-card: rgba(255,255,255,0.04);
+            --border: rgba(255,255,255,0.07);
+            --text-main: #f0f0f5;
+            --text-muted: #a0a0b0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* ── COVER ── */
+        .cover {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0f 0%, #0d1a2e 60%, #0a0a0f 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 8%;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0,174,239,0.15) 0%, transparent 70%);
+            top: -100px; right: -100px;
+            border-radius: 50%;
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(239,91,91,0.08) 0%, transparent 70%);
+            bottom: -50px; left: 10%;
+            border-radius: 50%;
+        }
+
+        .cover-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--pirkka-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .cover h1 {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 800;
+            line-height: 1.0;
+            margin-bottom: 0.3rem;
+        }
+
+        .cover h1 span {
+            background: linear-gradient(135deg, var(--pirkka-blue), #7dd3fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cover-sub {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            font-weight: 300;
+            max-width: 500px;
+        }
+
+        .cover-logo-mark {
+            position: absolute;
+            top: 3rem; right: 8%;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .cover-logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .cover-logo-text .blue { color: var(--pirkka-blue); }
+
+        .cover-version {
+            position: absolute;
+            bottom: 3rem; right: 8%;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+        }
+
+        /* ── LAYOUT ── */
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 8%;
+        }
+
+        .section {
+            margin-bottom: 6rem;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--pirkka-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 8px; height: 8px;
+            background: var(--pirkka-blue);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 5rem 0;
+        }
+
+        /* ── LOGO SECTION ── */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .logo-box {
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .logo-box.dark { background: #0a0a0f; }
+        .logo-box.light { background: #f5f5f5; }
+        .logo-box.blue-bg { background: var(--pirkka-blue); }
+
+        .logo-box-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        .logo-box.light .logo-box-label,
+        .logo-box.light .logo-text-dark { color: #1a1a2e; }
+        .logo-box.blue-bg .logo-box-label { color: rgba(255,255,255,0.7); }
+
+        .logo-display {
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .logo-display .pirkka { color: #f0f0f5; }
+        .logo-display .clean { color: var(--pirkka-blue); }
+        .logo-display.on-light .pirkka { color: #1a1a2e; }
+        .logo-display.on-light .clean { color: var(--pirkka-blue); }
+        .logo-display.on-blue .pirkka { color: white; }
+        .logo-display.on-blue .clean { color: #0a0a0f; }
+
+        .butterfly-row {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .butterfly-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            min-width: 160px;
+        }
+
+        .butterfly-box img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+        }
+
+        .butterfly-box .logo-box-label { color: var(--text-muted); }
+
+        .clearspace-note {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            border-left: 3px solid var(--pirkka-blue);
+        }
+
+        /* ── COLORS ── */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .color-card {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .color-swatch {
+            height: 110px;
+            width: 100%;
+        }
+
+        .color-info {
+            background: var(--bg-card);
+            padding: 1rem 1.2rem;
+        }
+
+        .color-name {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-values {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .color-values span { display: block; }
+        .color-values b { color: var(--text-main); font-weight: 600; }
+
+        /* ── TYPOGRAPHY ── */
+        .type-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .type-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .type-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pirkka-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .type-sample {
+            margin-bottom: 1.5rem;
+        }
+
+        .type-sample .weight-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .type-scale {
+            margin-top: 2rem;
+        }
+
+        .type-scale-row {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .type-scale-row:last-child { border-bottom: none; }
+
+        .type-scale-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            min-width: 120px;
+            flex-shrink: 0;
+        }
+
+        /* ── UI ELEMENTS ── */
+        .ui-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .ui-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .ui-card-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pirkka-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-samples {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--pirkka-blue), #0090CC);
+            color: white;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--pirkka-blue);
+            border: 1.5px solid var(--pirkka-blue);
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-ghost {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-row-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .glass-demo {
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .glass-demo-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .gradient-text-demo {
+            background: linear-gradient(135deg, var(--pirkka-blue), #7dd3fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        /* ── VOICE & TONE ── */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .voice-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.8rem;
+        }
+
+        .voice-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .voice-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .voice-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .do-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .do-box, .dont-box {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .do-box { border-left: 3px solid var(--pirkka-green); }
+        .dont-box { border-left: 3px solid var(--pirkka-red); }
+
+        .do-box h5 { color: var(--pirkka-green); margin-bottom: 0.8rem; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .dont-box h5 { color: var(--pirkka-red); margin-bottom: 0.8rem; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; }
+
+        .do-box li, .dont-box li {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-left: 1rem;
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+        }
+
+        /* ── SPACING ── */
+        .spacing-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .spacing-row:last-child { border-bottom: none; }
+
+        .spacing-bar {
+            height: 8px;
+            background: var(--pirkka-blue);
+            border-radius: 4px;
+            opacity: 0.7;
+        }
+
+        .spacing-meta {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            min-width: 80px;
+        }
+
+        .spacing-val {
+            font-size: 0.82rem;
+            color: var(--text-main);
+            font-weight: 600;
+            min-width: 60px;
+        }
+
+        /* ── FOOTER ── */
+        .brand-footer {
+            background: #050508;
+            border-top: 1px solid var(--border);
+            padding: 3rem 8%;
+            text-align: center;
+        }
+
+        .brand-footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .brand-footer strong { color: var(--pirkka-blue); }
+
+        @media (max-width: 768px) {
+            .type-grid, .ui-grid, .do-dont { grid-template-columns: 1fr; }
+            .cover h1 { font-size: 3rem; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ══════ COVER ══════ -->
+    <div class="cover">
+        <div class="cover-logo-mark">
+            <img src="favicon.png" style="width:36px;height:36px;object-fit:contain;" alt="Butterfly">
+            <div class="cover-logo-text">
+                Pirkka<span class="blue">Clean</span>
+            </div>
+        </div>
+
+        <p class="cover-label">Brand Guidelines · 2026</p>
+        <h1>BRAND<br><span>GUIDE</span><br>LINES</h1>
+        <p class="cover-sub">A reference for consistent brand identity across all touchpoints — digital, print, and beyond.</p>
+
+        <div class="cover-version">VERSION 1.0 · CONFIDENTIAL</div>
+    </div>
+
+    <!-- ══════ CONTENT ══════ -->
+    <div class="page">
+
+        <!-- ── LOGO ── -->
+        <div class="section">
+            <p class="section-label">01 — Logo</p>
+            <h2 class="section-title">Company Logo</h2>
+            <p class="section-desc">The PirkkaClean wordmark is the primary brand identifier. Always use the approved versions below. Never distort, recolor, or recreate the logo.</p>
+
+            <div class="logo-grid">
+                <div class="logo-box dark">
+                    <div class="logo-display">
+                        <span class="pirkka">Pirkka</span><span class="clean">Clean</span>
+                    </div>
+                    <p class="logo-box-label" style="color:var(--text-muted)">Dark Background</p>
+                </div>
+                <div class="logo-box light">
+                    <div class="logo-display on-light">
+                        <span class="pirkka">Pirkka</span><span class="clean">Clean</span>
+                    </div>
+                    <p class="logo-box-label">Light Background</p>
+                </div>
+                <div class="logo-box blue-bg">
+                    <div class="logo-display on-blue">
+                        <span class="pirkka">Pirkka</span><span class="clean">Clean</span>
+                    </div>
+                    <p class="logo-box-label">Blue Background</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 2.5rem 0 1rem; font-size:1.1rem; font-weight:600;">Logo Mark — Blue Butterfly</h3>
+            <div class="butterfly-row">
+                <div class="butterfly-box">
+                    <img src="favicon.png" alt="PirkkaClean butterfly mark">
+                    <p class="logo-box-label" style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Primary Mark</p>
+                </div>
+                <div class="butterfly-box" style="background:#f5f5f5;">
+                    <img src="favicon.png" alt="PirkkaClean butterfly mark">
+                    <p class="logo-box-label" style="color:#666;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">On Light</p>
+                </div>
+            </div>
+
+            <div class="clearspace-note">
+                <strong style="color:var(--pirkka-blue);">Clearspace Rule:</strong> Always maintain a minimum clearspace equal to the height of the letter "P" in the wordmark on all sides. Never place the logo on busy backgrounds without sufficient contrast.
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ── COLORS ── -->
+        <div class="section">
+            <p class="section-label">02 — Colors</p>
+            <h2 class="section-title">Brand Palette</h2>
+            <p class="section-desc">These are the official PirkkaClean brand colors. Use them consistently across all materials.</p>
+
+            <div class="color-grid">
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#00AEEF;"></div>
+                    <div class="color-info">
+                        <p class="color-name" style="color:#00AEEF;">Pirkka Blue</p>
+                        <div class="color-values">
+                            <span><b>HEX</b> #00AEEF</span>
+                            <span><b>RGB</b> 0, 174, 239</span>
+                            <span><b>CMYK</b> 100, 27, 0, 6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#EF5B5B;"></div>
+                    <div class="color-info">
+                        <p class="color-name" style="color:#EF5B5B;">Pirkka Red</p>
+                        <div class="color-values">
+                            <span><b>HEX</b> #EF5B5B</span>
+                            <span><b>RGB</b> 239, 91, 91</span>
+                            <span><b>CMYK</b> 0, 62, 62, 6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#4CAF50;"></div>
+                    <div class="color-info">
+                        <p class="color-name" style="color:#4CAF50;">Pirkka Green</p>
+                        <div class="color-values">
+                            <span><b>HEX</b> #4CAF50</span>
+                            <span><b>RGB</b> 76, 175, 80</span>
+                            <span><b>CMYK</b> 57, 0, 54, 31</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#0a0a0f; border-bottom:1px solid rgba(255,255,255,0.1);"></div>
+                    <div class="color-info">
+                        <p class="color-name">Dark Background</p>
+                        <div class="color-values">
+                            <span><b>HEX</b> #0A0A0F</span>
+                            <span><b>RGB</b> 10, 10, 15</span>
+                            <span><b>Usage</b> Page background</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#f0f0f5;"></div>
+                    <div class="color-info">
+                        <p class="color-name" style="color:#555;">Text Primary</p>
+                        <div class="color-values">
+                            <span><b>HEX</b> #F0F0F5</span>
+                            <span><b>RGB</b> 240, 240, 245</span>
+                            <span><b>Usage</b> Headings, body</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#a0a0b0;"></div>
+                    <div class="color-info">
+                        <p class="color-name" style="color:#777;">Text Muted</p>
+                        <div class="color-values">
+                            <span><b>HEX</b> #A0A0B0</span>
+                            <span><b>RGB</b> 160, 160, 176</span>
+                            <span><b>Usage</b> Subtitles, captions</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ── TYPOGRAPHY ── -->
+        <div class="section">
+            <p class="section-label">03 — Typography</p>
+            <h2 class="section-title">Typography</h2>
+            <p class="section-desc">PirkkaClean uses a single typeface family — Outfit — across all digital communications. It is clean, modern, and highly legible.</p>
+
+            <div class="type-grid">
+                <div class="type-card">
+                    <p class="type-label">Primary Typeface — Outfit</p>
+
+                    <div class="type-sample">
+                        <p class="weight-label">Light 300</p>
+                        <p style="font-size:1.6rem; font-weight:300;">PirkkaClean Oy</p>
+                    </div>
+                    <div class="type-sample">
+                        <p class="weight-label">Regular 400</p>
+                        <p style="font-size:1.6rem; font-weight:400;">PirkkaClean Oy</p>
+                    </div>
+                    <div class="type-sample">
+                        <p class="weight-label">SemiBold 600</p>
+                        <p style="font-size:1.6rem; font-weight:600;">PirkkaClean Oy</p>
+                    </div>
+                    <div class="type-sample">
+                        <p class="weight-label">ExtraBold 800</p>
+                        <p style="font-size:1.6rem; font-weight:800;">PirkkaClean Oy</p>
+                    </div>
+
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:1.5rem;">
+                        ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>abcdefghijklm<br>nopqrstuvwxyz<br>0123456789
+                    </p>
+                </div>
+
+                <div class="type-card">
+                    <p class="type-label">Type Scale</p>
+
+                    <div class="type-scale">
+                        <div class="type-scale-row">
+                            <span class="type-scale-meta">Display / 800</span>
+                            <span style="font-size:2.8rem; font-weight:800; line-height:1.1;">Aa</span>
+                            <span style="font-size:0.78rem; color:var(--text-muted);">Hero titles</span>
+                        </div>
+                        <div class="type-scale-row">
+                            <span class="type-scale-meta">H1 / 800</span>
+                            <span style="font-size:2.2rem; font-weight:800;">Aa</span>
+                            <span style="font-size:0.78rem; color:var(--text-muted);">Page titles</span>
+                        </div>
+                        <div class="type-scale-row">
+                            <span class="type-scale-meta">H2 / 700</span>
+                            <span style="font-size:1.8rem; font-weight:700;">Aa</span>
+                            <span style="font-size:0.78rem; color:var(--text-muted);">Section titles</span>
+                        </div>
+                        <div class="type-scale-row">
+                            <span class="type-scale-meta">H3 / 600</span>
+                            <span style="font-size:1.3rem; font-weight:600;">Aa</span>
+                            <span style="font-size:0.78rem; color:var(--text-muted);">Card titles</span>
+                        </div>
+                        <div class="type-scale-row">
+                            <span class="type-scale-meta">Body / 400</span>
+                            <span style="font-size:1rem; font-weight:400;">Aa</span>
+                            <span style="font-size:0.78rem; color:var(--text-muted);">Body text</span>
+                        </div>
+                        <div class="type-scale-row">
+                            <span class="type-scale-meta">Small / 300</span>
+                            <span style="font-size:0.85rem; font-weight:300;">Aa</span>
+                            <span style="font-size:0.78rem; color:var(--text-muted);">Captions, labels</span>
+                        </div>
+                        <div class="type-scale-row">
+                            <span class="type-scale-meta">Label / 700</span>
+                            <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase;">AA</span>
+                            <span style="font-size:0.78rem; color:var(--text-muted);">Section labels</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ── UI ELEMENTS ── -->
+        <div class="section">
+            <p class="section-label">04 — UI Elements</p>
+            <h2 class="section-title">Buttons & Components</h2>
+            <p class="section-desc">All interactive elements follow a consistent rounded style with clear hover states. Glassmorphism is used throughout the interface.</p>
+
+            <div class="ui-grid">
+                <div class="ui-card">
+                    <p class="ui-card-title">Button Styles</p>
+                    <div class="btn-samples">
+                        <div>
+                            <p class="btn-row-label">Primary — used for main CTAs</p>
+                            <div class="btn-primary">Pyydä ilmainen tarjous</div>
+                        </div>
+                        <div>
+                            <p class="btn-row-label">Outline — secondary actions</p>
+                            <div class="btn-outline">Lue lisää →</div>
+                        </div>
+                        <div>
+                            <p class="btn-row-label">Ghost — tertiary, subtle actions</p>
+                            <div class="btn-ghost">Ota yhteyttä</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-card">
+                    <p class="ui-card-title">Glassmorphism Cards</p>
+                    <div class="glass-demo">
+                        <p style="font-weight:600; margin-bottom:0.4rem;">Yrityksille</p>
+                        <p style="font-size:0.88rem; color:var(--text-muted);">Puhtaat toimitilat luovat viihtyisyyttä ja kertovat yrityksesi arvoista.</p>
+                    </div>
+                    <p class="glass-demo-label">backdrop-filter: blur(12px) · border: 1px solid rgba(255,255,255,0.07) · border-radius: 16px</p>
+
+                    <div style="margin-top:1.5rem;">
+                        <p class="ui-card-title">Gradient Text</p>
+                        <div class="gradient-text-demo">vanhanaikainen</div>
+                        <p class="glass-demo-label" style="margin-top:0.5rem;">linear-gradient(135deg, #00AEEF → #7dd3fc)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ── SPACING ── -->
+        <div class="section">
+            <p class="section-label">05 — Spacing</p>
+            <h2 class="section-title">Spacing System</h2>
+            <p class="section-desc">PirkkaClean uses a base-4 spacing scale. Consistent spacing creates visual harmony.</p>
+
+            <div class="ui-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;">
+                <div class="spacing-row">
+                    <span class="spacing-meta">XS — 4px</span>
+                    <div class="spacing-bar" style="width:4px;"></div>
+                    <span class="spacing-val">0.25rem</span>
+                    <span style="font-size:0.8rem;color:var(--text-muted);">Icon gaps, fine details</span>
+                </div>
+                <div class="spacing-row">
+                    <span class="spacing-meta">SM — 8px</span>
+                    <div class="spacing-bar" style="width:16px;"></div>
+                    <span class="spacing-val">0.5rem</span>
+                    <span style="font-size:0.8rem;color:var(--text-muted);">Inline elements</span>
+                </div>
+                <div class="spacing-row">
+                    <span class="spacing-meta">MD — 16px</span>
+                    <div class="spacing-bar" style="width:40px;"></div>
+                    <span class="spacing-val">1rem</span>
+                    <span style="font-size:0.8rem;color:var(--text-muted);">Component padding</span>
+                </div>
+                <div class="spacing-row">
+                    <span class="spacing-meta">LG — 32px</span>
+                    <div class="spacing-bar" style="width:80px;"></div>
+                    <span class="spacing-val">2rem</span>
+                    <span style="font-size:0.8rem;color:var(--text-muted);">Card padding, gaps</span>
+                </div>
+                <div class="spacing-row">
+                    <span class="spacing-meta">XL — 64px</span>
+                    <div class="spacing-bar" style="width:160px;"></div>
+                    <span class="spacing-val">4rem</span>
+                    <span style="font-size:0.8rem;color:var(--text-muted);">Section spacing</span>
+                </div>
+                <div class="spacing-row">
+                    <span class="spacing-meta">2XL — 96px</span>
+                    <div class="spacing-bar" style="width:220px;"></div>
+                    <span class="spacing-val">6rem</span>
+                    <span style="font-size:0.8rem;color:var(--text-muted);">Page-level sections</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ── VOICE & TONE ── -->
+        <div class="section">
+            <p class="section-label">06 — Voice & Tone</p>
+            <h2 class="section-title">Brand Voice</h2>
+            <p class="section-desc">PirkkaClean communicates with warmth, honesty, and quiet confidence. We are experienced professionals — not a faceless corporation.</p>
+
+            <div class="voice-grid">
+                <div class="voice-card">
+                    <div class="voice-icon" style="background:rgba(0,174,239,0.1);">🤝</div>
+                    <h4>Honest</h4>
+                    <p>We say what we mean. No over-promises, no marketing fluff. We recommend only what the customer actually needs.</p>
+                </div>
+                <div class="voice-card">
+                    <div class="voice-icon" style="background:rgba(76,175,80,0.1);">🛡️</div>
+                    <h4>Reliable</h4>
+                    <p>We speak with calm confidence built on 15+ years of experience. Steady and dependable, not flashy.</p>
+                </div>
+                <div class="voice-card">
+                    <div class="voice-icon" style="background:rgba(239,91,91,0.1);">❤️</div>
+                    <h4>Human</h4>
+                    <p>We care about our staff and our clients. We write for real people, in plain language — Finnish or English.</p>
+                </div>
+                <div class="voice-card">
+                    <div class="voice-icon" style="background:rgba(0,174,239,0.1);">✨</div>
+                    <h4>Proudly Old-Fashioned</h4>
+                    <p>"Hyvällä tavalla vanhanaikainen" — a little more effort for the best result. This is our core identity.</p>
+                </div>
+            </div>
+
+            <div class="do-dont">
+                <div class="do-box">
+                    <h5>✓ Do</h5>
+                    <ul>
+                        <li>Use clear, direct language</li>
+                        <li>Be warm but professional</li>
+                        <li>Emphasize trust and reliability</li>
+                        <li>Use Finnish as primary language</li>
+                        <li>Keep copy concise and honest</li>
+                    </ul>
+                </div>
+                <div class="dont-box">
+                    <h5>✗ Don't</h5>
+                    <ul>
+                        <li>Use corporate jargon or buzzwords</li>
+                        <li>Over-promise or exaggerate</li>
+                        <li>Use aggressive sales language</li>
+                        <li>Use all caps for body text</li>
+                        <li>Alter logo colors or proportions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ══════ FOOTER ══════ -->
+    <div class="brand-footer">
+        <img src="favicon.png" style="width:32px;height:32px;object-fit:contain;margin-bottom:0.8rem;" alt="">
+        <p><strong>PirkkaClean Oy</strong> · Brand Guidelines 2026</p>
+        <p style="margin-top:0.4rem;">Kursonkatu 2, 33840 Tampere · 010 3200 730 · www.pirkkaclean.fi</p>
+        <p style="margin-top:0.8rem; font-size:0.75rem;">Internal use only. Do not distribute without permission.</p>
+    </div>
+
+</body>
+</html>
