@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Left wings -->
+  <ellipse cx="28" cy="30" rx="26" ry="18" fill="#00AEEF" opacity="0.95" transform="rotate(-20 28 30)"/>
+  <ellipse cx="22" cy="62" rx="20" ry="13" fill="#0090CC" opacity="0.9" transform="rotate(15 22 62)"/>
+  <!-- Right wings -->
+  <ellipse cx="72" cy="30" rx="26" ry="18" fill="#00AEEF" opacity="0.95" transform="rotate(20 72 30)"/>
+  <ellipse cx="78" cy="62" rx="20" ry="13" fill="#0090CC" opacity="0.9" transform="rotate(-15 78 62)"/>
+  <!-- Wing shimmer highlights -->
+  <ellipse cx="32" cy="26" rx="10" ry="6" fill="white" opacity="0.2" transform="rotate(-20 32 26)"/>
+  <ellipse cx="68" cy="26" rx="10" ry="6" fill="white" opacity="0.2" transform="rotate(20 68 26)"/>
+  <!-- Body -->
+  <ellipse cx="50" cy="50" rx="4" ry="28" fill="#005F8A"/>
+  <!-- Head -->
+  <circle cx="50" cy="20" r="5" fill="#005F8A"/>
+  <!-- Antennae -->
+  <line x1="50" y1="16" x2="38" y2="6" stroke="#005F8A" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="37" cy="5" r="2.5" fill="#00AEEF"/>
+  <line x1="50" y1="16" x2="62" y2="6" stroke="#005F8A" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="63" cy="5" r="2.5" fill="#00AEEF"/>
+</svg>
