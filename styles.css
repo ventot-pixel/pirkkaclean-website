@@ -572,6 +572,23 @@ h1 {
     line-height: 1.6;
 }
 
+.footer-address-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 0.4rem;
+    transition: color 0.2s;
+}
+
+.footer-address-link:hover {
+    color: var(--pirkka-blue);
+}
+
+.footer-address-link p {
+    margin: 0;
+    line-height: 1.7;
+}
+
 .footer-link-highlight {
     color: var(--pirkka-blue);
     text-decoration: none;
