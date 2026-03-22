@@ -16,22 +16,21 @@
     </div>
 
     <nav class="glass-nav">
-        <div class="logo">
+        <a href="index.html" class="logo">
             <span class="logo-text">
                 <span class="pirkka-text">Pirkka</span><span class="clean-text">Clean</span>
             </span>
             <span class="logo-dot"></span>
-        </div>
+        </a>
         <ul class="nav-links">
             <li><a href="index.html" data-i18n="nav_home">Etusivu</a></li>
             <li><a href="yrityksille.html" data-i18n="nav_business">Yrityksille</a></li>
             <li><a href="taloyhtioille.html" data-i18n="nav_housing">Taloyhtiöille</a></li>
             <li><a href="erikoissiivous.html" data-i18n="nav_special">Erikoissiivous</a></li>
-            <li><a href="arvot.html" data-i18n="nav_values">Arvot</a></li>
         </ul>
         <div class="nav-actions">
             <button class="lang-toggle" id="lang-btn">EN</button>
-            <button class="cta-btn" data-i18n="nav_contact">Ota yhteyttä</button>
+            <a href="yhteystiedot.html" class="cta-btn" data-i18n="nav_contact">Ota yhteyttä</a>
         </div>
     </nav>
 
@@ -152,6 +151,42 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact-form-section animate-up">
+            <div class="contact-form-wrap">
+                <h2 class="section-title text-center" data-i18n="form_title">Lähetä viesti</h2>
+                <p class="section-desc text-center" style="margin-bottom: 2rem;" data-i18n="form_desc">Täytä lomake ja palaamme asiaan mahdollisimman pian.</p>
+                <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="form_name">Nimi</label>
+                            <input type="text" placeholder="Etunimi Sukunimi" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_company">Yritys</label>
+                            <input type="text" placeholder="Yrityksen nimi">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="form_email">Sähköposti</label>
+                            <input type="email" placeholder="sinun@email.fi" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_phone">Puhelinnumero</label>
+                            <input type="tel" placeholder="+358 XX XXX XXXX">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="form_message">Viesti</label>
+                        <textarea rows="5" placeholder="Kerro meille tarpeistanne..." required></textarea>
+                    </div>
+                    <button type="submit" class="contact-cta-btn" style="border:none;width:100%;justify-content:center;display:flex;" data-i18n="form_submit">Lähetä viesti →</button>
+                    <p class="form-success" id="form-success" style="display:none; text-align:center; color:var(--pirkka-blue); margin-top:1rem;" data-i18n="form_success_msg">Kiitos! Otamme yhteyttä pian.</p>
+                </form>
             </div>
         </section>
 

@@ -116,7 +116,16 @@ document.addEventListener('DOMContentLoaded', () => {
             team_desc: "Meidät tavoittaa helposti — soita, laita sähköpostia tai pyydä tarjous.",
             kari_title: "Toimitusjohtaja",
             kristiina_title: "Palvelupäällikkö",
-            address_title: "Toimistomme"
+            address_title: "Toimistomme",
+            form_title: "Lähetä viesti",
+            form_desc: "Täytä lomake ja palaamme asiaan mahdollisimman pian.",
+            form_name: "Nimi",
+            form_company: "Yritys",
+            form_email: "Sähköposti",
+            form_phone: "Puhelinnumero",
+            form_message: "Viesti",
+            form_submit: "Lähetä viesti →",
+            form_success_msg: "Kiitos! Otamme yhteyttä pian."
         },
         en: {
             nav_home: "Home",
@@ -193,7 +202,16 @@ document.addEventListener('DOMContentLoaded', () => {
             team_desc: "We are easy to reach — call, send an email, or request a quote.",
             kari_title: "CEO",
             kristiina_title: "Service Manager",
-            address_title: "Our office"
+            address_title: "Our office",
+            form_title: "Send a message",
+            form_desc: "Fill in the form and we'll get back to you as soon as possible.",
+            form_name: "Name",
+            form_company: "Company",
+            form_email: "Email",
+            form_phone: "Phone",
+            form_message: "Message",
+            form_submit: "Send message →",
+            form_success_msg: "Thank you! We'll be in touch soon."
         }
     };
 
@@ -215,6 +233,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Contact form submit handler
+    window.handleFormSubmit = (e) => {
+        e.preventDefault();
+        const success = document.getElementById('form-success');
+        if (success) {
+            success.style.display = 'block';
+            e.target.reset();
+        }
+    };
 
     // Calculator Logic (kotisiivous.html)
     const sqmInput = document.getElementById('sqm-input');
