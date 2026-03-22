@@ -125,7 +125,15 @@ document.addEventListener('DOMContentLoaded', () => {
             form_phone: "Puhelinnumero",
             form_message: "Viesti",
             form_submit: "Lähetä viesti →",
-            form_success_msg: "Kiitos! Otamme yhteyttä pian."
+            form_success_msg: "Kiitos! Otamme yhteyttä pian.",
+            about_label: "Tietoa meistä",
+            about_title: "Hyvällä tavalla <span class=\"gradient-text\">vanhanaikainen</span> siivousyritys.",
+            about_desc: "Tamperelainen PirkkaClean on hyvällä tavalla vanhanaikainen siivousyritys, koska näemme vähän enemmän vaivaa parhaan työnjäljen eteen. Meillä on liki 50 osaavaa ja ahkeraa, nuorempaa ja vähän varttuneempaa puhtaanapidon ammattilaista ja jokainen terveellä tavalla ylpeä työstään ja työnjäljestään.",
+            about_stat_founded: "Perustettu",
+            about_stat_staff: "Ammattilaista",
+            about_stat_satisfaction: "Tyytyväisyys",
+            about_stat_sites: "Kohdetta",
+            values_label: "Arvomme"
         },
         en: {
             nav_home: "Home",
@@ -211,7 +219,15 @@ document.addEventListener('DOMContentLoaded', () => {
             form_phone: "Phone",
             form_message: "Message",
             form_submit: "Send message →",
-            form_success_msg: "Thank you! We'll be in touch soon."
+            form_success_msg: "Thank you! We'll be in touch soon.",
+            about_label: "About Us",
+            about_title: "A delightfully <span class=\"gradient-text\">old-fashioned</span> cleaning company.",
+            about_desc: "PirkkaClean from Tampere is a delightfully old-fashioned cleaning company, because we put a little more effort into delivering the best results. We have nearly 50 skilled and hardworking professionals — both younger and slightly more experienced — and every one of them is healthily proud of their work.",
+            about_stat_founded: "Founded",
+            about_stat_staff: "Professionals",
+            about_stat_satisfaction: "Satisfaction",
+            about_stat_sites: "Locations",
+            values_label: "Our Values"
         }
     };
 
