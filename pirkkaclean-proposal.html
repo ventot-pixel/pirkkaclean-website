@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PirkkaClean — Website Improvement Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1f38;
+    --teal: #1a7f6e;
+    --gold: #c8a84b;
+    --offwhite: #f8f6f1;
+    --text: #1c1c1c;
+    --muted: #6b7280;
+    --border: #e2ddd5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--offwhite); color: var(--text); line-height: 1.7; }
+
+  /* COVER */
+  .cover {
+    background: var(--navy); color: white; min-height: 100vh;
+    display: grid; grid-template-rows: auto 1fr auto;
+    padding: 60px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: -120px; right: -120px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,127,110,0.3) 0%, transparent 70%);
+  }
+  .cover::after {
+    content: ''; position: absolute; bottom: -80px; left: -80px;
+    width: 350px; height: 350px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,168,75,0.15) 0%, transparent 70%);
+  }
+  .cover-logo { font-family: 'Playfair Display', serif; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+  .cover-body { display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
+  .cover-tag {
+    display: inline-block; background: rgba(26,127,110,0.3); border: 1px solid rgba(26,127,110,0.5);
+    color: #7dd3c5; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 2px; margin-bottom: 32px; width: fit-content;
+  }
+  .cover h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 6vw, 78px); font-weight: 900; line-height: 1.08; margin-bottom: 28px; max-width: 780px; }
+  .cover h1 span { color: var(--gold); }
+  .cover-sub { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 560px; font-weight: 300; }
+  .cover-meta { display: flex; gap: 40px; position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 32px; }
+  .cover-meta-item label { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+  .cover-meta-item span { font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 500; }
+
+  /* LAYOUT */
+  .section { padding: 80px 60px; max-width: 1100px; margin: 0 auto; }
+  .section-tag { display: inline-block; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); font-weight: 500; margin-bottom: 16px; }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 44px); font-weight: 700; line-height: 1.15; color: var(--navy); margin-bottom: 20px; }
+  h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  p { color: var(--muted); font-size: 15px; max-width: 680px; }
+  .divider { height: 1px; background: var(--border); margin: 0 60px; }
+
+  /* SUMMARY */
+  .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px; }
+  .summary-card { background: white; padding: 32px 28px; }
+  .summary-card .number { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; color: var(--teal); line-height: 1; margin-bottom: 8px; }
+  .summary-card .label { font-size: 13px; font-weight: 600; color: var(--navy); }
+  .summary-card .desc { font-size: 13px; color: var(--muted); margin-top: 6px; max-width: 100%; }
+
+  /* COMPARISON */
+  .comparison-section { background: white; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-top: 48px; }
+  .comparison-header { display: grid; grid-template-columns: 2fr 1fr 1fr; background: var(--navy); padding: 18px 28px; gap: 16px; }
+  .comparison-header span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: 500; }
+  .comparison-header span.new { color: #7dd3c5; }
+  .comparison-row { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 18px 28px; gap: 16px; border-bottom: 1px solid var(--border); align-items: center; }
+  .comparison-row:last-child { border-bottom: none; }
+  .comparison-row:nth-child(even) { background: #fafaf8; }
+  .comparison-row .aspect { font-size: 14px; font-weight: 500; color: var(--navy); }
+  .comparison-row .aspect-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge.bad { background: #fef2f2; color: #dc2626; }
+  .badge.good { background: #f0fdf4; color: #16a34a; }
+  .badge.neutral { background: #fefce8; color: #ca8a04; }
+
+  /* IMPROVEMENT CARDS */
+  .improvements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+  .improvement-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 28px; position: relative; overflow: hidden; }
+  .improvement-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); }
+  .improvement-card.gold::before { background: var(--gold); }
+  .improvement-card .ic-number { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--border); line-height: 1; margin-bottom: 14px; }
+  .improvement-card h3 { font-size: 17px; margin-bottom: 12px; }
+  .before-after { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ba-block { padding: 12px 14px; border-radius: 6px; font-size: 13px; line-height: 1.5; }
+  .ba-block.before { background: #fef2f2; border: 1px solid #fecaca; }
+  .ba-block.after { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .ba-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; }
+  .ba-block.before .ba-label { color: #dc2626; }
+  .ba-block.after .ba-label { color: #16a34a; }
+  .ba-block p { font-size: 12px; color: var(--text); max-width: 100%; line-height: 1.5; }
+
+  /* SPEED */
+  .speed-section { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px; }
+  .speed-header { background: var(--navy); padding: 24px 32px; }
+  .speed-header h3 { color: white; font-size: 18px; margin: 0; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+  .speed-header p { color: rgba(255,255,255,0.55); font-size: 13px; max-width: 100%; margin: 6px 0 0; }
+  .speed-body { padding: 32px; }
+  .speed-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+  .speed-col-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+  .speed-col-label.old { color: #dc2626; border-color: #fecaca; }
+  .speed-col-label.new { color: #16a34a; border-color: #bbf7d0; }
+  .speed-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f3f0eb; font-size: 13px; }
+  .speed-item:last-child { border-bottom: none; }
+  .speed-item .si-label { color: var(--muted); }
+  .speed-item .si-val { font-weight: 600; color: var(--navy); }
+  .speed-item .si-val.bad { color: #dc2626; }
+  .speed-item .si-val.good { color: #16a34a; }
+  .speed-note { background: var(--offwhite); border-radius: 8px; padding: 16px 20px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .speed-note strong { color: var(--navy); }
+
+  /* MOBILE */
+  .mobile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+  .mobile-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px; }
+  .mobile-card .mc-icon { font-size: 28px; margin-bottom: 14px; }
+  .mobile-card h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .mobile-card p { font-size: 13px; max-width: 100%; }
+  .mobile-pill { display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; padding: 3px 10px; border-radius: 10px; margin-bottom: 12px; }
+  .mobile-pill.old { background: #fef2f2; color: #dc2626; }
+  .mobile-pill.new { background: #f0fdf4; color: #16a34a; }
+
+  /* IMPACT */
+  .impact-section { background: var(--navy); padding: 80px 60px; }
+  .impact-inner { max-width: 1100px; margin: 0 auto; }
+  .impact-section .section-tag { color: var(--gold); }
+  .impact-section h2 { color: white; }
+  .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+  .impact-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 24px 20px; }
+  .impact-card .icon { font-size: 24px; margin-bottom: 14px; }
+  .impact-card h4 { font-size: 13px; font-weight: 600; color: white; margin-bottom: 8px; }
+  .impact-card p { font-size: 12px; color: rgba(255,255,255,0.5); max-width: 100%; }
+
+  /* CTA */
+  .cta-section { padding: 80px 60px; max-width: 1100px; margin: 0 auto; }
+  .cta-box { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 60px 48px; text-align: center; }
+  .cta-box h2 { margin: 0 auto 16px; max-width: 520px; }
+  .cta-box p { margin: 0 auto 36px; font-size: 16px; }
+  .cta-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 6px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+  .btn-primary { background: var(--teal); color: white; }
+  .btn-primary:hover { background: #156354; }
+  .btn-outline { background: transparent; color: var(--navy); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--navy); }
+
+  @media (max-width: 768px) {
+    .cover, .section, .divider, .impact-section, .cta-section { padding-left: 20px; padding-right: 20px; }
+    .summary-grid, .improvements-grid, .speed-compare, .mobile-grid { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: 1fr 1fr; }
+    .comparison-row, .comparison-header { grid-template-columns: 1.5fr 1fr 1fr; padding: 14px 16px; }
+    .cover-meta { flex-direction: column; gap: 16px; }
+    .before-after { grid-template-columns: 1fr; }
+    .cta-box { padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">PirkkaClean Oy</div>
+  <div class="cover-body">
+    <div class="cover-tag">Website Improvement Proposal</div>
+    <h1>A Cleaner Website for a <span>Cleaner Brand.</span></h1>
+    <p class="cover-sub">An analysis of key improvements made to pirkkaclean.fi — from messaging clarity and recruitment UX to page speed and mobile optimisation.</p>
+  </div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><label>Prepared by</label><span>Better Venture Oy</span></div>
+    <div class="cover-meta-item"><label>Date</label><span>March 2026</span></div>
+    <div class="cover-meta-item"><label>Subject</label><span>pirkkaclean.fi Redesign</span></div>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="section">
+  <div class="section-tag">Executive Summary</div>
+  <h2>What We Improved — and Why</h2>
+  <p>The current pirkkaclean.fi is built on WordPress with heavy plugins, a slow image slider, and an overwhelming recruitment form. The proposed redesign is leaner, faster, and more focused — converting both clients and job seekers more effectively.</p>
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="number">5</div>
+      <div class="label">Key Improvements Made</div>
+      <div class="desc">Hero copy, navigation, rekry page, page speed, and mobile experience.</div>
+    </div>
+    <div class="summary-card">
+      <div class="number">~3×</div>
+      <div class="label">Faster Page Load</div>
+      <div class="desc">No WordPress bloat, no heavy slider plugin, no duplicate scripts loading.</div>
+    </div>
+    <div class="summary-card">
+      <div class="number">100%</div>
+      <div class="label">Mobile-First Design</div>
+      <div class="desc">Proper viewport meta, responsive layout, touch-friendly navigation throughout.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- COMPARISON TABLE -->
+<div class="section">
+  <div class="section-tag">Side-by-Side Comparison</div>
+  <h2>Old Site vs. Proposed Site</h2>
+  <p>A direct comparison of the most impactful elements across both versions of the site.</p>
+  <div class="comparison-section">
+    <div class="comparison-header">
+      <span>Element</span>
+      <span>Old Site</span>
+      <span class="new">Proposed Site</span>
+    </div>
+    <div class="comparison-row">
+      <div><div class="aspect">Hero Headline & Sub-copy</div><div class="aspect-desc">First thing a visitor reads</div></div>
+      <span class="badge bad">❌ Absent</span>
+      <span class="badge good">✓ Clear value proposition</span>
+    </div>
+    <div class="comparison-row">
+      <div><div class="aspect">Primary Call-to-Action</div><div class="aspect-desc">What the visitor does next</div></div>
+      <span class="badge bad">❌ None above the fold</span>
+      <span class="badge good">✓ "Pyydä ilmainen tarjous"</span>
+    </div>
+    <div class="comparison-row">
+      <div><div class="aspect">Navigation Structure</div><div class="aspect-desc">Menu clarity and user flow</div></div>
+      <span class="badge bad">❌ Duplicate menu bug</span>
+      <span class="badge good">✓ Clean nav + EN toggle</span>
+    </div>
+    <div class="comparison-row">
+      <div><div class="aspect">Rekry / Job Application Form</div><div class="aspect-desc">Candidate experience</div></div>
+      <span class="badge bad">❌ 20+ field form</span>
+      <span class="badge good">✓ Simple 5-field + CV upload</span>
+    </div>
+    <div class="comparison-row">
+      <div><div class="aspect">Service Card Copy</div><div class="aspect-desc">Descriptions under each service</div></div>
+      <span class="badge neutral">⚠ Location-only, generic</span>
+      <span class="badge good">✓ Benefit-led, outcome-first</span>
+    </div>
+    <div class="comparison-row">
+      <div><div class="aspect">Technology Stack</div><div class="aspect-desc">What the site is built on</div></div>
+      <span class="badge bad">❌ WordPress + plugins</span>
+      <span class="badge good">✓ Static HTML on Vercel CDN</span>
+    </div>
+    <div class="comparison-row">
+      <div><div class="aspect">Page Load Speed</div><div class="aspect-desc">Time to first visible content</div></div>
+      <span class="badge bad">❌ Slow (slider + WP overhead)</span>
+      <span class="badge good">✓ Fast (no server rendering)</span>
+    </div>
+    <div class="comparison-row">
+      <div><div class="aspect">Mobile Optimisation</div><div class="aspect-desc">Experience on phone/tablet</div></div>
+      <span class="badge neutral">⚠ Theme-dependent</span>
+      <span class="badge good">✓ Fully mobile-first</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- DETAILED IMPROVEMENTS -->
+<div class="section">
+  <div class="section-tag">Detailed Improvements</div>
+  <h2>What Changed — and Why It Matters</h2>
+  <p>Each improvement was made deliberately to reduce friction, build trust, or convert more visitors into enquiries or job applicants.</p>
+  <div class="improvements-grid">
+
+    <div class="improvement-card">
+      <div class="ic-number">01</div>
+      <h3>Hero Section — Messaging That Converts</h3>
+      <p style="font-size:13px;">The old site opened with a heavy slider image and no visible text. Visitors had no immediate context for what PirkkaClean offers or who it serves. The proposed version opens with a sharp headline, a supporting sentence, and a CTA button — all above the fold.</p>
+      <div class="before-after">
+        <div class="ba-block before"><div class="ba-label">Before</div><p>Slider image only. No headline, no sub-copy, no CTA visible on arrival.</p></div>
+        <div class="ba-block after"><div class="ba-label">After</div><p>"Luotettava siivouskumppani vaativiin yritysympäristöihin." + CTA button immediately visible.</p></div>
+      </div>
+    </div>
+
+    <div class="improvement-card gold">
+      <div class="ic-number">02</div>
+      <h3>Navigation — One Clean Menu with a CTA</h3>
+      <p style="font-size:13px;">The old site rendered its navigation menu twice — a common WordPress theme bug that adds visual noise. The proposed site has one clean menu, a persistent "Ota yhteyttä" button in the header, and an EN language toggle for non-Finnish clients.</p>
+      <div class="before-after">
+        <div class="ba-block before"><div class="ba-label">Before</div><p>Menu rendered twice. No contact CTA in header. No language option.</p></div>
+        <div class="ba-block after"><div class="ba-label">After</div><p>Single clean nav. "Ota yhteyttä" always visible. EN toggle added.</p></div>
+      </div>
+    </div>
+
+    <div class="improvement-card">
+      <div class="ic-number">03</div>
+      <h3>Rekry Page — From Overwhelming to Inviting</h3>
+      <p style="font-size:13px;">The old rekry page presented a massive form asking for name, full address, birthdate, nationality, education level, driving licence class, shift availability, and more. Research consistently shows that long forms have high abandonment rates. The proposed version strips it back to 5 fields and a CV upload — friendly, fast, and doable on a phone.</p>
+      <div class="before-after">
+        <div class="ba-block before"><div class="ba-label">Before</div><p>20+ field form: personal details, work history, education, availability, language skills, certifications.</p></div>
+        <div class="ba-block after"><div class="ba-label">After</div><p>Name, phone, email, role type, short intro + CV upload. Done in under 2 minutes.</p></div>
+      </div>
+    </div>
+
+    <div class="improvement-card gold">
+      <div class="ic-number">04</div>
+      <h3>Service Copy — Benefit-Led, Not Location-Led</h3>
+      <p style="font-size:13px;">Each service card on the old site described where PirkkaClean operates, not what the client gains. The proposed version leads with the outcome — why a clean workplace matters to the client's business — which is more persuasive and makes PirkkaClean's value immediately obvious.</p>
+      <div class="before-after">
+        <div class="ba-block before"><div class="ba-label">Before</div><p>"Siivouspalvelua yrityksille Tampereella ja ympäristökunnissa." (Location, no benefit.)</p></div>
+        <div class="ba-block after"><div class="ba-label">After</div><p>"Puhtaat toimitilat luovat viihtyisyyttä ja kertovat yrityksesi arvoista." (Outcome-first.)</p></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SPEED SECTION -->
+<div class="section">
+  <div class="section-tag">Performance</div>
+  <h2>Page Speed — Why It Matters</h2>
+  <p>The old site runs on WordPress with a full-page RevSlider plugin, jQuery, and multiple backend scripts. Every visitor triggers a PHP server to build the page from scratch. The proposed site is plain static HTML hosted on Vercel's global CDN — the files are pre-built and served instantly from the nearest server to the visitor.</p>
+
+  <div class="speed-section">
+    <div class="speed-header">
+      <h3>Technology Stack Comparison</h3>
+      <p>What's running under the hood — and why it affects every visitor's experience.</p>
+    </div>
+    <div class="speed-body">
+      <div class="speed-compare">
+        <div class="speed-col">
+          <div class="speed-col-label old">⚠ Old Site (WordPress)</div>
+          <div class="speed-item"><span class="si-label">Platform</span><span class="si-val bad">WordPress CMS</span></div>
+          <div class="speed-item"><span class="si-label">Rendering</span><span class="si-val bad">Server-side PHP (on demand)</span></div>
+          <div class="speed-item"><span class="si-label">Hero element</span><span class="si-val bad">RevSlider plugin (heavy)</span></div>
+          <div class="speed-item"><span class="si-label">JavaScript</span><span class="si-val bad">jQuery + multiple plugins</span></div>
+          <div class="speed-item"><span class="si-label">Navigation</span><span class="si-val bad">Menu rendered twice (bug)</span></div>
+          <div class="speed-item"><span class="si-label">Hosting</span><span class="si-val bad">Standard web hosting</span></div>
+          <div class="speed-item"><span class="si-label">Mobile viewport</span><span class="si-val bad">Theme-dependent, partial</span></div>
+        </div>
+        <div class="speed-col">
+          <div class="speed-col-label new">✓ Proposed Site (Static)</div>
+          <div class="speed-item"><span class="si-label">Platform</span><span class="si-val good">Plain HTML / CSS</span></div>
+          <div class="speed-item"><span class="si-label">Rendering</span><span class="si-val good">Instant (pre-built files)</span></div>
+          <div class="speed-item"><span class="si-label">Hero element</span><span class="si-val good">Text + single image only</span></div>
+          <div class="speed-item"><span class="si-label">JavaScript</span><span class="si-val good">Minimal, no jQuery</span></div>
+          <div class="speed-item"><span class="si-label">Navigation</span><span class="si-val good">Single clean menu</span></div>
+          <div class="speed-item"><span class="si-label">Hosting</span><span class="si-val good">Vercel global CDN</span></div>
+          <div class="speed-item"><span class="si-label">Mobile viewport</span><span class="si-val good">Fully declared + responsive</span></div>
+        </div>
+      </div>
+      <div class="speed-note">
+        <strong>Why this matters for the business:</strong> Google research shows that <strong>53% of mobile users abandon a page that takes more than 3 seconds to load.</strong> WordPress sites with heavy plugins and sliders routinely exceed this. A static site on a CDN like Vercel loads in under 1 second, reducing bounce rates and improving Google search ranking — since page speed is a direct ranking factor for local search results.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MOBILE SECTION -->
+<div class="section">
+  <div class="section-tag">Mobile Experience</div>
+  <h2>Built for How Clients Actually Browse</h2>
+  <p>Over 60% of web traffic comes from mobile devices. The proposed site is designed mobile-first throughout — not "responsive" as an afterthought bolted onto a desktop layout.</p>
+
+  <div class="mobile-grid">
+    <div class="mobile-card">
+      <div class="mc-icon">📐</div>
+      <div class="mobile-pill new">Improved</div>
+      <h4>Viewport Meta Declared</h4>
+      <p>The site explicitly tells mobile browsers how to scale the layout — ensuring the page renders correctly on every screen, not zoomed out or broken.</p>
+    </div>
+    <div class="mobile-card">
+      <div class="mc-icon">☰</div>
+      <div class="mobile-pill new">Improved</div>
+      <h4>Touch-Friendly Navigation</h4>
+      <p>Links and buttons are sized for fingers, not mouse clicks. The "Ota yhteyttä" CTA is prominent and easy to tap on small screens.</p>
+    </div>
+    <div class="mobile-card">
+      <div class="mc-icon">📋</div>
+      <div class="mobile-pill new">Improved</div>
+      <h4>Simplified Rekry Form on Mobile</h4>
+      <p>Completing a 20+ field form on a phone is painful and leads to abandonment. The new 5-field form with CV upload is quick to complete on any device.</p>
+    </div>
+    <div class="mobile-card">
+      <div class="mc-icon">🖼️</div>
+      <div class="mobile-pill old">Old Issue Fixed</div>
+      <h4>Heavy Slider Removed</h4>
+      <p>Full-width image sliders are slow and awkward on mobile. Removing RevSlider alone dramatically improves the mobile load experience.</p>
+    </div>
+    <div class="mobile-card">
+      <div class="mc-icon">🗺️</div>
+      <div class="mobile-pill new">Added</div>
+      <h4>Tappable Address → Maps</h4>
+      <p>The footer address links directly to Google Maps — a small detail that removes friction when a mobile user wants to navigate to the office.</p>
+    </div>
+    <div class="mobile-card">
+      <div class="mc-icon">⚡</div>
+      <div class="mobile-pill new">Improved</div>
+      <h4>Lighter on Mobile Networks</h4>
+      <p>Less code, no plugin scripts, no slider assets. The page loads faster on 4G mobile connections, keeping potential clients on the page.</p>
+    </div>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<div class="impact-section">
+  <div class="impact-inner">
+    <div class="section-tag">Business Impact</div>
+    <h2>Why These Changes Win Clients and Candidates</h2>
+    <p style="color:rgba(255,255,255,0.6); max-width:680px;">Every improvement connects to a real business outcome — more enquiries, more completed job applications, better Google rankings, and a stronger first impression.</p>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="icon">🎯</div>
+        <h4>More Enquiries from Homepage</h4>
+        <p>A visible CTA above the fold means visitors know what to do — instead of leaving without contacting.</p>
+      </div>
+      <div class="impact-card">
+        <div class="icon">👥</div>
+        <h4>More Job Applications Completed</h4>
+        <p>Replacing a 20+ field form with 5 fields dramatically reduces drop-off — more candidates complete and submit.</p>
+      </div>
+      <div class="impact-card">
+        <div class="icon">📱</div>
+        <h4>Better Mobile Experience</h4>
+        <p>With 60%+ of traffic on mobile, a fast touch-friendly site means the majority of visitors can actually use it properly.</p>
+      </div>
+      <div class="impact-card">
+        <div class="icon">🔍</div>
+        <h4>Better Google Search Ranking</h4>
+        <p>Page speed and mobile-friendliness are direct ranking factors. A fast static site outperforms a slow WordPress site in local search.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-box">
+    <div class="section-tag" style="display:block;text-align:center;">Next Step</div>
+    <h2>Ready to See the Proposed Site?</h2>
+    <p>Compare both versions side-by-side. The proposed site is live on Vercel and ready for your review.</p>
+    <div class="cta-links">
+      <a href="https://pirkkaclean-website.vercel.app/index.html" class="btn btn-primary" target="_blank">→ View Proposed Site</a>
+      <a href="https://www.pirkkaclean.fi/" class="btn btn-outline" target="_blank">View Current Site</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
