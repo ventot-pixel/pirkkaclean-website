@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PirkkaClean - Yhteystiedot</title>
-    <meta name="description" content="Tamperelainen PirkkaClean on hyvällä tavalla vanhanaikainen siivousyritys. Näemme vähän enemmän vaivaa parhaan työnjäljen eteen.">
+    <meta name="description" content="Ota yhteyttä PirkkaCleaniin. Tarjoamme maksuttoman käynnin tiloihinne ja rehelliset suositukset puhtaanapitoon.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -14,7 +14,7 @@
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
     </div>
-    
+
     <nav class="glass-nav">
         <div class="logo">
             <span class="logo-text">
@@ -35,18 +35,151 @@
         </div>
     </nav>
 
-    
-    <div class="page-sections" style="padding-top: 50px; min-height: 70vh;">
+    <div class="page-sections">
 
-        <section class="content-section text-center-section animate-up">
-            <div class="section-container column-layout">
-                <h2 class="section-title text-center">Ota Yhteyttä</h2>
-                <p class="section-desc text-center">PirkkaClean Oy<br>Kursonkatu 2<br>33840 TAMPERE<br>puh. 010 3200 730<br>asiakaspalvelu@pirkkaclean.fi</p>
+        <!-- Hero / Trust Section -->
+        <section class="contact-hero animate-up">
+            <div class="contact-hero-inner">
+                <h1 class="section-title" data-i18n="contact_hero_title">
+                    Tutustutaan ensin —<br>
+                    <span class="gradient-text">maksutta.</span>
+                </h1>
+                <p class="contact-hero-desc" data-i18n="contact_hero_desc">
+                    Tulemme mielellämme tiloihinne tutustumaan ilman sitoumuksia. Kartoitamme yhdessä todellisen tarpeen ja annamme rehellisen arvion — emme myy mitään mitä ette oikeasti tarvitse. Tavoitteemme on löytää ratkaisu, jolla tilanne pysyy puhtaana ja helppohoitoisena pitkällä tähtäimellä.
+                </p>
+                <p class="contact-hero-desc" data-i18n="contact_hero_desc2" style="margin-top:1rem; font-style: italic; color: var(--pirkka-blue);">
+                    "Yli 15 vuoden kokemus opettaa, että paras siivousratkaisu on se, jonka asiakas itse haluaa jatkaa."
+                </p>
+                <a href="mailto:asiakaspalvelu@pirkkaclean.fi" class="primary-btn pulse-hover contact-cta-btn" data-i18n="contact_cta">
+                    Varaa maksuton käynti →
+                </a>
             </div>
         </section>
+
+        <!-- Free Visit Promise -->
+        <section class="contact-promise animate-up">
+            <div class="promise-grid">
+                <div class="promise-card">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--pirkka-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="promise1_title">Maksuton tilakartoitus</h3>
+                    <p data-i18n="promise1_desc">Käymme paikan päällä tutustumassa tiloihinne — ilman kustannuksia tai sitoumuksia.</p>
+                </div>
+                <div class="promise-card">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--pirkka-red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="promise2_title">Vain mitä oikeasti tarvitset</h3>
+                    <p data-i18n="promise2_desc">Suosittelemme ainoastaan sen, mikä on tarpeellista. Ei turhia palveluja — vain aitoa arvoa.</p>
+                </div>
+                <div class="promise-card">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--pirkka-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="promise3_title">Henkilökohtainen palvelu</h3>
+                    <p data-i18n="promise3_desc">Omat yhteyshenkilöt — tunnet aina kenen kanssa asioit. Ei puhelinjonoja, ei byrokratiaa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="contact-team animate-up">
+            <h2 class="section-title text-center" data-i18n="team_title">Ota suoraan yhteyttä</h2>
+            <p class="section-desc text-center" style="margin-bottom: 3rem;" data-i18n="team_desc">Meidät tavoittaa helposti — soita, laita sähköpostia tai pyydä tarjous.</p>
+
+            <div class="team-cards">
+
+                <div class="team-card">
+                    <div class="team-photo-wrap">
+                        <img src="images/kari-jaaskelainen.jpg" alt="Kari Jääskeläinen" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="team-photo-placeholder" style="display:none">KJ</div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Kari Jääskeläinen</h3>
+                        <p class="team-title" data-i18n="kari_title">Toimitusjohtaja</p>
+                        <div class="team-contacts">
+                            <a href="tel:+358407677658" class="team-contact-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.4 2 2 0 0 1 3.58 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 15.5z"></path>
+                                </svg>
+                                +358 40 767 7658
+                            </a>
+                            <a href="mailto:kari.jaaskelainen@pirkkaclean.fi" class="team-contact-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                kari.jääskeläinen@pirkkaclean.fi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo-wrap">
+                        <img src="images/kristiina-heritty.jpg" alt="Kristiina Heritty" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="team-photo-placeholder" style="display:none">KH</div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Kristiina Heritty</h3>
+                        <p class="team-title" data-i18n="kristiina_title">Palvelupäällikkö</p>
+                        <div class="team-contacts">
+                            <a href="tel:+358503605311" class="team-contact-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.4 2 2 0 0 1 3.58 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 15.5z"></path>
+                                </svg>
+                                +358 50 360 5311
+                            </a>
+                            <a href="mailto:kristiina.heritty@pirkkaclean.fi" class="team-contact-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                kristiina.heritty@pirkkaclean.fi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Company Address -->
+        <section class="contact-address animate-up">
+            <div class="address-card">
+                <div class="address-icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--pirkka-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <div class="address-info">
+                    <h3 data-i18n="address_title">Toimistomme</h3>
+                    <p>PirkkaClean Oy</p>
+                    <p>Kursonkatu 2</p>
+                    <p>33840 TAMPERE</p>
+                    <p style="margin-top: 0.8rem;">
+                        <a href="tel:0103200730" class="team-contact-link">puh. 010 3200 730</a>
+                    </p>
+                    <p>
+                        <a href="mailto:asiakaspalvelu@pirkkaclean.fi" class="team-contact-link">asiakaspalvelu@pirkkaclean.fi</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </div>
-
-
 
     <footer class="site-footer">
         <div class="footer-grid">
@@ -56,7 +189,7 @@
             </div>
             <div class="footer-column">
                 <h3 data-i18n="footer_values_title">Arvot</h3>
-                <p data-i18n="footer_values_text">PirkkaClean on arvojohtu yritys. Arvot auttavat ihmistä valitsemaan oikein vaikeassakin tilanteessa. Arvoista nouseva tekemisen kulttuuri on yrityksemme sydän.</p>
+                <p data-i18n="footer_values_text">PirkkaClean on arvojohtuu yritys. Arvot auttavat ihmistä valitsemaan oikein vaikeassakin tilanteessa. Arvoista nouseva tekemisen kulttuuri on yrityksemme sydän.</p>
                 <a href="arvot.html" class="footer-link-highlight" data-i18n="footer_read_more">Lue lisää...</a>
             </div>
             <div class="footer-column">
@@ -68,7 +201,7 @@
                 <a href="https://www.pirkkaclean.fi" target="_blank" class="footer-link-highlight">www.pirkkaclean.fi</a>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <ul class="footer-nav">
                 <li><a href="index.html" data-i18n="nav_home">ETUSIVU</a></li>
