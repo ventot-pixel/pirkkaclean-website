@@ -101,7 +101,22 @@ document.addEventListener('DOMContentLoaded', () => {
             calc_result_prefix: "Arvioitu hinta alk.",
             calc_result_suffix: "€ / kerta",
             calc_disclaimer: "*Lopullinen hinta vahvistetaan aina puhelimitse tai kartoituskäynnin yhteydessä.",
-            btn_request_exact_quote: "Pyydä tarkka tarjous"
+            btn_request_exact_quote: "Pyydä tarkka tarjous",
+            contact_hero_title: "Tutustutaan ensin —<br><span class=\"gradient-text\">maksutta.</span>",
+            contact_hero_desc: "Tulemme mielellämme tiloihinne tutustumaan ilman sitoumuksia. Kartoitamme yhdessä todellisen tarpeen ja annamme rehellisen arvion — emme myy mitään mitä ette oikeasti tarvitse. Tavoitteemme on löytää ratkaisu, jolla tilanne pysyy puhtaana ja helppohoitoisena pitkällä tähtäimellä.",
+            contact_hero_desc2: "\"Yli 15 vuoden kokemus opettaa, että paras siivousratkaisu on se, jonka asiakas itse haluaa jatkaa.\"",
+            contact_cta: "Varaa maksuton käynti →",
+            promise1_title: "Maksuton tilakartoitus",
+            promise1_desc: "Käymme paikan päällä tutustumassa tiloihinne — ilman kustannuksia tai sitoumuksia.",
+            promise2_title: "Vain mitä oikeasti tarvitset",
+            promise2_desc: "Suosittelemme ainoastaan sen, mikä on tarpeellista. Ei turhia palveluja — vain aitoa arvoa.",
+            promise3_title: "Henkilökohtainen palvelu",
+            promise3_desc: "Omat yhteyshenkilöt — tunnet aina kenen kanssa asioit. Ei puhelinjonoja, ei byrokratiaa.",
+            team_title: "Ota suoraan yhteyttä",
+            team_desc: "Meidät tavoittaa helposti — soita, laita sähköpostia tai pyydä tarjous.",
+            kari_title: "Toimitusjohtaja",
+            kristiina_title: "Palvelupäällikkö",
+            address_title: "Toimistomme"
         },
         en: {
             nav_home: "Home",
@@ -163,7 +178,22 @@ document.addEventListener('DOMContentLoaded', () => {
             calc_result_prefix: "Estimated price starting from",
             calc_result_suffix: "€ / visit",
             calc_disclaimer: "*The final price is always confirmed by phone or during a mapping visit.",
-            btn_request_exact_quote: "Request exact quote"
+            btn_request_exact_quote: "Request exact quote",
+            contact_hero_title: "Let's meet first —<br><span class=\"gradient-text\">for free.</span>",
+            contact_hero_desc: "We are happy to visit your premises without any commitment. Together we map out the real need and give you an honest assessment — we don't sell anything you don't actually need. Our goal is to find a solution that keeps your space clean and easy to maintain in the long run.",
+            contact_hero_desc2: "\"Over 15 years of experience teaches us that the best cleaning solution is the one the customer wants to continue.\"",
+            contact_cta: "Book a free visit →",
+            promise1_title: "Free site survey",
+            promise1_desc: "We visit your premises in person — at no cost and with no obligations.",
+            promise2_title: "Only what you really need",
+            promise2_desc: "We recommend only what is necessary. No unnecessary services — just real value.",
+            promise3_title: "Personal service",
+            promise3_desc: "Dedicated contacts — you always know who you're dealing with. No queues, no bureaucracy.",
+            team_title: "Get in touch directly",
+            team_desc: "We are easy to reach — call, send an email, or request a quote.",
+            kari_title: "CEO",
+            kristiina_title: "Service Manager",
+            address_title: "Our office"
         }
     };
 
