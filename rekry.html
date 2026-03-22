@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PirkkaClean - Rekry</title>
-    <meta name="description" content="Tamperelainen PirkkaClean on hyvällä tavalla vanhanaikainen siivousyritys. Näemme vähän enemmän vaivaa parhaan työnjäljen eteen.">
+    <title>PirkkaClean - Rekrytointi</title>
+    <meta name="description" content="Tule töihin PirkkaCleanille. Etsimme ahkeria ja ylpeitä puhtaanapidon ammattilaisia Tampereelle.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -14,7 +14,7 @@
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
     </div>
-    
+
     <nav class="glass-nav">
         <a href="index.html" class="logo">
             <span class="logo-text">
@@ -34,18 +34,113 @@
         </div>
     </nav>
 
-    
-    <div class="page-sections" style="padding-top: 50px; min-height: 70vh;">
+    <div class="page-sections">
 
-        <section class="content-section text-center-section animate-up">
-            <div class="section-container column-layout">
-                <h2 class="section-title text-center">Rekrytointi</h2>
-                <p class="section-desc text-center">Etsimme jatkuvasti uusia puhtaanapidon ammattilaisia joukkoomme. Ota yhteyttä, jos hyvällä tavalla vanhanaikainen siivousyritys tuntuisi sinun paikaltasi!</p>
+        <!-- Hero -->
+        <section class="rekry-hero animate-up">
+            <div class="rekry-hero-inner">
+                <p class="about-label" data-i18n="rekry_label">Rekrytointi</p>
+                <h1 class="rekry-title" data-i18n="rekry_title">
+                    Tule töihin <span class="gradient-text">PirkkaCleanille.</span>
+                </h1>
+                <p class="rekry-desc" data-i18n="rekry_desc">
+                    Etsimme jatkuvasti uusia puhtaanapidon ammattilaisia joukkoomme. Jos hyvällä tavalla vanhanaikainen siivousyritys tuntuu sinun paikaltasi — kuulemme mielellämme sinusta.
+                </p>
             </div>
         </section>
+
+        <!-- Why us -->
+        <section class="rekry-benefits animate-up">
+            <div class="promise-grid">
+                <div class="promise-card">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--pirkka-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="rekry_benefit1_title">Vakaa työnantaja</h3>
+                    <p data-i18n="rekry_benefit1_desc">Olemme toimineet vuodesta 2009. Tarjoamme pitkäaikaisia ja vakaita työsuhteita Tampereella.</p>
+                </div>
+                <div class="promise-card">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--pirkka-red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="rekry_benefit2_title">Hyvä työporukka</h3>
+                    <p data-i18n="rekry_benefit2_desc">Meillä on lähes 60 ammattilaista. Välitämme henkilöstömme hyvinvoinnista — se näkyy arjessa.</p>
+                </div>
+                <div class="promise-card">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--pirkka-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="rekry_benefit3_title">Ammatillinen kasvu</h3>
+                    <p data-i18n="rekry_benefit3_desc">Tuemme osaamistasi ja tarjoamme mahdollisuuden kehittyä alan ammattilaisena.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section class="contact-form-section animate-up">
+            <div class="contact-form-wrap">
+                <h2 class="section-title text-center" data-i18n="rekry_form_title">Lähetä avoin hakemus</h2>
+                <p class="section-desc text-center" style="margin-bottom: 2rem;" data-i18n="rekry_form_desc">Täytä tiedot ja liitä CV. Palaamme sinulle mahdollisimman pian.</p>
+
+                <form class="contact-form" onsubmit="handleRekrySubmit(event)" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="rekry_field_name">Nimi</label>
+                            <input type="text" placeholder="Etunimi Sukunimi" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="rekry_field_phone">Puhelinnumero</label>
+                            <input type="tel" placeholder="+358 XX XXX XXXX" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="rekry_field_email">Sähköposti</label>
+                        <input type="email" placeholder="sinun@email.fi" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="rekry_field_position">Haettava tehtävä</label>
+                        <select class="rekry-select" required>
+                            <option value="" disabled selected data-i18n="rekry_position_placeholder">Valitse tehtävä...</option>
+                            <option data-i18n="rekry_pos1">Siivoustyöntekijä</option>
+                            <option data-i18n="rekry_pos2">Erikoissiivooja</option>
+                            <option data-i18n="rekry_pos3">Tiiminvetäjä</option>
+                            <option data-i18n="rekry_pos4">Muu / Avoin hakemus</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="rekry_field_message">Kerro lyhyesti itsestäsi <span style="opacity:0.5; font-weight:400;" data-i18n="rekry_optional">(valinnainen)</span></label>
+                        <textarea rows="4" placeholder="Miksi haet töihin PirkkaCleanille? Kerro vapaasti..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="rekry_field_cv">Liitä CV</label>
+                        <div class="cv-upload-area" id="cv-upload-area">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--pirkka-blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p class="cv-upload-text" data-i18n="rekry_cv_drag">Vedä CV tähän tai klikkaa valitaksesi</p>
+                            <p class="cv-upload-hint" data-i18n="rekry_cv_hint">PDF, DOC tai DOCX — max 5 MB</p>
+                            <input type="file" id="cv-file" accept=".pdf,.doc,.docx" style="position:absolute;inset:0;opacity:0;cursor:pointer;" onchange="handleFileSelect(this)">
+                        </div>
+                        <p class="cv-file-name" id="cv-file-name" style="display:none; margin-top:0.5rem; color:var(--pirkka-blue); font-size:0.9rem;"></p>
+                    </div>
+                    <button type="submit" class="contact-cta-btn" style="border:none;width:100%;justify-content:center;display:flex;" data-i18n="rekry_submit">Lähetä hakemus →</button>
+                    <p class="form-success" id="rekry-success" style="display:none; text-align:center; color:var(--pirkka-blue); margin-top:1rem;" data-i18n="rekry_success_msg">Kiitos hakemuksesta! Olemme yhteydessä pian.</p>
+                </form>
+            </div>
+        </section>
+
     </div>
-
-
 
     <footer class="site-footer">
         <div class="footer-grid">
@@ -68,7 +163,7 @@
                 <a href="https://www.pirkkaclean.fi" target="_blank" class="footer-link-highlight">www.pirkkaclean.fi</a>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <ul class="footer-nav">
                 <li><a href="index.html" data-i18n="nav_home">ETUSIVU</a></li>

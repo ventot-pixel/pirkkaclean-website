@@ -1158,6 +1158,100 @@ h1 {
     .value-cards-improved { grid-template-columns: 1fr; }
 }
 
+/* Rekry Page */
+.rekry-hero {
+    padding: 6rem 5% 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.rekry-hero-inner {
+    max-width: 700px;
+}
+
+.rekry-title {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 1rem 0 1.5rem;
+}
+
+.rekry-desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 600px;
+}
+
+.rekry-benefits {
+    padding: 2rem 5% 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.rekry-select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: var(--text-main);
+    font-size: 1rem;
+    font-family: 'Outfit', sans-serif;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a0a0b0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}
+
+.rekry-select:focus {
+    border-color: var(--pirkka-blue);
+}
+
+.rekry-select option {
+    background: #1a1a2e;
+    color: var(--text-main);
+}
+
+.cv-upload-area {
+    position: relative;
+    border: 2px dashed var(--glass-border);
+    border-radius: 12px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cv-upload-area:hover,
+.cv-upload-area.cv-drag-over {
+    border-color: var(--pirkka-blue);
+    background: rgba(0, 174, 239, 0.05);
+}
+
+.cv-upload-area.cv-has-file {
+    border-color: var(--pirkka-green);
+    background: rgba(76, 175, 80, 0.05);
+}
+
+.cv-upload-text {
+    font-size: 1rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.cv-upload-hint {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
 /* Contact Form */
 .contact-form-section {
     padding: 2rem 5%;

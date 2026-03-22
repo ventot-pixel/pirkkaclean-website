@@ -133,7 +133,34 @@ document.addEventListener('DOMContentLoaded', () => {
             about_stat_staff: "Ammattilaista",
             about_stat_satisfaction: "Tyytyväisyys",
             about_stat_sites: "Kohdetta",
-            values_label: "Arvomme"
+            values_label: "Arvomme",
+            rekry_label: "Rekrytointi",
+            rekry_title: "Tule töihin <span class=\"gradient-text\">PirkkaCleanille.</span>",
+            rekry_desc: "Etsimme jatkuvasti uusia puhtaanapidon ammattilaisia joukkoomme. Jos hyvällä tavalla vanhanaikainen siivousyritys tuntuu sinun paikaltasi — kuulemme mielellämme sinusta.",
+            rekry_benefit1_title: "Vakaa työnantaja",
+            rekry_benefit1_desc: "Olemme toimineet vuodesta 2009. Tarjoamme pitkäaikaisia ja vakaita työsuhteita Tampereella.",
+            rekry_benefit2_title: "Hyvä työporukka",
+            rekry_benefit2_desc: "Meillä on lähes 60 ammattilaista. Välitämme henkilöstömme hyvinvoinnista — se näkyy arjessa.",
+            rekry_benefit3_title: "Ammatillinen kasvu",
+            rekry_benefit3_desc: "Tuemme osaamistasi ja tarjoamme mahdollisuuden kehittyä alan ammattilaisena.",
+            rekry_form_title: "Lähetä avoin hakemus",
+            rekry_form_desc: "Täytä tiedot ja liitä CV. Palaamme sinulle mahdollisimman pian.",
+            rekry_field_name: "Nimi",
+            rekry_field_phone: "Puhelinnumero",
+            rekry_field_email: "Sähköposti",
+            rekry_field_position: "Haettava tehtävä",
+            rekry_position_placeholder: "Valitse tehtävä...",
+            rekry_pos1: "Siivoustyöntekijä",
+            rekry_pos2: "Erikoissiivooja",
+            rekry_pos3: "Tiiminvetäjä",
+            rekry_pos4: "Muu / Avoin hakemus",
+            rekry_field_message: "Kerro lyhyesti itsestäsi",
+            rekry_optional: "(valinnainen)",
+            rekry_field_cv: "Liitä CV",
+            rekry_cv_drag: "Vedä CV tähän tai klikkaa valitaksesi",
+            rekry_cv_hint: "PDF, DOC tai DOCX — max 5 MB",
+            rekry_submit: "Lähetä hakemus →",
+            rekry_success_msg: "Kiitos hakemuksesta! Olemme yhteydessä pian."
         },
         en: {
             nav_home: "Home",
@@ -227,7 +254,34 @@ document.addEventListener('DOMContentLoaded', () => {
             about_stat_staff: "Professionals",
             about_stat_satisfaction: "Satisfaction",
             about_stat_sites: "Locations",
-            values_label: "Our Values"
+            values_label: "Our Values",
+            rekry_label: "Careers",
+            rekry_title: "Join the <span class=\"gradient-text\">PirkkaClean</span> team.",
+            rekry_desc: "We are always looking for new cleaning professionals to join us. If a delightfully old-fashioned cleaning company sounds like the right fit for you — we'd love to hear from you.",
+            rekry_benefit1_title: "Stable employer",
+            rekry_benefit1_desc: "We have been operating since 2009. We offer long-term and stable employment in Tampere.",
+            rekry_benefit2_title: "Great team",
+            rekry_benefit2_desc: "We have nearly 60 professionals. We care about the well-being of our staff — and it shows.",
+            rekry_benefit3_title: "Professional growth",
+            rekry_benefit3_desc: "We support your skills and offer opportunities to grow as a cleaning professional.",
+            rekry_form_title: "Send an open application",
+            rekry_form_desc: "Fill in your details and attach your CV. We'll get back to you as soon as possible.",
+            rekry_field_name: "Name",
+            rekry_field_phone: "Phone number",
+            rekry_field_email: "Email",
+            rekry_field_position: "Position",
+            rekry_position_placeholder: "Select a position...",
+            rekry_pos1: "Cleaning worker",
+            rekry_pos2: "Specialist cleaner",
+            rekry_pos3: "Team leader",
+            rekry_pos4: "Other / Open application",
+            rekry_field_message: "Tell us a bit about yourself",
+            rekry_optional: "(optional)",
+            rekry_field_cv: "Attach CV",
+            rekry_cv_drag: "Drag your CV here or click to select",
+            rekry_cv_hint: "PDF, DOC or DOCX — max 5 MB",
+            rekry_submit: "Send application →",
+            rekry_success_msg: "Thank you for applying! We'll be in touch soon."
         }
     };
 
@@ -249,6 +303,44 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Rekry form handlers
+    window.handleRekrySubmit = (e) => {
+        e.preventDefault();
+        const success = document.getElementById('rekry-success');
+        if (success) {
+            success.style.display = 'block';
+            e.target.reset();
+            document.getElementById('cv-file-name').style.display = 'none';
+            document.getElementById('cv-upload-area').classList.remove('cv-has-file');
+        }
+    };
+
+    window.handleFileSelect = (input) => {
+        const fileNameEl = document.getElementById('cv-file-name');
+        const uploadArea = document.getElementById('cv-upload-area');
+        if (input.files && input.files[0]) {
+            fileNameEl.textContent = '✓ ' + input.files[0].name;
+            fileNameEl.style.display = 'block';
+            uploadArea.classList.add('cv-has-file');
+        }
+    };
+
+    // CV drag-and-drop highlight
+    const uploadArea = document.getElementById('cv-upload-area');
+    if (uploadArea) {
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('cv-drag-over'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('cv-drag-over'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('cv-drag-over');
+            const fileInput = document.getElementById('cv-file');
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                handleFileSelect(fileInput);
+            }
+        });
+    }
 
     // Contact form submit handler
     window.handleFormSubmit = (e) => {
