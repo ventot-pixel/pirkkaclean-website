@@ -395,4 +395,25 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize on load
         calculatePrice();
     }
+
+    /* Theme Override Toggle */
+    /* Press 'T' to toggle manually between dark and light modes */
+    document.addEventListener('keydown', (e) => {
+        // Prevent triggering while typing in inputs
+        if (e.key.toLowerCase() === 't' && !['INPUT', 'TEXTAREA'].includes(e.target.tagName)) {
+            const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isCurrentlyDark = document.body.classList.contains('dark-theme') || 
+                                    (!document.body.classList.contains('light-theme') && isSystemDark);
+            
+            if (isCurrentlyDark) {
+                // Switch to light
+                document.body.classList.add('light-theme');
+                document.body.classList.remove('dark-theme');
+            } else {
+                // Switch to dark
+                document.body.classList.add('dark-theme');
+                document.body.classList.remove('light-theme');
+            }
+        }
+    });
 });

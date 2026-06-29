@@ -1,14 +1,82 @@
 :root {
-    --bg-dark: #0a0a0f;
-    --text-main: #f0f0f5;
-    --text-muted: #a0a0b0;
     --pirkka-blue: #00AEEF;
     --pirkka-red: #EF5B5B;
     --pirkka-green: #4CAF50;
     --accent-1: var(--pirkka-blue);
     --accent-2: var(--pirkka-red); 
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.05);
+
+    /* Light Theme (Default) */
+    --bg-main: #ffffff;
+    --text-main: #222222;
+    --text-muted: #666666;
+    
+    --card-bg: #ffffff;
+    --card-border: #e5e5e5;
+    --card-shadow: none;
+    
+    --glass-bg: #ffffff;
+    --glass-border: #e5e5e5;
+    --glass-backdrop: none;
+    
+    --heading-color: #222222;
+    --lang-toggle-color: #222222;
+    
+    --stat-bg: #ffffff;
+    --stat-shadow: none;
+    --stat-heading: #222222;
+    
+    --value-card-bg: #ffffff;
+    --value-card-border: #e5e5e5;
+    
+    --footer-bg: #ffffff;
+    --footer-border: #e5e5e5;
+    --footer-heading: #222222;
+    --footer-text: #666666;
+    --footer-bottom-border: #e5e5e5;
+    
+    --blobs-opacity: 0;
+
+    --secondary-btn-color: #222222;
+    --secondary-btn-border: #cccccc;
+    --secondary-btn-hover-bg: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-main: #0a0a0f;
+        --text-main: #f0f0f5;
+        --text-muted: #a0a0b0;
+        
+        --card-bg: rgba(25, 25, 35, 0.4);
+        --card-border: rgba(255, 255, 255, 0.05);
+        --card-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+        
+        --glass-bg: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.05);
+        --glass-backdrop: blur(12px);
+        
+        --heading-color: #ffffff;
+        --lang-toggle-color: var(--text-main);
+        
+        --stat-bg: rgba(25, 25, 35, 0.4);
+        --stat-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+        --stat-heading: #ffffff;
+        
+        --value-card-bg: rgba(255, 255, 255, 0.03);
+        --value-card-border: rgba(255, 255, 255, 0.08);
+        
+        --footer-bg: rgba(14, 14, 20, 0.7);
+        --footer-border: rgba(255, 255, 255, 0.05);
+        --footer-heading: #ffffff;
+        --footer-text: var(--text-muted);
+        --footer-bottom-border: rgba(255, 255, 255, 0.05);
+        
+        --blobs-opacity: 0.5;
+
+        --secondary-btn-color: #ffffff;
+        --secondary-btn-border: var(--glass-border);
+        --secondary-btn-hover-bg: var(--glass-bg);
+    }
 }
 
 * {
@@ -19,7 +87,7 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-main);
     color: var(--text-main);
     min-height: 100vh;
     overflow-x: hidden;
@@ -39,7 +107,7 @@ body {
 .blob {
     position: absolute;
     filter: blur(80px);
-    opacity: 0.5;
+    opacity: var(--blobs-opacity);
     animation: float 20s infinite ease-in-out;
 }
 
@@ -84,8 +152,8 @@ body {
     align-items: center;
     padding: 1.5rem 5%;
     background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
     border-bottom: 1px solid var(--glass-border);
     position: sticky;
     top: 0;
@@ -161,7 +229,7 @@ body {
 .lang-toggle {
     padding: 0.8rem 1.2rem;
     background: transparent;
-    color: var(--text-main);
+    color: var(--lang-toggle-color);
     border: 1px solid var(--glass-border);
 }
 
@@ -250,12 +318,12 @@ h1 {
 
 .secondary-btn {
     background: transparent;
-    color: white;
-    border: 1px solid var(--glass-border);
+    color: var(--secondary-btn-color);
+    border: 1px solid var(--secondary-btn-border);
 }
 
 .secondary-btn:hover {
-    background: var(--glass-bg);
+    background: var(--secondary-btn-hover-bg);
 }
 
 /* Hero Stats Banner */
@@ -270,12 +338,12 @@ h1 {
     align-items: center;
     margin-top: 4rem;
     padding: 3rem 4rem;
-    background: rgba(25, 25, 35, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: var(--stat-bg);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--stat-shadow);
 }
 
 .stat-item {
@@ -295,7 +363,7 @@ h1 {
     font-size: 3rem;
     font-weight: 800;
     line-height: 1;
-    color: white;
+    color: var(--stat-heading);
 }
 
 .stat-item p {
@@ -323,13 +391,13 @@ h1 {
 }
 
 .service-card {
-    background: rgba(25, 25, 35, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--glass-border);
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--card-border);
     border-radius: 16px;
     padding: 1.5rem 2rem;
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -430,13 +498,13 @@ h1 {
     display: flex;
     align-items: center;
     gap: 6rem;
-    background: rgba(25, 25, 35, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--glass-border);
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--card-border);
     border-radius: 24px;
     padding: 4rem;
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--card-shadow);
 }
 
 .section-container.reverse-layout {
@@ -456,7 +524,7 @@ h1 {
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 2rem;
-    color: white;
+    color: var(--heading-color);
 }
 
 .section-desc {
@@ -511,8 +579,8 @@ h1 {
 }
 
 .value-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--value-card-bg);
+    border: 1px solid var(--value-card-border);
     padding: 2.5rem 2rem;
     border-radius: 16px;
     transition: transform 0.3s ease;
@@ -520,7 +588,8 @@ h1 {
 
 .value-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--value-card-bg);
+    opacity: 0.95;
 }
 
 .value-card h4 {
@@ -537,10 +606,10 @@ h1 {
 
 /* Footer */
 .site-footer {
-    background: rgba(14, 14, 20, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid var(--glass-border);
+    background: var(--footer-bg);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+    border-top: 1px solid var(--footer-border);
     padding: 5rem 4rem 2rem 4rem;
     margin-top: 4rem;
 }
@@ -556,11 +625,11 @@ h1 {
 .footer-column h3 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: white;
+    color: var(--footer-heading);
 }
 
 .footer-column p {
-    color: var(--text-muted);
+    color: var(--footer-text);
     font-size: 0.95rem;
     margin-bottom: 0.8rem;
     line-height: 1.8;
@@ -606,7 +675,7 @@ h1 {
 .footer-bottom {
     max-width: 1600px;
     margin: 0 auto;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--footer-bottom-border);
     padding-top: 2rem;
     display: flex;
     flex-direction: column;
@@ -1337,4 +1406,77 @@ h1 {
     .form-row {
         grid-template-columns: 1fr;
     }
+}
+
+/* --- Theme Manual Override Helper Classes --- */
+body.dark-theme {
+    --bg-main: #0a0a0f;
+    --text-main: #f0f0f5;
+    --text-muted: #a0a0b0;
+    
+    --card-bg: rgba(25, 25, 35, 0.4);
+    --card-border: rgba(255, 255, 255, 0.05);
+    --card-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+    
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-backdrop: blur(12px);
+    
+    --heading-color: #ffffff;
+    --lang-toggle-color: var(--text-main);
+    
+    --stat-bg: rgba(25, 25, 35, 0.4);
+    --stat-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+    --stat-heading: #ffffff;
+    
+    --value-card-bg: rgba(255, 255, 255, 0.03);
+    --value-card-border: rgba(255, 255, 255, 0.08);
+    
+    --footer-bg: rgba(14, 14, 20, 0.7);
+    --footer-border: rgba(255, 255, 255, 0.05);
+    --footer-heading: #ffffff;
+    --footer-text: var(--text-muted);
+    --footer-bottom-border: rgba(255, 255, 255, 0.05);
+    
+    --blobs-opacity: 0.5;
+
+    --secondary-btn-color: #ffffff;
+    --secondary-btn-border: var(--glass-border);
+    --secondary-btn-hover-bg: var(--glass-bg);
+}
+
+body.light-theme {
+    --bg-main: #ffffff;
+    --text-main: #222222;
+    --text-muted: #666666;
+    
+    --card-bg: #ffffff;
+    --card-border: #e5e5e5;
+    --card-shadow: none;
+    
+    --glass-bg: #ffffff;
+    --glass-border: #e5e5e5;
+    --glass-backdrop: none;
+    
+    --heading-color: #222222;
+    --lang-toggle-color: #222222;
+    
+    --stat-bg: #ffffff;
+    --stat-shadow: none;
+    --stat-heading: #222222;
+    
+    --value-card-bg: #ffffff;
+    --value-card-border: #e5e5e5;
+    
+    --footer-bg: #ffffff;
+    --footer-border: #e5e5e5;
+    --footer-heading: #222222;
+    --footer-text: #666666;
+    --footer-bottom-border: #e5e5e5;
+    
+    --blobs-opacity: 0;
+
+    --secondary-btn-color: #222222;
+    --secondary-btn-border: #cccccc;
+    --secondary-btn-hover-bg: #f5f5f5;
 }
