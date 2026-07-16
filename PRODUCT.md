@@ -29,13 +29,13 @@ confidence and visible care rather than corporate distance or marketing hype.
   form on the existing WordPress site.
 - Generic corporate-cleaning templates with stock claims and no local character.
 - Visual changes that replace the established PirkkaClean palette, butterfly
-  mark, or adaptive light/dark theme.
+  mark, or light-default theme with its optional manual dark mode.
 - Decorative motion that distracts from trust, proof, or the next action.
 
 ## Design Principles
 
 1. Preserve the PirkkaClean wordmark, butterfly, blue/red/green palette, and
-   established adaptive theme.
+   established light-default theme.
 2. Put trust, proof, and a clear next action ahead of decorative effects.
 3. Keep the static site fast, dependency-free, and easy to verify.
 4. Design mobile-first and keep touch targets and content readable.
@@ -43,6 +43,7 @@ confidence and visible care rather than corporate distance or marketing hype.
 
 ## Accessibility & Inclusion
 
-Target WCAG 2.1 AA contrast and keyboard usability. Respect system color-scheme
-and reduced-motion preferences. Essential information must remain available
-without animation, color alone, or pointer-only interaction.
+Target WCAG 2.1 AA contrast and keyboard usability. Keep light mode as the
+initial experience regardless of the system theme, and respect reduced-motion
+preferences. Essential information must remain available without animation,
+color alone, or pointer-only interaction.

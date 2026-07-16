@@ -443,9 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         // Prevent triggering while typing in inputs
         if (e.key.toLowerCase() === 't' && !['INPUT', 'TEXTAREA'].includes(e.target.tagName)) {
-            const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const isCurrentlyDark = document.body.classList.contains('dark-theme') || 
-                                    (!document.body.classList.contains('light-theme') && isSystemDark);
+            const isCurrentlyDark = document.body.classList.contains('dark-theme');
             
             if (isCurrentlyDark) {
                 // Switch to light

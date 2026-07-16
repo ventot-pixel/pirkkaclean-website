@@ -1,4 +1,6 @@
 :root {
+    color-scheme: light;
+
     --pirkka-blue: #00AEEF;
     --pirkka-red: #EF5B5B;
     --pirkka-green: #4CAF50;
@@ -39,44 +41,6 @@
     --secondary-btn-color: #222222;
     --secondary-btn-border: #cccccc;
     --secondary-btn-hover-bg: #f5f5f5;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-main: #0a0a0f;
-        --text-main: #f0f0f5;
-        --text-muted: #a0a0b0;
-        
-        --card-bg: rgba(25, 25, 35, 0.4);
-        --card-border: rgba(255, 255, 255, 0.05);
-        --card-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
-        
-        --glass-bg: rgba(255, 255, 255, 0.03);
-        --glass-border: rgba(255, 255, 255, 0.05);
-        --glass-backdrop: blur(12px);
-        
-        --heading-color: #ffffff;
-        --lang-toggle-color: var(--text-main);
-        
-        --stat-bg: rgba(25, 25, 35, 0.4);
-        --stat-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
-        --stat-heading: #ffffff;
-        
-        --value-card-bg: rgba(255, 255, 255, 0.03);
-        --value-card-border: rgba(255, 255, 255, 0.08);
-        
-        --footer-bg: rgba(14, 14, 20, 0.7);
-        --footer-border: rgba(255, 255, 255, 0.05);
-        --footer-heading: #ffffff;
-        --footer-text: var(--text-muted);
-        --footer-bottom-border: rgba(255, 255, 255, 0.05);
-        
-        --blobs-opacity: 0.5;
-
-        --secondary-btn-color: #ffffff;
-        --secondary-btn-border: var(--glass-border);
-        --secondary-btn-hover-bg: var(--glass-bg);
-    }
 }
 
 * {
@@ -1454,6 +1418,8 @@ h1 {
 
 /* --- Theme Manual Override Helper Classes --- */
 body.dark-theme {
+    color-scheme: dark;
+
     --bg-main: #0a0a0f;
     --text-main: #f0f0f5;
     --text-muted: #a0a0b0;
@@ -1490,6 +1456,8 @@ body.dark-theme {
 }
 
 body.light-theme {
+    color-scheme: light;
+
     --bg-main: #ffffff;
     --text-main: #222222;
     --text-muted: #666666;
