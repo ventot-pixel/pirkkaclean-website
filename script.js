@@ -396,6 +396,48 @@ document.addEventListener('DOMContentLoaded', () => {
         calculatePrice();
     }
 
+    // Animate homepage proof points once, while keeping their final values in HTML.
+    const statCounters = document.querySelectorAll('.stat-item h2[data-count]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const animateCounter = (element) => {
+        const target = Number.parseInt(element.dataset.count, 10);
+        const suffix = element.dataset.suffix || '';
+
+        if (!Number.isFinite(target) || prefersReducedMotion) {
+            return;
+        }
+
+        const duration = 1400;
+        const startedAt = performance.now();
+        element.textContent = `0${suffix}`;
+
+        const update = (now) => {
+            const progress = Math.min((now - startedAt) / duration, 1);
+            const easedProgress = 1 - Math.pow(1 - progress, 4);
+            element.textContent = `${Math.round(target * easedProgress)}${suffix}`;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        };
+
+        requestAnimationFrame(update);
+    };
+
+    if ('IntersectionObserver' in window && statCounters.length > 0 && !prefersReducedMotion) {
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        statCounters.forEach((counter) => counterObserver.observe(counter));
+    }
+
     /* Theme Override Toggle */
     /* Press 'T' to toggle manually between dark and light modes */
     document.addEventListener('keydown', (e) => {

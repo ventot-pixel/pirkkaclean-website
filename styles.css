@@ -184,12 +184,11 @@ body {
 
 .logo-dot {
     display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: var(--pirkka-red);
-    border-radius: 50%;
-    margin-bottom: 2px;
-    margin-left: -2px;
+    width: 30px;
+    height: 30px;
+    background: url('images/pirkkaclean-butterfly-red.png') no-repeat center / contain;
+    margin-left: -6px;
+    flex: 0 0 auto;
 }
 
 .nav-links {
@@ -718,6 +717,11 @@ h1 {
         text-align: center;
         gap: 3rem;
     }
+
+    .hero-content {
+        width: 100%;
+        min-width: 0;
+    }
     
     .button-group {
         justify-content: center;
@@ -773,7 +777,31 @@ h1 {
 
 @media (max-width: 768px) {
     nav {
-        padding: 1rem 2rem;
+        padding: 1rem;
+    }
+
+    .logo {
+        gap: 0.25rem;
+    }
+
+    .logo-text {
+        font-size: 1.25rem;
+    }
+
+    .logo-dot {
+        width: 22px;
+        height: 22px;
+        margin-left: -4px;
+    }
+
+    .nav-actions {
+        gap: 0.5rem;
+    }
+
+    .lang-toggle,
+    .cta-btn {
+        padding: 0.65rem 0.9rem;
+        font-size: 0.85rem;
     }
 
     h1 {
@@ -795,6 +823,22 @@ h1 {
     
     .hero-stats {
         margin-top: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+
+    .animate-up {
+        opacity: 1;
+        transform: none;
     }
 }
 
