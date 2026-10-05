@@ -1,9 +1,11 @@
 :root {
     color-scheme: light;
 
-    --pirkka-blue: #1f789f;
-    --pirkka-red: #bd5555;
+    --pirkka-blue: #58bbf9;
+    --pirkka-red: #da3832;
     --pirkka-green: #52765b;
+    --pirkka-blue-text: #176d91;
+    --pirkka-red-text: #ae302c;
     --accent-1: var(--pirkka-blue);
     --accent-2: var(--pirkka-red); 
 
@@ -202,7 +204,7 @@ body {
 
 .cta-btn {
     background: rgba(239, 91, 91, 0.1);
-    color: var(--pirkka-red);
+    color: var(--pirkka-red-text);
     border: 1px solid rgba(239, 91, 91, 0.3);
 }
 
@@ -255,7 +257,7 @@ h1 {
 }
 
 .primary-btn {
-    background: var(--pirkka-blue);
+    background: var(--pirkka-blue-text);
     color: white;
     box-shadow: 0 8px 25px rgba(46, 140, 207, 0.3);
 }
@@ -418,8 +420,8 @@ h1 {
     transition: opacity 0.3s ease;
 }
 
-.card-blue .card-link { color: var(--pirkka-blue); }
-.card-red .card-link { color: var(--pirkka-red); }
+.card-blue .card-link { color: var(--pirkka-blue-text); }
+.card-red .card-link { color: var(--pirkka-red-text); }
 .card-green .card-link { color: var(--pirkka-green); }
 
 .card-link:hover {
@@ -556,7 +558,7 @@ h1 {
 
 .value-card h4 {
     font-size: 1.3rem;
-    color: var(--pirkka-blue);
+    color: var(--pirkka-blue-text);
     margin-bottom: 1rem;
 }
 
@@ -612,7 +614,7 @@ h1 {
 }
 
 .footer-address-link:hover {
-    color: var(--pirkka-blue);
+    color: var(--pirkka-blue-text);
 }
 
 .footer-address-link p {
@@ -621,7 +623,7 @@ h1 {
 }
 
 .footer-link-highlight {
-    color: var(--pirkka-blue);
+    color: var(--pirkka-blue-text);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
@@ -654,7 +656,7 @@ h1 {
 }
 
 .footer-nav a {
-    color: var(--pirkka-blue);
+    color: var(--pirkka-blue-text);
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 700;
@@ -982,7 +984,7 @@ h1 {
 .team-title {
     font-size: 0.88rem;
     font-weight: 500;
-    color: var(--pirkka-blue);
+    color: var(--pirkka-blue-text);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 0.6rem;
@@ -1007,7 +1009,7 @@ h1 {
 }
 
 .team-contact-link:hover {
-    color: var(--pirkka-blue);
+    color: var(--pirkka-blue-text);
 }
 
 /* Address section */
@@ -1087,7 +1089,7 @@ h1 {
     transition: color 0.2s ease;
 }
 .footer-heading-link:hover h3 {
-    color: var(--pirkka-blue);
+    color: var(--pirkka-blue-text);
 }
 
 /* About / Values Page */
@@ -1105,7 +1107,7 @@ h1 {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--pirkka-blue);
+    color: var(--pirkka-blue-text);
     margin-bottom: 0.5rem;
 }
 
