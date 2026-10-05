@@ -237,6 +237,10 @@ h1 {
     letter-spacing: -2px;
 }
 
+.hero-content h1 {
+    color: var(--pirkka-red);
+}
+
 .gradient-text {
     background: none;
     color: var(--pirkka-blue);
