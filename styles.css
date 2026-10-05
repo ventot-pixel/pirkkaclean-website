@@ -264,6 +264,8 @@ h1 {
     background: var(--pirkka-blue-text);
     color: white;
     box-shadow: 0 8px 25px rgba(46, 140, 207, 0.3);
+    display: inline-block;
+    text-decoration: none;
 }
 
 @keyframes pulse-radiate {
