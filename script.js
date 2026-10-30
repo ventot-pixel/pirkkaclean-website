@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         fi: {
             nav_home: "Etusivu",
+            nav_home_cleaning: "Kotisiivous",
             nav_business: "Yrityksille",
             nav_housing: "Taloyhtiöille",
             nav_special: "Erikoissiivous",
@@ -94,14 +95,88 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_phone: "puh.",
             footer_read_more: "Lue lisää...",
             page_home_cleaning_title: "Kotisiivous",
-            home_cleaning_hero_title: "Kotisiivousta luotettavasti tutulta siivouskumppaniltasi",
-            home_cleaning_hero_desc: "Hoidamme jo taloyhtiönne yhteiset tilat. Anna meidän huolehtia myös kotisi puhtaudesta samalla ammattitaidolla ja huolellisuudella.",
-            calc_title: "Laske hinta-arvio kotisiivoukselle",
-            calc_label_sqm: "Asunnon koko (m²)",
-            calc_result_prefix: "Arvioitu hinta alk.",
+            home_cleaning_hero_title: "Kotisiivous Tampereella",
+            home_cleaning_hero_desc: "Sama tuttu ja huolellinen siivoustiimi auttaa nyt myös kotona. Valitse palvelu ja saat heti suuntaa-antavan arvion.",
+            home_hero_fact: "Paikallinen perheyritys vuodesta 2009",
+            home_hero_cta: "Laske hinta",
+            calc_title: "Hinta-arvio kotiin",
+            calc_intro: "Valitse pääpalvelu, kodin koko ja mahdolliset lisätyöt. Näet arvion yhdelle käynnille heti.",
+            calc_service_label: "Valitse palvelu",
+            calc_service_home: "Kotisiivous",
+            calc_service_home_desc: "Säännöllinen tai kertaluonteinen ylläpitosiivous",
+            calc_service_deep: "Suursiivous",
+            calc_service_deep_desc: "Perusteellinen siivous kodin pinnoille",
+            calc_service_move: "Muuttosiivous",
+            calc_service_move_desc: "Tyhjän kodin loppusiivous",
+            calc_service_windows: "Ikkunanpesu",
+            calc_service_windows_desc: "Lasit, puitteet ja ikkunalaudat",
+            calc_service_reno: "Remonttisiivous",
+            calc_service_reno_desc: "Rakennuspöly ja viimeistelevä puhdistus",
+            calc_service_special: "Muu erikoissiivous",
+            calc_service_special_desc: "Lattiat, tekstiilit tai yksilöllinen tarve",
+            calc_label_sqm: "Kodin koko",
+            calc_size_help: "20–300 m². Yli 180 m² kohteet arvioidaan erikseen.",
+            calc_frequency_label: "Käyntitiheys",
+            calc_frequency_weekly: "Viikoittain",
+            calc_frequency_biweekly: "Joka toinen viikko",
+            calc_frequency_monthly: "Neljän viikon välein",
+            calc_frequency_once: "Kertaluonteinen",
+            calc_addons_label: "Lisää samaan käyntiin",
+            calc_addon_oven: "Uunin puhdistus",
+            calc_addon_fridge: "Jääkaapin sisäpuoli",
+            calc_addon_sauna: "Saunan pesu",
+            calc_addon_balcony: "Parveke tai terassi",
+            calc_result_prefix: "Arvio yhdelle käynnille",
             calc_result_suffix: "€ / kerta",
-            calc_disclaimer: "*Lopullinen hinta vahvistetaan aina puhelimitse tai kartoituskäynnin yhteydessä.",
+            calc_includes_title: "Arvio sisältää",
+            calc_includes_products: "Ammattivälineet ja puhdistusaineet",
+            calc_includes_vat: "ALV:n",
+            calc_includes_plan: "Valitsemasi lisätyöt",
+            calc_disclaimer: "Arvio perustuu 42 €:n tuntihintaan. Lopullinen työaika ja hinta vahvistetaan ennen tilausta.",
             btn_request_exact_quote: "Pyydä tarkka tarjous",
+            home_services_title: "Mihin apua tarvitaan?",
+            home_services_intro: "Sama yhteyshenkilö auttaa valitsemaan sopivan työn laajuuden. Käynti voi olla säännöllinen, kertaluonteinen tai osa muuttoa.",
+            home_service_regular_title: "Arjen kotisiivous",
+            home_service_regular_desc: "Pölyt, tasot, lattiat, keittiö ja saniteettitilat sovitussa laajuudessa. Säännöllinen rytmi pitää kodin helpommin hallittavana.",
+            home_service_regular_item1: "Viikoittain, joka toinen viikko tai neljän viikon välein",
+            home_service_regular_item2: "Omat toiveet kirjataan työohjeeseen",
+            home_service_deep_title: "Suursiivous ja muutto",
+            home_service_deep_desc: "Kun koti tarvitsee tavallista perusteellisemman käsittelyn, sovimme tilat, pinnat ja tavoitetason ennen työn alkua.",
+            home_service_deep_item1: "Suursiivous kalustetussa kodissa",
+            home_service_deep_item2: "Muuttosiivous tyhjässä asunnossa",
+            home_service_extra_title: "Ikkunat ja lisätyöt",
+            home_service_extra_desc: "Ikkunanpesu, sauna, kodinkoneet, parveke ja muut sovitut lisätyöt voidaan yhdistää samaan käyntiin.",
+            home_service_extra_item1: "Ikkunoiden määrä ja avautuvat pinnat kartoitetaan",
+            home_service_extra_item2: "Lisätyö sovitaan aina etukäteen",
+            home_process_title: "Näin se alkaa",
+            home_process_intro: "Laskuri antaa lähtökohdan. Vahvistamme vielä tarpeen, laajuuden ja ajankohdan kanssasi ennen ensimmäistä käyntiä.",
+            home_process_request: "Tarjouspyyntö",
+            home_process_request_time: "2 min",
+            home_process_request_desc: "Lähetä laskurin valinnat ja yhteystietosi.",
+            home_process_confirm: "Vahvistus",
+            home_process_confirm_time: "Henkilökohtainen",
+            home_process_confirm_desc: "Käymme läpi kodin, toiveet ja kulun kohteeseen.",
+            home_process_visit: "Siivouskäynti",
+            home_process_visit_time: "Sovittuna aikana",
+            home_process_visit_desc: "Ammattilainen tekee sovitut työt ja kertoo, jos tarve muuttuu.",
+            home_process_result: "Lopputulos",
+            home_process_result_desc: "Puhdas koti, selkeästi sovittuna",
+            home_faq_title: "Usein kysyttyä",
+            home_faq_facts: "Palvelemme Tampereella ja lähialueilla. Työn laajuus ja kulku kotiin sovitaan aina etukäteen.",
+            home_faq_q1: "Mitä tavallinen kotisiivous sisältää?",
+            home_faq_a1: "Sovittu ylläpitosiivous kattaa tavallisesti vapaat tasot, pölyt, lattiat, keittiön pinnat sekä wc- ja pesutilat. Kirjaamme kodin omat painotukset työohjeeseen.",
+            home_faq_q2: "Pitääkö minun olla kotona?",
+            home_faq_a2: "Ei tarvitse. Avaimesta, ovikoodista tai muusta turvallisesta sisäänpääsystä voidaan sopia etukäteen.",
+            home_faq_q3: "Voinko valita vain tietyt huoneet?",
+            home_faq_a3: "Kyllä. Voimme rajata käynnin esimerkiksi keittiöön, pesutiloihin tai muuhun sovittuun kokonaisuuteen.",
+            home_faq_q4: "Onko laskurin hinta sitova?",
+            home_faq_a4: "Ei. Se on suuntaa-antava arvio tavallisen kunnon perusteella. Vahvistamme lopullisen työajan ja hinnan ennen tilausta.",
+            home_faq_cta: "Kysy omasta kodistasi",
+            home_cta_side: "Kerro kodin koko, toivottu palvelu ja sopiva ajankohta. Me tarkistamme, että arvio vastaa todellista tarvetta.",
+            home_cta_title: "Sovitaan ensimmäinen käynti",
+            home_cta_desc: "Saat henkilökohtaisen vahvistuksen ennen kuin mitään varataan.",
+            home_cta_button: "Lähetä tarjouspyyntö",
+            home_footer_message: "Hyvällä tavalla vanhanaikainen siivousyritys. Näemme vähän enemmän vaivaa parhaan työnjäljen eteen.",
             contact_hero_title: "Tutustutaan ensin —<br><span class=\"gradient-text\">maksutta.</span>",
             contact_hero_desc: "Tulemme mielellämme tiloihinne tutustumaan ilman sitoumuksia. Kartoitamme yhdessä todellisen tarpeen ja annamme rehellisen arvion — emme myy mitään mitä ette oikeasti tarvitse. Tavoitteemme on löytää ratkaisu, jolla tilanne pysyy puhtaana ja helppohoitoisena pitkällä tähtäimellä.",
             contact_hero_desc2: "\"Yli 15 vuoden kokemus opettaa, että paras siivousratkaisu on se, jonka asiakas itse haluaa jatkaa.\"",
@@ -164,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             nav_home: "Home",
+            nav_home_cleaning: "Home Cleaning",
             nav_business: "Business",
             nav_housing: "Housing",
             nav_special: "Specialty",
@@ -215,14 +291,88 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_phone: "tel.",
             footer_read_more: "Read more...",
             page_home_cleaning_title: "Home Cleaning",
-            home_cleaning_hero_title: "Reliable home cleaning from your trusted partner",
-            home_cleaning_hero_desc: "We already maintain your building's common areas. Let us bring the same professional care to your own home.",
-            calc_title: "Calculate an estimated price for home cleaning",
-            calc_label_sqm: "Apartment size (sqm)",
-            calc_result_prefix: "Estimated price starting from",
+            home_cleaning_hero_title: "Home cleaning in Tampere",
+            home_cleaning_hero_desc: "The same familiar and careful cleaning team now helps at home. Choose a service and see an instant estimate.",
+            home_hero_fact: "A local family business since 2009",
+            home_hero_cta: "Calculate price",
+            calc_title: "Your price estimate",
+            calc_intro: "Choose the main service, home size and any add-ons. You will see an estimate for one visit instantly.",
+            calc_service_label: "Choose a service",
+            calc_service_home: "Home cleaning",
+            calc_service_home_desc: "Recurring or one-time maintenance cleaning",
+            calc_service_deep: "Deep cleaning",
+            calc_service_deep_desc: "A thorough clean for the home's surfaces",
+            calc_service_move: "Move-out cleaning",
+            calc_service_move_desc: "Final cleaning of an empty home",
+            calc_service_windows: "Window cleaning",
+            calc_service_windows_desc: "Glass, frames and window sills",
+            calc_service_reno: "Post-renovation cleaning",
+            calc_service_reno_desc: "Construction dust and final cleaning",
+            calc_service_special: "Other specialty cleaning",
+            calc_service_special_desc: "Floors, textiles or an individual need",
+            calc_label_sqm: "Home size",
+            calc_size_help: "20–300 m². Homes over 180 m² are estimated separately.",
+            calc_frequency_label: "Frequency",
+            calc_frequency_weekly: "Weekly",
+            calc_frequency_biweekly: "Every two weeks",
+            calc_frequency_monthly: "Every four weeks",
+            calc_frequency_once: "One-time",
+            calc_addons_label: "Add to the same visit",
+            calc_addon_oven: "Oven cleaning",
+            calc_addon_fridge: "Refrigerator interior",
+            calc_addon_sauna: "Sauna cleaning",
+            calc_addon_balcony: "Balcony or terrace",
+            calc_result_prefix: "Estimate for one visit",
             calc_result_suffix: "€ / visit",
-            calc_disclaimer: "*The final price is always confirmed by phone or during a mapping visit.",
+            calc_includes_title: "Estimate includes",
+            calc_includes_products: "Professional equipment and cleaning products",
+            calc_includes_vat: "VAT",
+            calc_includes_plan: "Your selected add-ons",
+            calc_disclaimer: "The estimate uses an hourly rate of €42. Final duration and price are confirmed before ordering.",
             btn_request_exact_quote: "Request exact quote",
+            home_services_title: "Where do you need help?",
+            home_services_intro: "One contact helps you choose the right scope. The visit can be recurring, one-time or part of a move.",
+            home_service_regular_title: "Everyday home cleaning",
+            home_service_regular_desc: "Dust, surfaces, floors, kitchen and washrooms to the agreed scope. A recurring rhythm keeps the home easier to manage.",
+            home_service_regular_item1: "Weekly, every two weeks or every four weeks",
+            home_service_regular_item2: "Your preferences are recorded in the work instructions",
+            home_service_deep_title: "Deep clean and move",
+            home_service_deep_desc: "When the home needs a more thorough treatment, we agree the rooms, surfaces and target level before work begins.",
+            home_service_deep_item1: "Deep cleaning in a furnished home",
+            home_service_deep_item2: "Move-out cleaning in an empty home",
+            home_service_extra_title: "Windows and add-ons",
+            home_service_extra_desc: "Window cleaning, sauna, appliances, balcony and other agreed tasks can be combined into the same visit.",
+            home_service_extra_item1: "We assess window count and opening glass surfaces",
+            home_service_extra_item2: "Extra work is always agreed in advance",
+            home_process_title: "How it starts",
+            home_process_intro: "The calculator gives a starting point. We confirm the need, scope and timing with you before the first visit.",
+            home_process_request: "Quote request",
+            home_process_request_time: "2 min",
+            home_process_request_desc: "Send your calculator choices and contact details.",
+            home_process_confirm: "Confirmation",
+            home_process_confirm_time: "Personal",
+            home_process_confirm_desc: "We review the home, wishes and access arrangements.",
+            home_process_visit: "Cleaning visit",
+            home_process_visit_time: "At the agreed time",
+            home_process_visit_desc: "A professional completes the agreed work and tells you if the need changes.",
+            home_process_result: "Result",
+            home_process_result_desc: "A clean home, clearly agreed",
+            home_faq_title: "Frequently asked",
+            home_faq_facts: "We serve Tampere and nearby areas. The scope and access to the home are always agreed in advance.",
+            home_faq_q1: "What does regular home cleaning include?",
+            home_faq_a1: "The agreed maintenance clean usually covers clear surfaces, dust, floors, kitchen surfaces, toilets and washrooms. We record your home's priorities in the work instructions.",
+            home_faq_q2: "Do I need to be at home?",
+            home_faq_a2: "No. A key, door code or another secure way to enter can be agreed beforehand.",
+            home_faq_q3: "Can I choose only certain rooms?",
+            home_faq_a3: "Yes. We can limit the visit to the kitchen, washrooms or another agreed area.",
+            home_faq_q4: "Is the calculator price binding?",
+            home_faq_a4: "No. It is a directional estimate based on normal conditions. We confirm the final duration and price before ordering.",
+            home_faq_cta: "Ask about your home",
+            home_cta_side: "Tell us the home size, desired service and suitable timing. We check that the estimate matches the real need.",
+            home_cta_title: "Arrange the first visit",
+            home_cta_desc: "You receive a personal confirmation before anything is booked.",
+            home_cta_button: "Send quote request",
+            home_footer_message: "A delightfully old-fashioned cleaning company. We put in a little more effort to deliver the best result.",
             contact_hero_title: "Let's meet first —<br><span class=\"gradient-text\">for free.</span>",
             contact_hero_desc: "We are happy to visit your premises without any commitment. Together we map out the real need and give you an honest assessment — we don't sell anything you don't actually need. Our goal is to find a solution that keeps your space clean and easy to maintain in the long run.",
             contact_hero_desc2: "\"Over 15 years of experience teaches us that the best cleaning solution is the one the customer wants to continue.\"",
@@ -288,12 +438,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const langBtn = document.getElementById('lang-btn');
     const i18nElements = document.querySelectorAll('[data-i18n]');
 
-    langBtn.addEventListener('click', () => {
+    if (langBtn) langBtn.addEventListener('click', () => {
         // Toggle language
         currentLang = currentLang === 'fi' ? 'en' : 'fi';
         
         // Update button text to show the OTHER language alternative
         langBtn.textContent = currentLang === 'fi' ? 'EN' : 'FI';
+        document.documentElement.lang = currentLang;
         
         // Update all translated elements
         i18nElements.forEach(el => {
@@ -302,6 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.innerHTML = translations[currentLang][key];
             }
         });
+        window.dispatchEvent(new CustomEvent('languagechange', { detail: { language: currentLang } }));
     });
 
     // Rekry form handlers
@@ -351,50 +503,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.target.reset();
         }
     };
-
-    // Calculator Logic (kotisiivous.html)
-    const sqmInput = document.getElementById('sqm-input');
-    const sqmValue = document.getElementById('sqm-value');
-    const calcResult = document.getElementById('calc-result');
-
-    if (sqmInput && sqmValue && calcResult) {
-        const calculatePrice = () => {
-            const sqm = parseInt(sqmInput.value);
-            sqmValue.textContent = sqm;
-            
-            // Tiered pricing based on Finnish market averages (approx 42€ / hour before tax credit)
-            let estimatedHours = 2; // Minimum 2 hours
-            
-            if (sqm <= 40) {
-                estimatedHours = 2;
-            } else if (sqm <= 50) {
-                estimatedHours = 2.5;
-            } else if (sqm <= 70) {
-                estimatedHours = 3;
-            } else if (sqm <= 90) {
-                estimatedHours = 3.5;
-            } else if (sqm <= 110) {
-                estimatedHours = 4.5;
-            } else if (sqm <= 150) {
-                estimatedHours = 5.5;
-            } else {
-                estimatedHours = 5.5 + Math.ceil((sqm - 150) / 30); // 1 extra hour per 30sqm over 150
-            }
-
-            const hourlyRate = 42; // standard cleaning rate before kotitalousvähennys
-            const price = estimatedHours * hourlyRate;
-            
-            calcResult.textContent = Math.round(price);
-            
-            // Optional progress bar fill effect for cross-browser styling
-            const progress = ((sqm - sqmInput.min) / (sqmInput.max - sqmInput.min)) * 100;
-            sqmInput.style.background = `linear-gradient(to right, var(--pirkka-blue) ${progress}%, rgba(255,255,255,0.1) ${progress}%)`;
-        };
-
-        sqmInput.addEventListener('input', calculatePrice);
-        // Initialize on load
-        calculatePrice();
-    }
 
     // Animate homepage proof points once, while keeping their final values in HTML.
     const statCounters = document.querySelectorAll('.stat-item h2[data-count]');

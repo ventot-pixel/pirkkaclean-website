@@ -1,112 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PirkkaClean - Kotisiivous</title>
-    <meta name="description" content="Kotisiivousta luotettavasti tutulta siivouskumppaniltasi. Laske hinta-arvio ja varaa aikasi.">
+    <title>Kotisiivous Tampereella | PirkkaClean</title>
+    <meta name="description" content="Luotettavaa kotisiivousta Tampereella. Valitse palvelu, kodin koko ja lisätyöt ja laske suuntaa-antava hinta-arvio.">
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="kotisiivous.css">
 </head>
-<body>
-    <div class="background-elements">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
-    
-    <nav class="glass-nav">
-        <a href="index.html" class="logo">
-            <span class="logo-text">
-                <span class="pirkka-text">Pirkka</span><span class="clean-text">Clean</span>
-            </span>
-            <span class="logo-dot"></span>
+<body class="home-cleaning-page">
+    <nav class="glass-nav" aria-label="Päävalikko">
+        <a href="index.html" class="logo" aria-label="PirkkaClean etusivu">
+            <span class="logo-text"><span class="pirkka-text">Pirkka</span><span class="clean-text">Clean</span></span>
+            <span class="logo-dot" aria-hidden="true"></span>
         </a>
         <ul class="nav-links">
             <li><a href="index.html" data-i18n="nav_home">Etusivu</a></li>
+            <li><a href="kotisiivous.html" aria-current="page" data-i18n="nav_home_cleaning">Kotisiivous</a></li>
             <li><a href="yrityksille.html" data-i18n="nav_business">Yrityksille</a></li>
             <li><a href="taloyhtioille.html" data-i18n="nav_housing">Taloyhtiöille</a></li>
             <li><a href="erikoissiivous.html" data-i18n="nav_special">Erikoissiivous</a></li>
         </ul>
         <div class="nav-actions">
-            <button class="lang-toggle" id="lang-btn">EN</button>
+            <button class="lang-toggle" id="lang-btn" type="button" aria-label="Switch language">EN</button>
             <a href="yhteystiedot.html" class="cta-btn" data-i18n="nav_contact">Ota yhteyttä</a>
         </div>
     </nav>
 
-    
-    <div class="page-sections" style="padding-top: 50px; min-height: 80vh;">
-        <section class="content-section animate-up">
-            <div class="section-container column-layout">
-                <h1 class="section-title text-center" data-i18n="home_cleaning_hero_title" style="max-width: 800px; margin: 0 auto 1.5rem auto;">Kotisiivousta luotettavasti tutulta siivouskumppaniltasi</h1>
-                <p class="section-desc text-center" data-i18n="home_cleaning_hero_desc" style="max-width: 700px; margin: 0 auto 3rem auto;">Hoidamme jo taloyhtiönne yhteiset tilat. Anna meidän huolehtia myös kotisi puhtaudesta samalla ammattitaidolla ja huolellisuudella.</p>
-                
-                <div class="calculator-container" style="background: rgba(14, 14, 20, 0.6); padding: 3rem; border-radius: 24px; border: 1px solid var(--glass-border); width: 100%; max-width: 500px; margin: 0 auto; box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);">
-                    <h3 data-i18n="calc_title" style="color: white; margin-bottom: 2rem; font-size: 1.4rem;">Laske hinta-arvio kotisiivoukselle</h3>
-                    
-                    <div class="slider-group" style="margin-bottom: 2.5rem; text-align: left;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; color: white; margin-bottom: 1rem;">
-                            <label for="sqm-input" data-i18n="calc_label_sqm" style="font-weight: 600; color: var(--text-muted);">Asunnon koko (m²)</label>
-                            <span style="font-weight: 800; color: var(--pirkka-blue); font-size: 1.4rem;"><span id="sqm-value">60</span> m²</span>
-                        </div>
-                        <input type="range" id="sqm-input" min="20" max="250" value="60" step="1" style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 4px; outline: none; appearance: none; -webkit-appearance: none;">
-                        <style>
-                            #sqm-input::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--pirkka-blue); cursor: pointer; transition: transform 0.1s; border: 3px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
-                            #sqm-input::-webkit-slider-thumb:hover { transform: scale(1.2); }
-                        </style>
-                    </div>
-                    
-                    <div class="price-display" style="margin-bottom: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.03); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08);">
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;" data-i18n="calc_result_prefix">Arvioitu hinta alk.</p>
-                        <div style="color: white; font-size: 3.5rem; font-weight: 800; line-height: 1; margin-bottom: 1rem; display: flex; align-items: baseline; justify-content: center;">
-                            <span id="calc-result">93</span>
-                            <span style="font-size: 1.5rem; color: var(--pirkka-blue); margin-left: 0.5rem;" data-i18n="calc_result_suffix">€ / kerta</span>
-                        </div>
-                        <p style="color: rgba(255, 255, 255, 0.4); font-size: 0.8rem; margin: 0; line-height: 1.5;" data-i18n="calc_disclaimer">*Lopullinen hinta vahvistetaan aina puhelimitse tai kartoituskäynnin yhteydessä.</p>
-                    </div>
-                    
-                    <button class="primary-btn pulse-hover" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; border-radius: 12px; font-weight: 600;" data-i18n="btn_request_exact_quote">Pyydä tarkka tarjous</button>
+    <main>
+        <section class="home-hero" aria-labelledby="home-hero-title">
+            <img class="home-hero-photo" src="images/PK Photo.jpg" width="960" height="720" alt="PirkkaCleanin siivoustiimi työkohteessa">
+            <div class="home-hero-scrim" aria-hidden="true"></div>
+            <div class="home-hero-sheet animate-up">
+                <div class="sheet-topline" aria-hidden="true"><span>Pirkka</span><span>Clean</span><span>Tampere</span></div>
+                <div>
+                    <h1 id="home-hero-title" data-i18n="home_cleaning_hero_title">Kotisiivous Tampereella</h1>
+                    <p data-i18n="home_cleaning_hero_desc">Sama tuttu ja huolellinen siivoustiimi auttaa nyt myös kotona. Valitse palvelu ja saat heti suuntaa-antavan arvion.</p>
+                </div>
+                <div class="home-hero-actions">
+                    <span data-i18n="home_hero_fact">Paikallinen perheyritys vuodesta 2009</span>
+                    <a href="#laskuri" class="home-primary" data-i18n="home_hero_cta">Laske hinta</a>
+                    <a href="tel:0103200730" class="home-text-link">010 3200 730</a>
                 </div>
             </div>
         </section>
-    </div>
 
-    <footer class="site-footer">
-        <div class="footer-grid">
-            <div class="footer-column">
-                <a href="arvot.html" class="footer-heading-link"><h3 data-i18n="footer_about_title">Tietoa meistä</h3></a>
-                <p data-i18n="footer_about_text">Tamperelainen PirkkaClean on hyvällä tavalla vanhanaikainen siivousyritys, koska näemme vähän enemmän vaivaa parhaan työnjäljen eteen. Meillä on liki 50 osaavaa ja ahkeraa, nuorempaa ja vähän varttuneempaa puhtaanapidon ammattilaista ja jokainen terveellä tavalla ylpeä työstään ja työnjäljestään.</p>
+        <section class="calculator-section" id="laskuri" aria-labelledby="calculator-title">
+            <div class="calculator-heading animate-up">
+                <h2 id="calculator-title" data-i18n="calc_title">Hinta-arvio kotiin</h2>
+                <p data-i18n="calc_intro">Valitse pääpalvelu, kodin koko ja mahdolliset lisätyöt. Näet arvion yhdelle käynnille heti.</p>
             </div>
-            <div class="footer-column">
-                <a href="arvot.html" class="footer-heading-link"><h3 data-i18n="footer_values_title">Arvot</h3></a>
-                <p data-i18n="footer_values_text">PirkkaClean on arvojohtu yritys. Arvot auttavat ihmistä valitsemaan oikein vaikeassakin tilanteessa. Arvoista nouseva tekemisen kulttuuri on yrityksemme sydän.</p>
+
+            <div class="calculator-ticket animate-up">
+                <form class="calculator-main" id="home-calculator">
+                    <fieldset class="calculator-fieldset">
+                        <legend data-i18n="calc_service_label">Valitse palvelu</legend>
+                        <div class="service-choices">
+                            <label class="service-choice is-selected"><input type="radio" name="cleaning-service" value="home" checked><span><strong data-i18n="calc_service_home">Kotisiivous</strong><small data-i18n="calc_service_home_desc">Säännöllinen tai kertaluonteinen ylläpitosiivous</small></span></label>
+                            <label class="service-choice"><input type="radio" name="cleaning-service" value="deep"><span><strong data-i18n="calc_service_deep">Suursiivous</strong><small data-i18n="calc_service_deep_desc">Perusteellinen siivous kodin pinnoille</small></span></label>
+                            <label class="service-choice"><input type="radio" name="cleaning-service" value="move"><span><strong data-i18n="calc_service_move">Muuttosiivous</strong><small data-i18n="calc_service_move_desc">Tyhjän kodin loppusiivous</small></span></label>
+                            <label class="service-choice"><input type="radio" name="cleaning-service" value="windows"><span><strong data-i18n="calc_service_windows">Ikkunanpesu</strong><small data-i18n="calc_service_windows_desc">Lasit, puitteet ja ikkunalaudat</small></span></label>
+                            <label class="service-choice"><input type="radio" name="cleaning-service" value="renovation"><span><strong data-i18n="calc_service_reno">Remonttisiivous</strong><small data-i18n="calc_service_reno_desc">Rakennuspöly ja viimeistelevä puhdistus</small></span></label>
+                            <label class="service-choice"><input type="radio" name="cleaning-service" value="special"><span><strong data-i18n="calc_service_special">Muu erikoissiivous</strong><small data-i18n="calc_service_special_desc">Lattiat, tekstiilit tai yksilöllinen tarve</small></span></label>
+                        </div>
+                    </fieldset>
+
+                    <div class="calculator-row">
+                        <div class="calculator-control">
+                            <label for="sqm-input" data-i18n="calc_label_sqm">Kodin koko</label>
+                            <div class="number-input-wrap"><input type="number" id="sqm-input" min="20" max="300" value="60" inputmode="numeric" aria-describedby="sqm-help"><span>m²</span></div>
+                            <small id="sqm-help" data-i18n="calc_size_help">20–300 m². Yli 180 m² kohteet arvioidaan erikseen.</small>
+                        </div>
+                        <div class="calculator-control" id="frequency-control">
+                            <label for="frequency-input" data-i18n="calc_frequency_label">Käyntitiheys</label>
+                            <select id="frequency-input">
+                                <option value="weekly" data-i18n="calc_frequency_weekly">Viikoittain</option>
+                                <option value="biweekly" data-i18n="calc_frequency_biweekly">Joka toinen viikko</option>
+                                <option value="monthly" data-i18n="calc_frequency_monthly">Neljän viikon välein</option>
+                                <option value="once" data-i18n="calc_frequency_once">Kertaluonteinen</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <fieldset class="calculator-fieldset extras-fieldset" id="extras-fieldset">
+                        <legend data-i18n="calc_addons_label">Lisää samaan käyntiin</legend>
+                        <div class="addon-choices">
+                            <label><input type="checkbox" name="addon" value="oven"><span data-i18n="calc_addon_oven">Uunin puhdistus</span><small>+1 h</small></label>
+                            <label><input type="checkbox" name="addon" value="fridge"><span data-i18n="calc_addon_fridge">Jääkaapin sisäpuoli</span><small>+1 h</small></label>
+                            <label><input type="checkbox" name="addon" value="sauna"><span data-i18n="calc_addon_sauna">Saunan pesu</span><small>+1 h</small></label>
+                            <label><input type="checkbox" name="addon" value="balcony"><span data-i18n="calc_addon_balcony">Parveke tai terassi</span><small>+1 h</small></label>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <aside class="calculator-result" aria-live="polite">
+                    <p class="result-price"><span id="calc-result">126</span><span id="result-unit"> €</span></p>
+                    <p class="result-hours" id="calc-hours">noin 3 h · 42 €/h</p>
+                    <div class="result-includes">
+                        <strong data-i18n="calc_includes_title">Arvio sisältää</strong>
+                        <span data-i18n="calc_includes_products">Ammattivälineet ja puhdistusaineet</span>
+                        <span data-i18n="calc_includes_vat">ALV:n</span>
+                        <span data-i18n="calc_includes_plan">Valitsemasi lisätyöt</span>
+                    </div>
+                    <p class="result-note" id="calc-note" data-i18n="calc_disclaimer">Arvio perustuu 42 €:n tuntihintaan. Lopullinen työaika ja hinta vahvistetaan ennen tilausta.</p>
+                    <a id="calculator-quote-link" class="result-action" href="mailto:asiakaspalvelu@pirkkaclean.fi" data-i18n="btn_request_exact_quote">Pyydä tarkka tarjous</a>
+                </aside>
             </div>
-            <div class="footer-column">
-                <h3 data-i18n="footer_contact_title">Yhteystiedot</h3>
-                <a href="https://maps.google.com/?q=Kursonkatu+2,+33840+Tampere" target="_blank" class="footer-address-link">
-                    <p>PirkkaClean Oy</p>
-                    <p>Kursonkatu 2</p>
-                    <p>33840 TAMPERE</p>
-                </a>
-                <p><a href="tel:0103200730" class="footer-link-highlight">010 3200 730</a></p>
-                <a href="https://www.pirkkaclean.fi" target="_blank" class="footer-link-highlight">www.pirkkaclean.fi</a>
+        </section>
+
+        <section class="home-services" aria-labelledby="services-title">
+            <div class="section-heading animate-up">
+                <h2 id="services-title" data-i18n="home_services_title">Mihin apua tarvitaan?</h2>
+                <p data-i18n="home_services_intro">Sama yhteyshenkilö auttaa valitsemaan sopivan työn laajuuden. Käynti voi olla säännöllinen, kertaluonteinen tai osa muuttoa.</p>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <ul class="footer-nav">
-                <li><a href="index.html" data-i18n="nav_home">ETUSIVU</a></li>
-                <li><a href="yrityksille.html" data-i18n="nav_business">YRITYKSILLE</a></li>
-                <li><a href="taloyhtioille.html" data-i18n="nav_housing">TALOYHTIÖILLE</a></li>
-                <li><a href="erikoissiivous.html" data-i18n="nav_special">ERIKOISSIIVOUS</a></li>
-                <li><a href="arvot.html" data-i18n="nav_values">ARVOT</a></li>
-                <li><a href="rekry.html" data-i18n="nav_rekry">REKRY</a></li>
-                <li><a href="yhteystiedot.html" data-i18n="nav_contact">YHTEYSTIEDOT</a></li>
-            </ul>
-            <p class="copyright">©PIRKKACLEAN OY 2026</p>
+            <div class="service-sheets">
+                <article class="home-service-sheet sheet-blue animate-up">
+                    <h3 data-i18n="home_service_regular_title">Arjen kotisiivous</h3>
+                    <div class="sheet-copy"><p data-i18n="home_service_regular_desc">Pölyt, tasot, lattiat, keittiö ja saniteettitilat sovitussa laajuudessa. Säännöllinen rytmi pitää kodin helpommin hallittavana.</p><ul><li data-i18n="home_service_regular_item1">Viikoittain, joka toinen viikko tai neljän viikon välein</li><li data-i18n="home_service_regular_item2">Omat toiveet kirjataan työohjeeseen</li></ul></div>
+                    <img src="images/Deep_Cleaning.jpg" width="960" height="720" loading="lazy" alt="PirkkaCleanin ammattilainen pesemässä lattiaa">
+                </article>
+                <article class="home-service-sheet sheet-red animate-up">
+                    <h3 data-i18n="home_service_deep_title">Suursiivous ja muutto</h3>
+                    <div class="sheet-copy"><p data-i18n="home_service_deep_desc">Kun koti tarvitsee tavallista perusteellisemman käsittelyn, sovimme tilat, pinnat ja tavoitetason ennen työn alkua.</p><ul><li data-i18n="home_service_deep_item1">Suursiivous kalustetussa kodissa</li><li data-i18n="home_service_deep_item2">Muuttosiivous tyhjässä asunnossa</li></ul></div>
+                    <img src="images/business-cleaning.jpg" width="1200" height="801" loading="lazy" alt="PirkkaCleanin siivousvälineitä puhtaassa tilassa">
+                </article>
+                <article class="home-service-sheet sheet-green animate-up">
+                    <h3 data-i18n="home_service_extra_title">Ikkunat ja lisätyöt</h3>
+                    <div class="sheet-copy"><p data-i18n="home_service_extra_desc">Ikkunanpesu, sauna, kodinkoneet, parveke ja muut sovitut lisätyöt voidaan yhdistää samaan käyntiin.</p><ul><li data-i18n="home_service_extra_item1">Ikkunoiden määrä ja avautuvat pinnat kartoitetaan</li><li data-i18n="home_service_extra_item2">Lisätyö sovitaan aina etukäteen</li></ul></div>
+                    <img src="images/stair-cleaning.jpg" width="960" height="720" loading="lazy" alt="PirkkaCleanin siivooja työssä Tampereella">
+                </article>
+            </div>
+        </section>
+
+        <section class="home-process" aria-labelledby="process-title">
+            <div class="process-intro animate-up"><h2 id="process-title" data-i18n="home_process_title">Näin se alkaa</h2><p data-i18n="home_process_intro">Laskuri antaa lähtökohdan. Vahvistamme vielä tarpeen, laajuuden ja ajankohdan kanssasi ennen ensimmäistä käyntiä.</p></div>
+            <div class="process-slip animate-up">
+                <div><strong data-i18n="home_process_request">Tarjouspyyntö</strong><span data-i18n="home_process_request_time">2 min</span></div><p data-i18n="home_process_request_desc">Lähetä laskurin valinnat ja yhteystietosi.</p>
+                <div><strong data-i18n="home_process_confirm">Vahvistus</strong><span data-i18n="home_process_confirm_time">Henkilökohtainen</span></div><p data-i18n="home_process_confirm_desc">Käymme läpi kodin, toiveet ja kulun kohteeseen.</p>
+                <div><strong data-i18n="home_process_visit">Siivouskäynti</strong><span data-i18n="home_process_visit_time">Sovittuna aikana</span></div><p data-i18n="home_process_visit_desc">Ammattilainen tekee sovitut työt ja kertoo, jos tarve muuttuu.</p>
+                <div class="process-total"><strong data-i18n="home_process_result">Lopputulos</strong><span data-i18n="home_process_result_desc">Puhdas koti, selkeästi sovittuna</span></div>
+            </div>
+        </section>
+
+        <section class="home-faq" aria-labelledby="faq-title">
+            <div class="faq-photos animate-up"><img class="faq-main-photo" src="images/PK Photo.jpg" width="960" height="720" loading="lazy" alt="PirkkaCleanin työntekijöitä työkohteessa"><img class="faq-detail-photo" src="images/Deep_Cleaning.jpg" width="960" height="720" loading="lazy" alt="Lattian perusteellinen puhdistus"></div>
+            <div class="faq-content animate-up">
+                <h2 id="faq-title" data-i18n="home_faq_title">Usein kysyttyä</h2>
+                <p class="faq-facts" data-i18n="home_faq_facts">Palvelemme Tampereella ja lähialueilla. Työn laajuus ja kulku kotiin sovitaan aina etukäteen.</p>
+                <details open><summary data-i18n="home_faq_q1">Mitä tavallinen kotisiivous sisältää?</summary><p data-i18n="home_faq_a1">Sovittu ylläpitosiivous kattaa tavallisesti vapaat tasot, pölyt, lattiat, keittiön pinnat sekä wc- ja pesutilat. Kirjaamme kodin omat painotukset työohjeeseen.</p></details>
+                <details><summary data-i18n="home_faq_q2">Pitääkö minun olla kotona?</summary><p data-i18n="home_faq_a2">Ei tarvitse. Avaimesta, ovikoodista tai muusta turvallisesta sisäänpääsystä voidaan sopia etukäteen.</p></details>
+                <details><summary data-i18n="home_faq_q3">Voinko valita vain tietyt huoneet?</summary><p data-i18n="home_faq_a3">Kyllä. Voimme rajata käynnin esimerkiksi keittiöön, pesutiloihin tai muuhun sovittuun kokonaisuuteen.</p></details>
+                <details><summary data-i18n="home_faq_q4">Onko laskurin hinta sitova?</summary><p data-i18n="home_faq_a4">Ei. Se on suuntaa-antava arvio tavallisen kunnon perusteella. Vahvistamme lopullisen työajan ja hinnan ennen tilausta.</p></details>
+                <a href="yhteystiedot.html#yhteydenotto" class="home-primary" data-i18n="home_faq_cta">Kysy omasta kodistasi</a>
+            </div>
+        </section>
+
+        <section class="home-cta" aria-labelledby="home-cta-title">
+            <p class="home-cta-side animate-up" data-i18n="home_cta_side">Kerro kodin koko, toivottu palvelu ja sopiva ajankohta. Me tarkistamme, että arvio vastaa todellista tarvetta.</p>
+            <div class="reply-card animate-up"><h2 id="home-cta-title" data-i18n="home_cta_title">Sovitaan ensimmäinen käynti</h2><p data-i18n="home_cta_desc">Saat henkilökohtaisen vahvistuksen ennen kuin mitään varataan.</p><a href="mailto:asiakaspalvelu@pirkkaclean.fi?subject=Kotisiivouksen%20tarjouspyynt%C3%B6" class="reply-card-action" data-i18n="home_cta_button">Lähetä tarjouspyyntö</a></div>
+        </section>
+    </main>
+
+    <footer class="home-footer">
+        <div class="footer-postcard">
+            <div class="footer-message"><h2>PirkkaClean</h2><p data-i18n="home_footer_message">Hyvällä tavalla vanhanaikainen siivousyritys. Näemme vähän enemmän vaivaa parhaan työnjäljen eteen.</p></div>
+            <div class="footer-address"><img src="images/pirkkaclean-butterfly-red.png" width="1063" height="1063" loading="lazy" alt="" aria-hidden="true"><a href="tel:0103200730">010 3200 730</a><a href="mailto:asiakaspalvelu@pirkkaclean.fi">asiakaspalvelu@pirkkaclean.fi</a><a href="https://maps.google.com/?q=Kursonkatu+2,+33840+Tampere" target="_blank" rel="noreferrer">Kursonkatu 2, 33840 Tampere</a><a href="index.html" data-i18n="nav_home">Etusivu</a></div>
+            <p class="footer-imprint">© PirkkaClean Oy 2026</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="kotisiivous.js"></script>
 </body>
 </html>
