@@ -6,7 +6,7 @@
     --home-red: #da3832;
     --home-green: #52765b;
     --home-ground: #e4e8e5;
-    background: var(--home-ground);
+    background: var(--bg-main);
     color: var(--home-ink);
 }
 
@@ -18,32 +18,10 @@
 .home-cleaning-page h3 { text-wrap: balance; }
 .home-cleaning-page p { text-wrap: pretty; }
 
-.home-hero {
-    min-height: calc(100svh - 82px);
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
-    background: var(--home-paper);
-    overflow: hidden;
-}
+.home-service-intro { padding-top: 50px; min-height: 70vh; }
+.home-service-intro .section-title { margin-top: 0; }
+.home-service-intro .section-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
-.home-hero-content {
-    background: var(--home-paper);
-    display: grid;
-    align-content: center;
-    gap: clamp(34px, 4.5vh, 54px);
-    padding: clamp(58px, 7vw, 112px) clamp(34px, 6vw, 96px);
-}
-
-.home-hero-copy h1 {
-    max-width: 10ch;
-    margin: 0 0 28px;
-    color: var(--home-ink);
-    font-size: clamp(58px, 6.4vw, 96px);
-    line-height: 0.94;
-    letter-spacing: -0.06em;
-}
-.home-hero-copy p { max-width: 47ch; margin: 0; font-size: clamp(18px, 1.45vw, 22px); line-height: 1.55; }
-.home-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
 .home-primary,
 .result-action,
 .reply-card-action { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; padding: 0 26px; background: var(--home-blue-deep); color: #fff; text-decoration: none; font-weight: 700; border: 0; transition: transform 180ms ease, background 180ms ease; }
@@ -53,25 +31,6 @@
 .result-action:focus-visible,
 .reply-card-action:hover,
 .reply-card-action:focus-visible { background: #125b7a; transform: translateY(-2px); }
-.home-secondary { color: var(--home-ink); font-weight: 800; text-underline-offset: 6px; text-decoration-thickness: 2px; }
-.home-secondary:hover,
-.home-secondary:focus-visible { color: var(--home-blue-deep); }
-.home-hero-proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
-.home-hero-proof li { padding-left: 14px; border-left: 6px solid var(--home-red); font-size: 14px; font-weight: 750; line-height: 1.35; }
-.home-hero-proof li:nth-child(2) { border-color: var(--home-blue-deep); }
-.home-hero-proof li:nth-child(3) { border-color: var(--home-green); }
-.home-hero-contact { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin: 0 -96px -112px; padding: 24px 96px; background: var(--home-ink); color: #fff; }
-.home-hero-contact > span { margin-right: auto; font-weight: 800; }
-.home-hero-contact .home-text-link { color: #fff; }
-.home-hero-contact .whatsapp-text-link { color: #b9dfc1; }
-.home-text-link { color: var(--home-ink); font-weight: 700; text-decoration-thickness: 2px; text-underline-offset: 4px; }
-.whatsapp-text-link { color: var(--home-green); }
-
-.home-hero-media { min-width: 0; margin: 0; padding: clamp(24px, 3vw, 46px); display: flex; flex-direction: column; justify-content: center; background: var(--home-blue-deep); overflow: hidden; }
-.home-hero-photo { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; }
-.home-hero-media figcaption { position: relative; z-index: 1; align-self: flex-end; display: flex; max-width: 310px; align-items: center; gap: 15px; margin-top: -42px; padding: 20px 24px; background: var(--home-paper); color: var(--home-ink); font-size: 18px; font-weight: 800; line-height: 1.2; }
-.home-hero-media figcaption img { width: 46px; height: 46px; object-fit: contain; }
-
 .calculator-section { padding: clamp(88px, 9vw, 130px) clamp(16px, 4vw, 56px); background: var(--home-blue-deep); color: #fff; }
 .calculator-heading { max-width: 780px; margin: 0 auto 56px; text-align: center; }
 .calculator-heading h2,
@@ -200,31 +159,17 @@
 .footer-address a { color: var(--home-ink); font-size: 17px; font-weight: 700; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .footer-imprint { position: absolute; left: 0; right: 0; bottom: 18px; margin: 0; text-align: center; font-size: 13px; }
 
-@keyframes home-photo-drift {
-    from { transform: scale(1); }
-    to { transform: scale(1.035); }
-}
-
 @keyframes home-settle {
     from { opacity: 0.82; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.home-hero-photo { animation: home-photo-drift 12s ease-in-out infinite alternate; }
-.home-hero-content > * { animation: home-settle 700ms both; }
-.home-hero-content > :nth-child(2) { animation-delay: 90ms; }
-.home-hero-content > :nth-child(3) { animation-delay: 180ms; }
-.home-hero-content > :nth-child(4) { animation-delay: 270ms; }
 .calculator-result > * { animation: home-settle 620ms both; }
 .calculator-result > :nth-child(2) { animation-delay: 70ms; }
 .calculator-result > :nth-child(3) { animation-delay: 140ms; }
 .calculator-result > :nth-child(4) { animation-delay: 210ms; }
 
 @media (max-width: 980px) {
-    .home-hero { grid-template-columns: 1fr; }
-    .home-hero-content { min-height: 680px; padding-bottom: 82px; }
-    .home-hero-contact { margin-bottom: -82px; }
-    .home-hero-media { min-height: 620px; }
     .calculator-ticket { grid-template-columns: 1fr; }
     .calculator-ticket::before,
     .calculator-ticket::after { top: auto; bottom: calc(38% - 18px); left: auto; }
@@ -242,19 +187,6 @@
 }
 
 @media (max-width: 760px) {
-    .home-hero { min-height: 0; }
-    .home-hero-content { min-height: calc(100svh - 78px); gap: 30px; padding: 58px 20px 72px; }
-    .home-hero-copy h1 { max-width: 9ch; margin-bottom: 22px; font-size: clamp(52px, 15vw, 66px); }
-    .home-hero-copy p { font-size: 18px; }
-    .home-hero-actions { gap: 18px 22px; }
-    .home-hero-proof { grid-template-columns: 1fr; gap: 12px; }
-    .home-hero-proof li { font-size: 13px; }
-    .home-hero-contact { margin: 0 -20px -72px; padding: 20px; }
-    .home-hero-contact > span { flex-basis: 100%; }
-    .home-hero-media { min-height: 0; padding: 16px; }
-    .home-hero-photo { object-position: center; }
-    .home-hero-media figcaption { max-width: 255px; margin-top: -26px; padding: 15px 18px; font-size: 16px; }
-    .home-hero-media figcaption img { width: 38px; height: 38px; }
     .calculator-section { padding-left: 12px; padding-right: 12px; }
     .calculator-heading { padding: 0 12px; text-align: left; }
     .calculator-heading h2,
