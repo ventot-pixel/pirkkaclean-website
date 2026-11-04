@@ -41,7 +41,10 @@
                 <div class="home-hero-actions">
                     <span data-i18n="home_hero_fact">Paikallinen perheyritys vuodesta 2009</span>
                     <a href="#laskuri" class="home-primary" data-i18n="home_hero_cta">Laske hinta</a>
-                    <a href="tel:0103200730" class="home-text-link">010 3200 730</a>
+                    <div class="home-fast-contact">
+                        <a href="tel:0103200730" class="home-text-link">010 3200 730</a>
+                        <a href="https://wa.me/{{PIRKKACLEAN_WHATSAPP}}" class="home-text-link whatsapp-text-link" target="_blank" rel="noreferrer">WhatsApp {{PIRKKACLEAN_WHATSAPP_DISPLAY}}</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -95,7 +98,9 @@
                 </form>
 
                 <aside class="calculator-result" aria-live="polite">
+                    <!-- PRICE: Kari to confirm -->
                     <p class="result-price"><span id="calc-result">126</span><span id="result-unit"> €</span></p>
+                    <!-- PRICE: Kari to confirm -->
                     <p class="result-hours" id="calc-hours">noin 3 h · 42 €/h</p>
                     <div class="result-includes">
                         <strong data-i18n="calc_includes_title">Arvio sisältää</strong>
@@ -103,8 +108,9 @@
                         <span data-i18n="calc_includes_vat">ALV:n</span>
                         <span data-i18n="calc_includes_plan">Valitsemasi lisätyöt</span>
                     </div>
+                    <!-- PRICE: Kari to confirm -->
                     <p class="result-note" id="calc-note" data-i18n="calc_disclaimer">Arvio perustuu 42 €:n tuntihintaan. Lopullinen työaika ja hinta vahvistetaan ennen tilausta.</p>
-                    <a id="calculator-quote-link" class="result-action" href="mailto:asiakaspalvelu@pirkkaclean.fi" data-i18n="btn_request_exact_quote">Pyydä tarkka tarjous</a>
+                    <a id="calculator-quote-link" class="result-action" href="#tarjouspyynto" data-i18n="btn_request_exact_quote">Pyydä tarkka tarjous</a>
                 </aside>
             </div>
         </section>
@@ -156,21 +162,53 @@
             </div>
         </section>
 
-        <section class="home-cta" aria-labelledby="home-cta-title">
-            <p class="home-cta-side animate-up" data-i18n="home_cta_side">Kerro kodin koko, toivottu palvelu ja sopiva ajankohta. Me tarkistamme, että arvio vastaa todellista tarvetta.</p>
-            <div class="reply-card animate-up"><h2 id="home-cta-title" data-i18n="home_cta_title">Sovitaan ensimmäinen käynti</h2><p data-i18n="home_cta_desc">Saat henkilökohtaisen vahvistuksen ennen kuin mitään varataan.</p><a href="mailto:asiakaspalvelu@pirkkaclean.fi?subject=Kotisiivouksen%20tarjouspyynt%C3%B6" class="reply-card-action" data-i18n="home_cta_button">Lähetä tarjouspyyntö</a></div>
+        <section class="home-cta" id="tarjouspyynto" aria-labelledby="home-cta-title">
+            <div class="home-cta-side animate-up">
+                <h2 id="home-cta-title" data-i18n="home_cta_title">Sovitaan siivous</h2>
+                <p data-i18n="home_cta_side">Kerro kodin koko, toivottu palvelu ja sopiva ajankohta. Me tarkistamme, että arvio vastaa todellista tarvetta.</p>
+                <div class="home-contact-options">
+                    <a href="https://wa.me/{{PIRKKACLEAN_WHATSAPP}}" target="_blank" rel="noreferrer">WhatsApp {{PIRKKACLEAN_WHATSAPP_DISPLAY}}</a>
+                    <a href="mailto:{{PIRKKACLEAN_EMAIL}}">{{PIRKKACLEAN_EMAIL}}</a>
+                    <a href="tel:0103200730">010 3200 730</a>
+                </div>
+            </div>
+            <form class="quote-form animate-up" data-speed-to-lead data-source="home-cleaning-quote" data-success="Kiitos! Saimme tarjouspyyntösi ja lähetimme sinulle vahvistuksen." data-error="Lähetys epäonnistui. Voit ottaa yhteyttä WhatsAppilla tai sähköpostitse.">
+                <p class="quote-form-intro" data-i18n="home_cta_desc">Saat henkilökohtaisen vahvistuksen ennen kuin mitään varataan.</p>
+                <div class="quote-form-row">
+                    <label>Nimi<input name="name" type="text" autocomplete="name" required></label>
+                    <label>Sähköposti<input name="email" type="email" autocomplete="email" required></label>
+                </div>
+                <div class="quote-form-row">
+                    <label>Puhelin<input name="phone" type="tel" autocomplete="tel"></label>
+                    <label>Toivottu ajankohta<input name="timing" type="text" placeholder="Esim. ensi viikolla"></label>
+                </div>
+                <label>Lisätiedot<textarea name="message" rows="4" placeholder="Kerro kodista ja toiveistasi"></textarea></label>
+                <input name="service" id="quote-service" type="hidden" value="Kotisiivous">
+                <input name="size" id="quote-size" type="hidden" value="60 m²">
+                <input name="frequency" id="quote-frequency" type="hidden" value="Viikoittain">
+                <input name="extras" id="quote-extras" type="hidden" value="ei lisätöitä">
+                <!-- PRICE: Kari to confirm -->
+                <input name="estimate" id="quote-estimate" type="hidden" value="126 € (noin 3 h · 42 €/h)">
+                <input name="website" class="stl-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <button type="submit" class="reply-card-action" data-i18n="home_cta_button">Lähetä tarjouspyyntö</button>
+                <p class="quote-privacy">Lähettämällä lomakkeen annat luvan ottaa yhteyttä tarjouspyyntöösi liittyen.</p>
+                <p class="quote-status" data-stl-status></p>
+            </form>
         </section>
     </main>
 
     <footer class="home-footer">
         <div class="footer-postcard">
             <div class="footer-message"><h2>PirkkaClean</h2><p data-i18n="home_footer_message">Hyvällä tavalla vanhanaikainen siivousyritys. Näemme vähän enemmän vaivaa parhaan työnjäljen eteen.</p></div>
-            <div class="footer-address"><img src="images/pirkkaclean-butterfly-red.png" width="1063" height="1063" loading="lazy" alt="" aria-hidden="true"><a href="tel:0103200730">010 3200 730</a><a href="mailto:asiakaspalvelu@pirkkaclean.fi">asiakaspalvelu@pirkkaclean.fi</a><a href="https://maps.google.com/?q=Kursonkatu+2,+33840+Tampere" target="_blank" rel="noreferrer">Kursonkatu 2, 33840 Tampere</a><a href="index.html" data-i18n="nav_home">Etusivu</a></div>
+            <div class="footer-address"><img src="images/pirkkaclean-butterfly-red.png" width="1063" height="1063" loading="lazy" alt="" aria-hidden="true"><a href="tel:0103200730">010 3200 730</a><a href="mailto:{{PIRKKACLEAN_EMAIL}}">{{PIRKKACLEAN_EMAIL}}</a><a href="https://wa.me/{{PIRKKACLEAN_WHATSAPP}}" target="_blank" rel="noreferrer">WhatsApp {{PIRKKACLEAN_WHATSAPP_DISPLAY}}</a><a href="https://maps.google.com/?q=Kursonkatu+2,+33840+Tampere" target="_blank" rel="noreferrer">Kursonkatu 2, 33840 Tampere</a><a href="index.html" data-i18n="nav_home">Etusivu</a></div>
             <p class="footer-imprint">© PirkkaClean Oy 2026</p>
         </div>
     </footer>
 
+    <a class="whatsapp-float" href="https://wa.me/{{PIRKKACLEAN_WHATSAPP}}" target="_blank" rel="noreferrer" aria-label="Avaa WhatsApp-keskustelu PirkkaCleanin kanssa">WhatsApp</a>
+
     <script src="script.js"></script>
     <script src="kotisiivous.js"></script>
+    <script src="http://localhost:8787/embed.js" data-client="pirkkaclean" data-lang="fi" defer></script>
 </body>
 </html>

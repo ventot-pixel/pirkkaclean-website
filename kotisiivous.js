@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('home-calculator');
     if (!form) return;
 
+    // PRICE: Kari to confirm
     const HOURLY_RATE = 42;
     const quoteOnlyServices = new Set(['windows', 'renovation', 'special']);
     const serviceFactors = { home: 1, deep: 1.65, move: 1.5 };
@@ -15,6 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultHours = document.getElementById('calc-hours');
     const resultNote = document.getElementById('calc-note');
     const quoteLink = document.getElementById('calculator-quote-link');
+    const quoteFields = {
+        service: document.getElementById('quote-service'),
+        size: document.getElementById('quote-size'),
+        frequency: document.getElementById('quote-frequency'),
+        extras: document.getElementById('quote-extras'),
+        estimate: document.getElementById('quote-estimate')
+    };
 
     const copy = {
         fi: {
@@ -79,21 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return { service, squareMetres, frequency, addons };
     }
 
-    function updateMailto(selection, estimateText) {
+    function updateQuoteForm(selection, estimateText) {
         const lang = getLanguage();
         const t = copy[lang];
         const addons = selection.addons.length ? selection.addons.map(key => t.addonNames[key]).join(', ') : t.none;
-        const lines = [
-            `${t.service}: ${t.serviceNames[selection.service]}`,
-            `${t.size}: ${selection.squareMetres} m²`,
-            `${t.frequency}: ${t.frequencyNames[selection.frequency]}`,
-            `${t.addons}: ${addons}`,
-            `${t.estimate}: ${estimateText}`,
-            '',
-            lang === 'fi' ? 'Toivottu ajankohta:' : 'Preferred timing:',
-            lang === 'fi' ? 'Nimi ja puhelinnumero:' : 'Name and phone number:'
-        ];
-        quoteLink.href = `mailto:asiakaspalvelu@pirkkaclean.fi?subject=${encodeURIComponent(t.subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+        if (quoteFields.service) quoteFields.service.value = t.serviceNames[selection.service];
+        if (quoteFields.size) quoteFields.size.value = `${selection.squareMetres} m²`;
+        if (quoteFields.frequency) quoteFields.frequency.value = t.frequencyNames[selection.frequency];
+        if (quoteFields.extras) quoteFields.extras.value = addons;
+        if (quoteFields.estimate) quoteFields.estimate.value = estimateText;
+        quoteLink.href = '#tarjouspyynto';
     }
 
     function updateCalculator() {
@@ -114,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultUnit.textContent = '';
             resultHours.textContent = selection.squareMetres > 180 ? t.large : t.custom;
             resultNote.textContent = t.custom;
-            updateMailto(selection, t.quote);
+            updateQuoteForm(selection, t.quote);
             return;
         }
 
@@ -127,7 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
         resultUnit.textContent = ' €';
         resultHours.textContent = t.hours(hours);
         resultNote.textContent = t.note;
-        updateMailto(selection, `${amount} € (${t.hours(hours)})`);
+        // PRICE: Kari to confirm
+        updateQuoteForm(selection, `${amount} € (${t.hours(hours)})`);
     }
 
     form.addEventListener('input', updateCalculator);

@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             calc_includes_products: "Ammattivälineet ja puhdistusaineet",
             calc_includes_vat: "ALV:n",
             calc_includes_plan: "Valitsemasi lisätyöt",
+            // PRICE: Kari to confirm
             calc_disclaimer: "Arvio perustuu 42 €:n tuntihintaan. Lopullinen työaika ja hinta vahvistetaan ennen tilausta.",
             btn_request_exact_quote: "Pyydä tarkka tarjous",
             home_services_title: "Mihin apua tarvitaan?",
@@ -173,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             home_faq_a4: "Ei. Se on suuntaa-antava arvio tavallisen kunnon perusteella. Vahvistamme lopullisen työajan ja hinnan ennen tilausta.",
             home_faq_cta: "Kysy omasta kodistasi",
             home_cta_side: "Kerro kodin koko, toivottu palvelu ja sopiva ajankohta. Me tarkistamme, että arvio vastaa todellista tarvetta.",
-            home_cta_title: "Sovitaan ensimmäinen käynti",
+            home_cta_title: "Sovitaan siivous",
             home_cta_desc: "Saat henkilökohtaisen vahvistuksen ennen kuin mitään varataan.",
             home_cta_button: "Lähetä tarjouspyyntö",
             home_footer_message: "Hyvällä tavalla vanhanaikainen siivousyritys. Näemme vähän enemmän vaivaa parhaan työnjäljen eteen.",
@@ -328,6 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
             calc_includes_products: "Professional equipment and cleaning products",
             calc_includes_vat: "VAT",
             calc_includes_plan: "Your selected add-ons",
+            // PRICE: Kari to confirm
             calc_disclaimer: "The estimate uses an hourly rate of €42. Final duration and price are confirmed before ordering.",
             btn_request_exact_quote: "Request exact quote",
             home_services_title: "Where do you need help?",
@@ -369,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
             home_faq_a4: "No. It is a directional estimate based on normal conditions. We confirm the final duration and price before ordering.",
             home_faq_cta: "Ask about your home",
             home_cta_side: "Tell us the home size, desired service and suitable timing. We check that the estimate matches the real need.",
-            home_cta_title: "Arrange the first visit",
+            home_cta_title: "Book your cleaning",
             home_cta_desc: "You receive a personal confirmation before anything is booked.",
             home_cta_button: "Send quote request",
             home_footer_message: "A delightfully old-fashioned cleaning company. We put in a little more effort to deliver the best result.",

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,9 +50,11 @@
                 <p class="contact-hero-desc" data-i18n="contact_hero_desc2" style="margin-top:1rem; font-style: italic; color: var(--pirkka-blue);">
                     "Yli 15 vuoden kokemus opettaa, että paras siivousratkaisu on se, jonka asiakas itse haluaa jatkaa."
                 </p>
-                <a href="mailto:asiakaspalvelu@pirkkaclean.fi" class="primary-btn pulse-hover contact-cta-btn" data-i18n="contact_cta">
-                    Varaa maksuton käynti →
-                </a>
+                <div class="contact-quick-actions">
+                    <a href="#yhteydenotto" class="primary-btn pulse-hover contact-cta-btn" data-i18n="contact_cta">Varaa maksuton käynti →</a>
+                    <a href="https://wa.me/{{PIRKKACLEAN_WHATSAPP}}" class="contact-whatsapp-link" target="_blank" rel="noreferrer">WhatsApp {{PIRKKACLEAN_WHATSAPP_DISPLAY}}</a>
+                    <a href="mailto:{{PIRKKACLEAN_EMAIL}}" class="contact-email-link">{{PIRKKACLEAN_EMAIL}}</a>
+                </div>
             </div>
         </section>
 
@@ -160,33 +162,46 @@
             <div class="contact-form-wrap">
                 <h2 class="section-title text-center" data-i18n="form_title">Lähetä viesti</h2>
                 <p class="section-desc text-center" style="margin-bottom: 2rem;" data-i18n="form_desc">Täytä lomake ja palaamme asiaan mahdollisimman pian.</p>
-                <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                <form class="contact-form" data-speed-to-lead data-source="contact-page" data-success="Kiitos! Saimme viestisi ja lähetimme sinulle vahvistuksen." data-error="Lähetys epäonnistui. Voit ottaa yhteyttä WhatsAppilla tai sähköpostitse.">
                     <div class="form-row">
                         <div class="form-group">
-                            <label data-i18n="form_name">Nimi</label>
-                            <input type="text" placeholder="Etunimi Sukunimi" required>
+                            <label for="contact-name" data-i18n="form_name">Nimi</label>
+                            <input id="contact-name" name="name" type="text" placeholder="Etunimi Sukunimi" autocomplete="name" required>
                         </div>
                         <div class="form-group">
-                            <label data-i18n="form_company">Yritys</label>
-                            <input type="text" placeholder="Yrityksen nimi">
+                            <label for="contact-company" data-i18n="form_company">Yritys</label>
+                            <input id="contact-company" name="company" type="text" placeholder="Yrityksen nimi" autocomplete="organization">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label data-i18n="form_email">Sähköposti</label>
-                            <input type="email" placeholder="sinun@email.fi" required>
+                            <label for="contact-email" data-i18n="form_email">Sähköposti</label>
+                            <input id="contact-email" name="email" type="email" placeholder="sinun@email.fi" autocomplete="email" required>
                         </div>
                         <div class="form-group">
-                            <label data-i18n="form_phone">Puhelinnumero</label>
-                            <input type="tel" placeholder="+358 XX XXX XXXX">
+                            <label for="contact-phone" data-i18n="form_phone">Puhelinnumero</label>
+                            <input id="contact-phone" name="phone" type="tel" placeholder="+358 XX XXX XXXX" autocomplete="tel">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label data-i18n="form_message">Viesti</label>
-                        <textarea rows="5" placeholder="Kerro meille tarpeistanne..." required></textarea>
+                        <label for="contact-service">Palvelu</label>
+                        <select id="contact-service" name="service" required>
+                            <option value="">Valitse palvelu</option>
+                            <option value="Kotisiivous">Kotisiivous</option>
+                            <option value="Yrityssiivous">Yrityssiivous</option>
+                            <option value="Taloyhtiösiivous">Taloyhtiösiivous</option>
+                            <option value="Erikoissiivous">Erikoissiivous</option>
+                            <option value="Muu yhteydenotto">Muu yhteydenotto</option>
+                        </select>
                     </div>
+                    <div class="form-group">
+                        <label for="contact-message" data-i18n="form_message">Viesti</label>
+                        <textarea id="contact-message" name="message" rows="5" placeholder="Kerro meille tarpeistanne..." required></textarea>
+                    </div>
+                    <input name="website" class="stl-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <button type="submit" class="contact-cta-btn" style="border:none;width:100%;justify-content:center;display:flex;" data-i18n="form_submit">Lähetä viesti →</button>
-                    <p class="form-success" id="form-success" style="display:none; text-align:center; color:var(--pirkka-blue); margin-top:1rem;" data-i18n="form_success_msg">Kiitos! Otamme yhteyttä pian.</p>
+                    <p class="contact-form-note">Lähettämällä lomakkeen annat luvan ottaa yhteyttä viestiisi liittyen.</p>
+                    <p class="form-success" data-stl-status></p>
                 </form>
             </div>
         </section>
@@ -230,6 +245,9 @@
         </div>
     </footer>
 
+    <a class="whatsapp-float" href="https://wa.me/{{PIRKKACLEAN_WHATSAPP}}" target="_blank" rel="noreferrer" aria-label="Avaa WhatsApp-keskustelu PirkkaCleanin kanssa">WhatsApp</a>
+
     <script src="script.js"></script>
+    <script src="http://localhost:8787/embed.js" data-client="pirkkaclean" data-lang="fi" defer></script>
 </body>
 </html>

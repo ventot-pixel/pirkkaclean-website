@@ -844,6 +844,21 @@ h1 {
     max-width: 640px;
 }
 
+.contact-quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+}
+
+.contact-whatsapp-link,
+.contact-email-link {
+    color: var(--pirkka-blue-text);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+    text-underline-offset: 4px;
+}
+
 .contact-cta-btn {
     display: inline-block;
     margin-top: 0.5rem;
@@ -1376,6 +1391,7 @@ h1 {
 }
 
 .form-group input,
+.form-group select,
 .form-group textarea {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -1396,8 +1412,31 @@ h1 {
 }
 
 .form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
     border-color: var(--pirkka-blue);
+}
+
+.contact-form-note,
+.form-success {
+    margin: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.form-success[data-state="success"] { color: var(--pirkka-green); font-weight: 700; }
+.form-success[data-state="error"] { color: var(--pirkka-red-text); font-weight: 700; }
+
+.stl-honeypot {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+}
+
+.whatsapp-float {
+    display: none;
 }
 
 /* Responsive */
@@ -1420,6 +1459,28 @@ h1 {
 
     .form-row {
         grid-template-columns: 1fr;
+    }
+
+    .contact-quick-actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .whatsapp-float {
+        position: fixed;
+        z-index: 1000;
+        right: 16px;
+        bottom: max(16px, env(safe-area-inset-bottom));
+        display: inline-flex;
+        min-height: 52px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        border-radius: 999px;
+        background: var(--pirkka-green);
+        color: #fff;
+        font-weight: 800;
+        text-decoration: none;
     }
 }
 

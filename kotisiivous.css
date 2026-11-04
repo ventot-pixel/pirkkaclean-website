@@ -50,6 +50,7 @@
 .home-hero-sheet > div > p { max-width: 42ch; margin: 0; font-size: clamp(18px, 1.5vw, 23px); line-height: 1.5; }
 .home-hero-actions { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; font-size: 14px; }
 .home-hero-actions > :last-child { justify-self: end; }
+.home-fast-contact { display: grid; justify-items: end; gap: 8px; }
 .home-primary,
 .result-action,
 .reply-card-action { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; padding: 0 26px; background: var(--home-blue-deep); color: #fff; text-decoration: none; font-weight: 700; border: 0; transition: transform 180ms ease, background 180ms ease; }
@@ -60,6 +61,7 @@
 .reply-card-action:hover,
 .reply-card-action:focus-visible { background: #125b7a; transform: translateY(-2px); }
 .home-text-link { color: var(--home-ink); font-weight: 700; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.whatsapp-text-link { color: var(--home-green); }
 
 .calculator-section { padding: clamp(88px, 9vw, 130px) clamp(16px, 4vw, 56px); background: var(--home-blue-deep); color: #fff; }
 .calculator-heading { max-width: 780px; margin: 0 auto 56px; text-align: center; }
@@ -156,8 +158,25 @@
 .faq-content details p { max-width: 52ch; margin: 8px 0 0; color: #39494f; font-size: 16px; line-height: 1.55; }
 .faq-content .home-primary { margin-top: 18px; }
 
-.home-cta { min-height: 540px; display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 8vw; align-items: center; overflow: hidden; padding: 64px max(5vw, calc((100vw - 1240px) / 2)) 0; background: var(--home-blue-deep); color: #fff; }
-.home-cta-side { max-width: 34ch; margin: 0 0 72px; font-size: clamp(20px, 2vw, 26px); line-height: 1.45; }
+.home-cta { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: clamp(44px, 8vw, 120px); align-items: center; padding: clamp(88px, 9vw, 128px) max(5vw, calc((100vw - 1240px) / 2)); background: var(--home-blue-deep); color: #fff; }
+.home-cta-side { max-width: 40ch; }
+.home-cta-side h2 { margin: 0 0 28px; font-size: clamp(42px, 4vw, 56px); line-height: 0.96; letter-spacing: -0.055em; }
+.home-cta-side > p { margin: 0; font-size: clamp(18px, 1.7vw, 24px); line-height: 1.5; }
+.home-contact-options { display: grid; gap: 12px; margin-top: 34px; }
+.home-contact-options a { color: #fff; font-size: 17px; font-weight: 700; overflow-wrap: anywhere; text-underline-offset: 4px; }
+.quote-form { display: grid; gap: 18px; padding: clamp(28px, 4vw, 52px); background: var(--home-paper); color: var(--home-ink); }
+.quote-form-intro { margin: 0 0 8px; font-size: 18px; line-height: 1.5; }
+.quote-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.quote-form label { display: grid; gap: 8px; font-size: 15px; font-weight: 800; }
+.quote-form input,
+.quote-form textarea { width: 100%; padding: 14px 16px; border: 2px solid #cbd2cf; border-radius: 0; background: #fff; color: var(--home-ink); font: inherit; resize: vertical; }
+.quote-form input:focus,
+.quote-form textarea:focus { border-color: var(--home-blue-deep); outline: 3px solid rgba(23, 109, 145, 0.2); }
+.quote-privacy,
+.quote-status { margin: 0; font-size: 13px; line-height: 1.45; }
+.quote-status[data-state="success"] { color: var(--home-green); font-weight: 800; }
+.quote-status[data-state="error"] { color: var(--home-red); font-weight: 800; }
+.stl-honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; }
 .reply-card { justify-self: end; width: min(620px, 100%); aspect-ratio: 7 / 5; transform: rotate(1.5deg) translateY(48px); display: grid; align-content: center; gap: 22px; padding: clamp(32px, 5vw, 62px); background: var(--home-paper); color: var(--home-ink); text-align: center; }
 .reply-card h2 { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1; letter-spacing: -0.045em; }
 .reply-card p { max-width: 36ch; margin: 0 auto; font-size: 17px; line-height: 1.5; }
@@ -206,7 +225,7 @@
     .home-faq { gap: 72px; }
     .faq-photos { min-height: 600px; }
     .faq-main-photo { height: 560px; }
-    .home-cta { min-height: 560px; padding-top: 56px; }
+    .home-cta { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {
@@ -217,7 +236,8 @@
     .home-hero-sheet > div > p { font-size: 18px; }
     .home-hero-actions { grid-template-columns: 1fr 1fr; gap: 14px; }
     .home-hero-actions > span { grid-column: 1 / -1; }
-    .home-hero-actions > :last-child { justify-self: end; }
+    .home-fast-contact { justify-self: end; }
+    .home-fast-contact .whatsapp-text-link { display: none; }
     .calculator-section { padding-left: 12px; padding-right: 12px; }
     .calculator-heading { padding: 0 12px; text-align: left; }
     .calculator-heading h2,
@@ -246,8 +266,10 @@
     .faq-photos { min-height: 480px; order: -1; }
     .faq-main-photo { width: 92%; height: 440px; }
     .faq-detail-photo { width: 40%; border-width: 8px; }
-    .home-cta { min-height: 720px; grid-template-columns: 1fr; gap: 40px; align-content: end; padding-left: 18px; padding-right: 18px; }
-    .home-cta-side { margin-bottom: 0; }
+    .home-cta { gap: 44px; padding: 84px 18px; }
+    .home-cta-side { max-width: none; }
+    .quote-form { padding: 28px 20px; }
+    .quote-form-row { grid-template-columns: 1fr; }
     .reply-card { aspect-ratio: auto; min-height: 390px; transform: rotate(1deg) translateY(36px); padding: 32px 22px; }
     .footer-postcard { grid-template-columns: 1fr; gap: 36px; padding: 72px 26px 56px; }
     .footer-address { padding-top: 54px; }
