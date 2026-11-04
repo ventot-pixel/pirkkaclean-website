@@ -10,7 +10,7 @@
     color: var(--home-ink);
 }
 
-.home-cleaning-page .glass-nav { position: relative; border-bottom: 0; }
+.home-cleaning-page .glass-nav { border-bottom: 0; }
 .home-cleaning-page .clean-text { color: var(--home-blue-deep); }
 .home-cleaning-page .nav-links a[aria-current="page"] { color: var(--home-blue-deep); font-weight: 700; }
 .home-cleaning-page h1,
