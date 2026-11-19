@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PirkkaClean - Yrityksille</title>
     <meta name="description" content="Tamperelainen PirkkaClean on hyvällä tavalla vanhanaikainen siivousyritys. Näemme vähän enemmän vaivaa parhaan työnjäljen eteen.">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="service-landing.css">
 </head>
-<body>
+<body class="service-page service-business">
     <div class="background-elements">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
@@ -22,39 +23,124 @@
             </span>
             <span class="logo-dot"></span>
         </a>
-        <ul class="nav-links">
-            <li><a href="index.html" data-i18n="nav_home">Etusivu</a></li>
-            <li><a href="yrityksille.html" data-i18n="nav_business">Yrityksille</a></li>
+        <ul class="nav-links" id="primary-navigation">
+            <li><a href="yrityksille.html" aria-current="page" data-i18n="nav_business">Yrityksille</a></li>
             <li><a href="taloyhtioille.html" data-i18n="nav_housing">Taloyhtiöille</a></li>
             <li><a href="erikoissiivous.html" data-i18n="nav_special">Erikoissiivous</a></li>
             <li><a href="kotisiivous.html" data-i18n="nav_home_cleaning">Kotisiivous</a></li>
         </ul>
         <div class="nav-actions">
-            <button class="lang-toggle" id="lang-btn">EN</button>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Avaa valikko"><span></span><span></span><span></span></button>
+            <button class="lang-toggle" id="lang-btn" type="button">EN</button>
             <a href="yhteystiedot.html" class="cta-btn" data-i18n="nav_contact">Ota yhteyttä</a>
         </div>
     </nav>
 
     
-    <div class="page-sections" style="padding-top: 50px; min-height: 70vh;">
-
-        <section id="yrityksille" class="content-section animate-up">
-            <div class="section-container">
-                <div class="section-text">
-                    <h2 class="section-title" data-i18n="section_business_title">Yrityksille</h2>
+    <main class="service-landing">
+        <section class="service-hero animate-up" id="yrityksille">
+            <div class="service-hero-sheet">
+                <div class="service-hero-media">
+                    <img src="images/business-cleaning.jpg" width="1200" height="801" loading="eager" fetchpriority="high" decoding="async" alt="PirkkaCleanin ammattilainen puhdistamassa toimitilaa">
+                </div>
+                <div class="service-hero-copy">
+                    <h1 class="section-title" data-i18n="section_business_title">Yrityksille</h1>
                     <p class="section-desc" data-i18n="section_business_desc">Puhtaat toimitilat luovat viihtyisyyttä ja kertovat yrityksesi arvoista. Meiltä saat luotettavan ylläpitosiivouksen kaikenkokoisiin toimistoihin ja liiketiloihin. Räätälöimme siivousohjelman juuri teidän tarpeisiinne sopivaksi.</p>
                     <ul class="feature-list">
-                        <li data-i18n="section_business_list1">✓ Toimistosiivous ja ylläpitosiivous</li>
-                        <li data-i18n="section_business_list2">✓ Saniteettitilojen huolto ja tarvikepalvelu</li>
-                        <li data-i18n="section_business_list3">✓ Joustavat siivousajat</li>
+                        <li data-i18n="section_business_list1">Toimistosiivous ja ylläpitosiivous</li>
+                        <li data-i18n="section_business_list2">Saniteettitilojen huolto ja tarvikepalvelu</li>
+                        <li data-i18n="section_business_list3">Joustavat siivousajat</li>
                     </ul>
-                </div>
-                <div class="section-image">
-                    <img src="images/business-cleaning.jpg" alt="Business cleaning" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+                    <a class="service-primary-action" href="yhteystiedot.html#yhteydenotto" data-i18n="business_hero_cta">Pyydä siivoussuunnitelma</a>
                 </div>
             </div>
         </section>
-    </div>
+
+        <nav class="service-folder-tabs" aria-label="Sivun osiot">
+            <a href="#palvelut" data-i18n="landing_tab_services">Palvelut</a>
+            <a href="#yhteistyo" data-i18n="landing_tab_process">Yhteistyö</a>
+            <a href="#tarjous" data-i18n="landing_tab_contact">Tarjous</a>
+        </nav>
+
+        <section class="service-scope" id="palvelut">
+            <div class="service-scope-layout">
+                <div>
+                    <h2 data-i18n="business_scope_title">Sovittu puhtaustaso</h2>
+                    <p class="service-scope-intro" data-i18n="business_scope_intro">Käymme tilat ja tarpeet yhdessä läpi. Saat selkeän suunnitelman siitä, mitä tehdään, milloin ja millä rytmillä.</p>
+                </div>
+                <div class="service-scope-sheet">
+                    <div class="service-menu-group">
+                        <h3 data-i18n="business_scope_group1">Ylläpitosiivous</h3>
+                        <ul class="service-menu-list">
+                            <li><span data-i18n="business_scope_item1">Toimistot ja työtilat</span><small data-i18n="landing_scope_agreed">Sovitusti</small></li>
+                            <li><span data-i18n="business_scope_item2">Yhteiset tilat</span><small data-i18n="landing_scope_agreed">Sovitusti</small></li>
+                            <li><span data-i18n="business_scope_item3">Saniteettitilat</span><small data-i18n="landing_scope_agreed">Sovitusti</small></li>
+                        </ul>
+                    </div>
+                    <div class="service-menu-group">
+                        <h3 data-i18n="business_scope_group2">Huolto ja rytmi</h3>
+                        <ul class="service-menu-list">
+                            <li><span data-i18n="business_scope_item4">Tarvikepalvelu</span><small data-i18n="landing_scope_need">Tarpeen mukaan</small></li>
+                            <li><span data-i18n="business_scope_item5">Joustavat siivousajat</span><small data-i18n="landing_scope_schedule">Aikataulun mukaan</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-process" id="yhteistyo">
+            <div class="service-process-head">
+                <h2 data-i18n="landing_process_title">Näin yhteistyö toimii</h2>
+                <div class="service-process-controls" aria-label="Selaa vaiheita">
+                    <button type="button" data-service-scroll="prev" aria-label="Edellinen vaihe">←</button>
+                    <button type="button" data-service-scroll="next" aria-label="Seuraava vaihe">→</button>
+                </div>
+            </div>
+            <div class="service-process-track">
+                <article class="service-moment">
+                    <h3 data-i18n="business_process1_title">Kartoitamme tilat</h3>
+                    <p data-i18n="business_process1_text">Käymme läpi tilojen käytön, puhtaustavoitteen ja työn kannalta tärkeät yksityiskohdat.</p>
+                    <img src="images/business-cleaning.jpg" alt="Toimitilan siivouksen kartoitus" loading="lazy">
+                </article>
+                <article class="service-moment">
+                    <h3 data-i18n="business_process2_title">Kirjaamme suunnitelman</h3>
+                    <p data-i18n="business_process2_text">Työn sisältö, käyntirytmi ja sopivat kellonajat kirjataan selkeäksi siivousohjelmaksi.</p>
+                    <img src="images/PK Photo.jpg" alt="PirkkaCleanin työntekijöitä" loading="lazy">
+                </article>
+                <article class="service-moment">
+                    <h3 data-i18n="business_process3_title">Teemme sovitun työn</h3>
+                    <p data-i18n="business_process3_text">Ammattilainen huolehtii kohteesta sovittuna aikana ja sovitulla työohjeella.</p>
+                    <img src="images/Deep_Cleaning.jpg" alt="Ammattilainen tekemässä perusteellista siivousta" loading="lazy">
+                </article>
+                <article class="service-moment">
+                    <h3 data-i18n="business_process4_title">Pidämme yhteyttä</h3>
+                    <p data-i18n="business_process4_text">Jos tilojen käyttö tai tarve muuttuu, päivitämme suunnitelman yhdessä.</p>
+                    <img src="images/stair-cleaning.jpg" alt="PirkkaCleanin siivooja työssään" loading="lazy">
+                </article>
+            </div>
+        </section>
+
+        <section class="service-proof">
+            <div class="service-proof-image"><img src="images/PK Photo.jpg" alt="PirkkaCleanin henkilöstöä" loading="lazy"></div>
+            <div class="service-proof-copy">
+                <h2 data-i18n="business_proof_title">Vähän enemmän vaivaa</h2>
+                <p data-i18n="business_proof_text">PirkkaClean on tamperelainen siivousyritys, jossa sovitusta työstä ja työnjäljestä pidetään kiinni. Saat yhteyden ihmiseen, joka tuntee kohteenne.</p>
+                <div class="service-facts">
+                    <div class="service-fact"><strong data-i18n="business_fact1_value">Tampere</strong><span data-i18n="business_fact1_text">ja ympäristökunnat</span></div>
+                    <div class="service-fact"><strong data-i18n="business_fact2_value">Liki 50</strong><span data-i18n="business_fact2_text">puhtaanapidon ammattilaista</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-contact" id="tarjous">
+            <p class="service-contact-note" data-i18n="business_contact_note">Kerro tiloista, käyttäjämäärästä ja toivotusta siivousrytmistä. Palaamme sopivan kokonaisuuden kanssa.</p>
+            <div class="service-reply-card">
+                <h2 data-i18n="business_contact_title">Selkeä siivousohjelma</h2>
+                <p data-i18n="business_contact_text">Suunnitellaan toimitiloillenne palvelu, jonka sisältö ja aikataulu ovat kaikille selvät.</p>
+                <a class="service-primary-action" href="yhteystiedot.html#yhteydenotto" data-i18n="business_contact_cta">Pyydä tarjous</a>
+            </div>
+        </section>
+    </main>
 
 
 
@@ -65,8 +151,8 @@
                 <p data-i18n="footer_about_text">Tamperelainen PirkkaClean on hyvällä tavalla vanhanaikainen siivousyritys, koska näemme vähän enemmän vaivaa parhaan työnjäljen eteen. Meillä on liki 50 osaavaa ja ahkeraa, nuorempaa ja vähän varttuneempaa puhtaanapidon ammattilaista ja jokainen terveellä tavalla ylpeä työstään ja työnjäljestään.</p>
             </div>
             <div class="footer-column">
-                <a href="arvot.html" class="footer-heading-link"><h3 data-i18n="footer_values_title">Arvot</h3></a>
-                <p data-i18n="footer_values_text">PirkkaClean on arvojohtu yritys. Arvot auttavat ihmistä valitsemaan oikein vaikeassakin tilanteessa. Arvoista nouseva tekemisen kulttuuri on yrityksemme sydän.</p>
+                <a href="kotisiivous.html" class="footer-heading-link"><h3 data-i18n="nav_home_cleaning">Kotisiivous</h3></a>
+                <p data-i18n="footer_home_cleaning_text">Huolellinen kotisiivous helpottaa arkea. Saat säännöllisen tai kertaluonteisen siivouksen kotiisi selkeällä hinta-arviolla.</p>
             </div>
             <div class="footer-column">
                 <h3 data-i18n="footer_contact_title">Yhteystiedot</h3>
@@ -86,14 +172,14 @@
                 <li><a href="yrityksille.html" data-i18n="nav_business">YRITYKSILLE</a></li>
                 <li><a href="taloyhtioille.html" data-i18n="nav_housing">TALOYHTIÖILLE</a></li>
                 <li><a href="erikoissiivous.html" data-i18n="nav_special">ERIKOISSIIVOUS</a></li>
-                <li><a href="arvot.html" data-i18n="nav_values">ARVOT</a></li>
+                <li><a href="kotisiivous.html" data-i18n="nav_home_cleaning">KOTISIIVOUS</a></li>
                 <li><a href="rekry.html" data-i18n="nav_rekry">REKRY</a></li>
                 <li><a href="yhteystiedot.html" data-i18n="nav_contact">YHTEYSTIEDOT</a></li>
             </ul>
-            <p class="copyright">©PIRKKACLEAN OY 2026</p>
+            <p class="copyright">© PirkkaClean Oy 2026</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

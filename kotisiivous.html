@@ -3,55 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kotisiivous Tampereella | PirkkaClean</title>
+    <title>Kotisiivous | PirkkaClean</title>
     <meta name="description" content="Luotettavaa kotisiivousta Tampereella. Valitse palvelu, kodin koko ja lisätyöt ja laske suuntaa-antava hinta-arvio.">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="service-landing.css">
     <link rel="stylesheet" href="kotisiivous.css">
 </head>
-<body class="home-cleaning-page">
+<body class="home-cleaning-page service-page service-home">
     <nav class="glass-nav" aria-label="Päävalikko">
         <a href="index.html" class="logo" aria-label="PirkkaClean etusivu">
             <span class="logo-text"><span class="pirkka-text">Pirkka</span><span class="clean-text">Clean</span></span>
             <span class="logo-dot" aria-hidden="true"></span>
         </a>
-        <ul class="nav-links">
-            <li><a href="index.html" data-i18n="nav_home">Etusivu</a></li>
+        <ul class="nav-links" id="primary-navigation">
             <li><a href="yrityksille.html" data-i18n="nav_business">Yrityksille</a></li>
             <li><a href="taloyhtioille.html" data-i18n="nav_housing">Taloyhtiöille</a></li>
             <li><a href="erikoissiivous.html" data-i18n="nav_special">Erikoissiivous</a></li>
             <li><a href="kotisiivous.html" aria-current="page" data-i18n="nav_home_cleaning">Kotisiivous</a></li>
         </ul>
         <div class="nav-actions">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Avaa valikko"><span></span><span></span><span></span></button>
             <button class="lang-toggle" id="lang-btn" type="button" aria-label="Switch language">EN</button>
             <a href="yhteystiedot.html" class="cta-btn" data-i18n="nav_contact">Ota yhteyttä</a>
         </div>
     </nav>
 
-    <main>
-        <div class="page-sections home-service-intro">
-            <section class="content-section animate-up" aria-labelledby="home-hero-title">
-                <div class="section-container reverse-layout">
-                    <div class="section-text">
-                        <h1 class="section-title" id="home-hero-title" data-i18n="home_cleaning_hero_title">Kotisiivous</h1>
-                        <p class="section-desc" data-i18n="home_cleaning_hero_desc">Huolellinen kotisiivous helpottaa arkea ja pitää kodin viihtyisänä. Sovimme työn laajuuden, käyntirytmin ja kodin omat toiveet aina kanssasi etukäteen.</p>
-                        <ul class="feature-list">
-                            <li data-i18n="home_hero_list1">✓ Säännöllinen tai kertaluonteinen kotisiivous</li>
-                            <li data-i18n="home_hero_list2">✓ Keittiön, pesutilojen, tasojen ja lattioiden puhdistus</li>
-                            <li data-i18n="home_hero_list3">✓ Kodin omat toiveet kirjataan työohjeeseen</li>
-                        </ul>
-                    </div>
-                    <div class="section-image">
-                        <img src="images/home-cleaning-interior.jpg" width="1448" height="1086" alt="Puhdas ja viihtyisä kodin olohuone ja keittiö">
-                    </div>
+    <main class="service-landing">
+        <section class="service-hero animate-up" id="kotisiivous" aria-labelledby="home-hero-title">
+            <div class="service-hero-sheet">
+                <div class="service-hero-media">
+                    <img src="images/home-cleaning-interior-optimized.jpg" srcset="images/home-cleaning-interior-800.jpg 800w, images/home-cleaning-interior-optimized.jpg 1200w" sizes="(max-width: 900px) calc(100vw - 32px), 54vw" width="1200" height="900" loading="eager" fetchpriority="high" decoding="async" alt="Puhdas ja viihtyisä kodin olohuone ja keittiö">
                 </div>
-            </section>
-        </div>
+                <div class="service-hero-copy">
+                    <h1 class="section-title" id="home-hero-title" data-i18n="home_cleaning_hero_title">Kotisiivous</h1>
+                    <p class="section-desc" data-i18n="home_cleaning_hero_desc">Huolellinen kotisiivous helpottaa arkea ja pitää kodin viihtyisänä. Sovimme työn laajuuden, käyntirytmin ja kodin omat toiveet aina kanssasi etukäteen.</p>
+                    <ul class="feature-list">
+                        <li data-i18n="home_hero_list1">Säännöllinen tai kertaluonteinen kotisiivous</li>
+                        <li data-i18n="home_hero_list2">Keittiön, pesutilojen, tasojen ja lattioiden puhdistus</li>
+                        <li data-i18n="home_hero_list3">Kodin omat toiveet kirjataan työohjeeseen</li>
+                    </ul>
+                    <a class="service-primary-action" href="#laskuri" data-i18n="home_hero_cta">Laske hinta-arvio</a>
+                </div>
+            </div>
+        </section>
 
         <section class="calculator-section" id="laskuri" aria-labelledby="calculator-title">
             <div class="calculator-heading animate-up">
                 <h2 id="calculator-title" data-i18n="calc_title">Hinta-arvio kotiin</h2>
-                <p data-i18n="calc_intro">Valitse pääpalvelu, kodin koko ja mahdolliset lisätyöt. Näet arvion yhdelle käynnille heti.</p>
+                <p data-i18n="calc_intro">Valitse palvelu, kodin koko ja käyntirytmi. Näet työn, käyntimaksun ja kotitalousvähennyksen vaikutuksen heti.</p>
             </div>
 
             <div class="calculator-ticket animate-up">
@@ -59,20 +59,20 @@
                     <fieldset class="calculator-fieldset">
                         <legend data-i18n="calc_service_label">Valitse palvelu</legend>
                         <div class="service-choices">
-                            <label class="service-choice is-selected"><input type="radio" name="cleaning-service" value="home" checked><span><strong data-i18n="calc_service_home">Kotisiivous</strong><small data-i18n="calc_service_home_desc">Säännöllinen tai kertaluonteinen ylläpitosiivous</small></span></label>
-                            <label class="service-choice"><input type="radio" name="cleaning-service" value="deep"><span><strong data-i18n="calc_service_deep">Suursiivous</strong><small data-i18n="calc_service_deep_desc">Perusteellinen siivous kodin pinnoille</small></span></label>
+                            <label class="service-choice is-selected"><input type="radio" name="cleaning-service" value="home" checked><span><strong data-i18n="calc_service_home">Säännöllinen kotisiivous</strong><small data-i18n="calc_service_home_desc">Viikoittain, kahden tai neljän viikon välein</small></span></label>
+                            <label class="service-choice"><input type="radio" name="cleaning-service" value="once"><span><strong data-i18n="calc_service_deep">Kertasiivous</strong><small data-i18n="calc_service_deep_desc">Yksittäinen perusteellinen siivouskäynti</small></span></label>
                             <label class="service-choice"><input type="radio" name="cleaning-service" value="move"><span><strong data-i18n="calc_service_move">Muuttosiivous</strong><small data-i18n="calc_service_move_desc">Tyhjän kodin loppusiivous</small></span></label>
-                            <label class="service-choice"><input type="radio" name="cleaning-service" value="windows"><span><strong data-i18n="calc_service_windows">Ikkunanpesu</strong><small data-i18n="calc_service_windows_desc">Lasit, puitteet ja ikkunalaudat</small></span></label>
                             <label class="service-choice"><input type="radio" name="cleaning-service" value="renovation"><span><strong data-i18n="calc_service_reno">Remonttisiivous</strong><small data-i18n="calc_service_reno_desc">Rakennuspöly ja viimeistelevä puhdistus</small></span></label>
-                            <label class="service-choice"><input type="radio" name="cleaning-service" value="special"><span><strong data-i18n="calc_service_special">Muu erikoissiivous</strong><small data-i18n="calc_service_special_desc">Lattiat, tekstiilit tai yksilöllinen tarve</small></span></label>
+                            <label class="service-choice"><input type="radio" name="cleaning-service" value="allergy"><span><strong data-i18n="calc_service_special">Allergiasiivous</strong><small data-i18n="calc_service_special_desc">Tavallista tarkempi pölyn ja allergeenien poisto</small></span></label>
+                            <label class="service-choice"><input type="radio" name="cleaning-service" value="windows"><span><strong data-i18n="calc_service_windows">Ikkunanpesu</strong><small data-i18n="calc_service_windows_desc">Arvio avattavien ikkunoiden määrän mukaan</small></span></label>
                         </div>
                     </fieldset>
 
                     <div class="calculator-row">
                         <div class="calculator-control">
-                            <label for="sqm-input" data-i18n="calc_label_sqm">Kodin koko</label>
-                            <div class="number-input-wrap"><input type="number" id="sqm-input" min="20" max="300" value="60" inputmode="numeric" aria-describedby="sqm-help"><span>m²</span></div>
-                            <small id="sqm-help" data-i18n="calc_size_help">20–300 m². Yli 180 m² kohteet arvioidaan erikseen.</small>
+                            <label for="sqm-input" id="quantity-label" data-i18n="calc_label_sqm">Kodin koko</label>
+                            <div class="number-input-wrap"><input type="number" id="sqm-input" min="30" max="300" value="60" inputmode="numeric" aria-describedby="sqm-help"><span id="quantity-unit">m²</span></div>
+                            <small id="sqm-help" data-i18n="calc_size_help">30–300 m². Arvio perustuu keskimääräiseen työaikaan.</small>
                         </div>
                         <div class="calculator-control" id="frequency-control">
                             <label for="frequency-input" data-i18n="calc_frequency_label">Käyntitiheys</label>
@@ -80,38 +80,58 @@
                                 <option value="weekly" data-i18n="calc_frequency_weekly">Viikoittain</option>
                                 <option value="biweekly" data-i18n="calc_frequency_biweekly">Joka toinen viikko</option>
                                 <option value="monthly" data-i18n="calc_frequency_monthly">Neljän viikon välein</option>
-                                <option value="once" data-i18n="calc_frequency_once">Kertaluonteinen</option>
                             </select>
                         </div>
                     </div>
 
-                    <fieldset class="calculator-fieldset extras-fieldset" id="extras-fieldset">
-                        <legend data-i18n="calc_addons_label">Lisää samaan käyntiin</legend>
-                        <div class="addon-choices">
-                            <label><input type="checkbox" name="addon" value="oven"><span data-i18n="calc_addon_oven">Uunin puhdistus</span><small>+1 h</small></label>
-                            <label><input type="checkbox" name="addon" value="fridge"><span data-i18n="calc_addon_fridge">Jääkaapin sisäpuoli</span><small>+1 h</small></label>
-                            <label><input type="checkbox" name="addon" value="sauna"><span data-i18n="calc_addon_sauna">Saunan pesu</span><small>+1 h</small></label>
-                            <label><input type="checkbox" name="addon" value="balcony"><span data-i18n="calc_addon_balcony">Parveke tai terassi</span><small>+1 h</small></label>
-                        </div>
-                    </fieldset>
+                    <div class="calculator-control package-control" id="package-control">
+                        <label for="package-input" data-i18n="calc_package_label">Välinepaketti</label>
+                        <select id="package-input">
+                            <option value="basic" data-i18n="calc_package_basic">Peruspaketti</option>
+                            <option value="vacuum" data-i18n="calc_package_vacuum">Puhdaspaketti, sisältää imurin</option>
+                        </select>
+                        <small data-i18n="calc_package_help">Paketti vaikuttaa käynti- ja välinemaksuun.</small>
+                    </div>
                 </form>
 
                 <aside class="calculator-result" aria-live="polite">
-                    <!-- PRICE: Kari to confirm -->
-                    <p class="result-price"><span id="calc-result">126</span><span id="result-unit"> €</span></p>
-                    <!-- PRICE: Kari to confirm -->
-                    <p class="result-hours" id="calc-hours">noin 3 h · 42 €/h</p>
+                    <p class="result-price"><span id="calc-result">271,20</span><span id="result-unit"> €</span></p>
+                    <p class="result-hours" id="calc-hours">4 h · 64,80 €/h</p>
+                    <dl class="result-breakdown">
+                        <div><dt data-i18n="calc_labor_label">Siivoustyö</dt><dd id="result-labor">259,20 €</dd></div>
+                        <div><dt data-i18n="calc_visit_label">Käynti- ja välinemaksu</dt><dd id="result-visit">12,00 €</dd></div>
+                        <div class="result-credit-row"><dt data-i18n="calc_credit_label">Kotitalousvähennyksen jälkeen</dt><dd id="result-credit">167,52 €</dd></div>
+                    </dl>
                     <div class="result-includes">
-                        <strong data-i18n="calc_includes_title">Arvio sisältää</strong>
-                        <span data-i18n="calc_includes_products">Ammattivälineet ja puhdistusaineet</span>
-                        <span data-i18n="calc_includes_vat">ALV:n</span>
-                        <span data-i18n="calc_includes_plan">Valitsemasi lisätyöt</span>
+                        <strong data-i18n="calc_includes_title">Hinnoittelun perusteet</strong>
+                        <span data-i18n="calc_includes_products">Käyntimaksu kattaa matkat ja valitun välinepaketin</span>
+                        <span data-i18n="calc_includes_vat">Hinnat sisältävät ALV 25,5 %</span>
+                        <span data-i18n="calc_includes_plan">Kotitalousvähennys lasketaan vain työn osuudesta</span>
                     </div>
-                    <!-- PRICE: Kari to confirm -->
-                    <p class="result-note" id="calc-note" data-i18n="calc_disclaimer">Arvio perustuu 42 €:n tuntihintaan. Lopullinen työaika ja hinta vahvistetaan ennen tilausta.</p>
+                    <p class="result-note" id="calc-note" data-i18n="calc_disclaimer">Vähennysarvio ei huomioi 150 € omavastuuta tai 2 100 € vuotuista enimmäismäärää. Lopullinen työaika vahvistetaan ennen tilausta.</p>
                     <a id="calculator-quote-link" class="result-action" href="#tarjouspyynto" data-i18n="btn_request_exact_quote">Pyydä tarkka tarjous</a>
                 </aside>
             </div>
+
+            <details class="pricing-details" data-ui>
+                <summary data-i18n="calc_other_prices_title">Muut hinnat ja poikkeukset</summary>
+                <div class="pricing-details-content">
+                    <p data-i18n="calc_season_price">Joulusesongin 7.–27.12.2026 kertapalvelut 75 €/h. Muulloin kertapalvelut 70 €/h.</p>
+                    <table>
+                        <tbody>
+                            <tr><th data-i18n="calc_fee_key">Avaimen nouto tai palautus</th><td>25 €</td></tr>
+                            <tr><th data-i18n="calc_fee_equipment">Siivousvälineiden toimitus tai haku</th><td>25 €</td></tr>
+                            <tr><th data-i18n="calc_fee_ladder">Tikkaiden vuokra / käynti</th><td>50 €</td></tr>
+                            <tr><th data-i18n="calc_fee_invoice">Paperilaskun laskutuslisä</th><td>5 €</td></tr>
+                            <tr><th data-i18n="calc_fee_reminder">Maksumuistutus</th><td>5 €</td></tr>
+                            <tr><th data-i18n="calc_fee_cloths">Siivousliinojen pesu</th><td>10 €</td></tr>
+                            <tr><th data-i18n="calc_fee_vacuum">Imurin lunastus</th><td>260 €</td></tr>
+                            <tr><th data-i18n="calc_fee_basic_package">Peruspaketin lunastus</th><td>199 €</td></tr>
+                            <tr><th data-i18n="calc_fee_clean_package">Puhdaspaketin lunastus</th><td>459 €</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
         </section>
 
         <section class="home-services" aria-labelledby="services-title">
@@ -186,8 +206,7 @@
                 <input name="size" id="quote-size" type="hidden" value="60 m²">
                 <input name="frequency" id="quote-frequency" type="hidden" value="Viikoittain">
                 <input name="extras" id="quote-extras" type="hidden" value="ei lisätöitä">
-                <!-- PRICE: Kari to confirm -->
-                <input name="estimate" id="quote-estimate" type="hidden" value="126 € (noin 3 h · 42 €/h)">
+                <input name="estimate" id="quote-estimate" type="hidden" value="271,20 € (4 h · 64,80 €/h)">
                 <input name="website" class="stl-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <button type="submit" class="reply-card-action" data-i18n="home_cta_button">Lähetä tarjouspyyntö</button>
                 <p class="quote-privacy">Lähettämällä lomakkeen annat luvan ottaa yhteyttä tarjouspyyntöösi liittyen.</p>
@@ -196,18 +215,45 @@
         </section>
     </main>
 
-    <footer class="home-footer">
-        <div class="footer-postcard">
-            <div class="footer-message"><h2>PirkkaClean</h2><p data-i18n="home_footer_message">Hyvällä tavalla vanhanaikainen siivousyritys. Näemme vähän enemmän vaivaa parhaan työnjäljen eteen.</p></div>
-            <div class="footer-address"><img src="images/pirkkaclean-butterfly-red.png" width="1063" height="1063" loading="lazy" alt="" aria-hidden="true"><a href="tel:0103200730">010 3200 730</a><a href="mailto:kristiinaheritty@pirkkaclean.fi">kristiinaheritty@pirkkaclean.fi</a><a href="https://wa.me/358103200730" target="_blank" rel="noreferrer">WhatsApp 010 3200 730</a><a href="https://maps.google.com/?q=Kursonkatu+2,+33840+Tampere" target="_blank" rel="noreferrer">Kursonkatu 2, 33840 Tampere</a><a href="index.html" data-i18n="nav_home">Etusivu</a></div>
-            <p class="footer-imprint">© PirkkaClean Oy 2026</p>
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <a href="arvot.html" class="footer-heading-link"><h3 data-i18n="footer_about_title">Tietoa meistä</h3></a>
+                <p data-i18n="footer_about_text">Tamperelainen PirkkaClean on hyvällä tavalla vanhanaikainen siivousyritys, koska näemme vähän enemmän vaivaa parhaan työnjäljen eteen. Meillä on liki 50 osaavaa ja ahkeraa, nuorempaa ja vähän varttuneempaa puhtaanapidon ammattilaista ja jokainen terveellä tavalla ylpeä työstään ja työnjäljestään.</p>
+            </div>
+            <div class="footer-column">
+                <a href="kotisiivous.html" class="footer-heading-link"><h3 data-i18n="nav_home_cleaning">Kotisiivous</h3></a>
+                <p data-i18n="footer_home_cleaning_text">Huolellinen kotisiivous helpottaa arkea. Saat säännöllisen tai kertaluonteisen siivouksen kotiisi selkeällä hinta-arviolla.</p>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer_contact_title">Yhteystiedot</h3>
+                <a href="https://maps.google.com/?q=Kursonkatu+2,+33840+Tampere" target="_blank" class="footer-address-link">
+                    <p>PirkkaClean Oy</p>
+                    <p>Kursonkatu 2</p>
+                    <p>33840 TAMPERE</p>
+                </a>
+                <p><a href="tel:0103200730" class="footer-link-highlight">010 3200 730</a></p>
+                <a href="https://www.pirkkaclean.fi" target="_blank" class="footer-link-highlight">www.pirkkaclean.fi</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <ul class="footer-nav">
+                <li><a href="index.html" data-i18n="nav_home">ETUSIVU</a></li>
+                <li><a href="yrityksille.html" data-i18n="nav_business">YRITYKSILLE</a></li>
+                <li><a href="taloyhtioille.html" data-i18n="nav_housing">TALOYHTIÖILLE</a></li>
+                <li><a href="erikoissiivous.html" data-i18n="nav_special">ERIKOISSIIVOUS</a></li>
+                <li><a href="kotisiivous.html" data-i18n="nav_home_cleaning">KOTISIIVOUS</a></li>
+                <li><a href="rekry.html" data-i18n="nav_rekry">REKRY</a></li>
+                <li><a href="yhteystiedot.html" data-i18n="nav_contact">YHTEYSTIEDOT</a></li>
+            </ul>
+            <p class="copyright">© PirkkaClean Oy 2026</p>
         </div>
     </footer>
 
     <a class="whatsapp-float" href="https://wa.me/358103200730" target="_blank" rel="noreferrer" aria-label="Avaa WhatsApp-keskustelu PirkkaCleanin kanssa">WhatsApp</a>
 
-    <script src="script.js"></script>
-    <script src="kotisiivous.js"></script>
-    <script src="http://localhost:8787/embed.js" data-client="pirkkaclean" data-lang="fi" defer></script>
+    <script src="script.js" defer></script>
+    <script src="kotisiivous.js" defer></script>
 </body>
 </html>
